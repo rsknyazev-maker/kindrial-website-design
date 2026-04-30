@@ -123,13 +123,13 @@
     .hero h1 em, .title em { font-style: italic; color: var(--forest); }
     .hero-copy { max-width: 680px; color: rgba(15,15,15,.72); font-size: 20px; line-height: 1.55; letter-spacing: -.015em; }
     .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 34px 0 26px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 25px; border-radius: 999px; border: 1px solid rgba(15,15,15,.14); font-weight: 780; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; box-shadow: 0 10px 24px rgba(15,15,15,.08); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 23px; border-radius: 999px; border: 1px solid rgba(15,15,15,.14); font-weight: 780; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
     .btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .btn.secondary { background: rgba(255,255,255,.72); color: var(--ink); border-color: rgba(15,15,15,.18); }
+    .btn.secondary { background: rgba(255,255,255,.38); color: var(--ink); }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 38px rgba(15,15,15,.14); }
-    .hero-pills { display: flex; align-items: flex-start; gap: 10px 24px; flex-wrap: wrap; max-width: 720px; padding-top: 4px; }
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; border-radius: 0; background: transparent; color: rgba(15,15,15,.68); font-size: 13px; font-weight: 720; letter-spacing: -.01em; }
-    .pill::before { content: ""; flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%; background: var(--forest); box-shadow: none; }
+    .hero-pills { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 720px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 1px solid rgba(15,15,15,.12); border-radius: 999px; background: rgba(255,255,255,.36); color: rgba(15,15,15,.72); font-size: 13px; font-weight: 650; }
+    .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--forest); box-shadow: 0 0 0 3px rgba(23,59,28,.14); }
 
     .hero-visual { position: relative; min-height: 620px; display: grid; align-items: center; }
     .orbit { position: absolute; inset: -24px -28px auto auto; width: 560px; height: 560px; opacity: .86; animation: slowSpin 40s linear infinite; }
@@ -273,33 +273,17 @@
     }
     @media (max-width: 640px) {
       .wrap { width: min(100% - 26px, 1180px); }
-      .nav { width: calc(100% - 20px); min-height: 56px; padding: 8px 8px 8px 12px; gap: 10px; }
-      .brand { gap: 8px; font-size: 16px; flex: 0 0 auto; }
-      .brand span:last-child { display: inline; }
-      .mark { width: 30px; height: 30px; }
-      .nav-cta { min-height: 38px; padding: 0 12px; font-size: 12px; white-space: nowrap; }
-      .hero { min-height: auto; padding: 98px 0 48px; background: var(--paper); }
-      .hero::before { animation: none; opacity: .35; width: 420px; height: 420px; inset: -18% -38% auto auto; }
-      .hero-kicker { max-width: 100%; font-size: 11px; line-height: 1.35; letter-spacing: .06em; }
-      .hero h1 { font-size: 48px; line-height: .96; letter-spacing: -.05em; margin: 18px 0 18px; }
-      .hero-copy { font-size: 16.5px; line-height: 1.48; }
-      .hero-actions { align-items: stretch; margin: 26px 0 18px; }
-      .btn { width: 100%; min-height: 52px; box-shadow: 0 10px 22px rgba(15,15,15,.08); }
-      .hero-pills { gap: 10px; padding-top: 12px; border-top: 1px solid rgba(15,15,15,.08); }
-      .pill { width: 100%; justify-content: flex-start; font-size: 12.5px; line-height: 1.35; }
-      .hero-visual { margin-top: 26px; }
-      .orbit { display: none; }
-      .price-card { margin: 0; padding: 20px; border-radius: 28px; }
-      .price-card::before { background: radial-gradient(circle at top right, rgba(198,242,74,.11), transparent 48%); }
-      .price { font-size: 52px; }
-      .price span { font-size: 22px; }
-      .price-top { display: block; padding-bottom: 18px; }
-      .price-note { font-size: 13px; line-height: 1.45; }
-      .tag { margin-top: 14px; background: rgba(198,242,74,.9); }
-      .included { margin: 18px 0; }
-      .included-row { align-items: flex-start; padding: 12px 0; }
-      .included-row span { max-width: 48%; }
-      .price-bottom { padding: 14px; border-radius: 18px; font-size: 13px; }
+      .nav { min-height: 58px; padding-left: 14px; }
+      .brand span { display: none; }
+      .nav-cta { min-height: 40px; padding: 0 14px; }
+      .hero { min-height: auto; padding: 108px 0 54px; }
+      .hero h1 { font-size: 54px; line-height: .93; letter-spacing: -.05em; }
+      .hero-copy { font-size: 17px; }
+      .hero-actions { align-items: stretch; }
+      .btn { width: 100%; }
+      .price { font-size: 58px; }
+      .price-top { display: block; }
+      .tag { margin-top: 16px; }
       section { padding: 74px 0; }
       .title { font-size: 44px; }
       .deliver-grid, .role-grid, .funnel { grid-template-columns: 1fr; }
@@ -312,11 +296,6 @@
       .cta-panel { padding: 34px 24px; border-radius: 30px; }
       .footer-grid { display: block; }
       .footer-links { margin-top: 26px; }
-    }
-    @media (max-width: 390px) {
-      .nav-cta { padding: 0 10px; font-size: 11px; }
-      .brand { font-size: 15px; }
-      .hero h1 { font-size: 44px; }
     }
   </style>
 </head>
@@ -339,7 +318,7 @@
     <header class="hero" id="top">
       <div class="wrap hero-grid">
         <div class="hero-content" data-reveal>
-          <div class="hero-kicker"><span class="dot"></span> Kindrial · Phase 1 &amp; early Phase 2a · Senior-led · Fixed scope</div>
+          <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Senior-led · Turnkey scope</div>
           <h1>Launch early-phase trials without CRO budget <em>surprises.</em></h1>
           <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with senior clinical operators, right-sized systems, and disciplined scope control.</p>
           <div class="hero-actions">
@@ -348,7 +327,7 @@
           </div>
           <div class="hero-pills" aria-label="Key claims">
             <span class="pill">One senior Trial Lead named in the SOW</span>
-            <span class="pill">Fixed scope under written assumptions</span>
+            <span class="pill">Turnkey scope under written assumptions</span>
             <span class="pill">Right-sized vendors and systems</span>
           </div>
         </div>
@@ -368,17 +347,18 @@
               <div>
                 <div class="price-label">Early-phase launch package</div>
                 <div class="price"><span>from</span> $1.95M</div>
-                <div class="price-note">Fixed price for CRO services and core systems under standard assumptions. Site fees, central lab, imaging, investigational product logistics, and software licenses are passed through at cost — itemized in the proposal before signature.</div>
+                <div class="price-note">Turnkey fixed price under agreed protocol assumptions. Includes CRO services, clinical site costs, required study software, routine safety monitoring, and up to two MRIs. If execution costs exceed our budget without a Sponsor-approved scope change, Kindrial absorbs the overage.</div>
               </div>
               <div class="tag">No unapproved costs</div>
             </div>
             <div class="included">
-              <div class="included-row"><strong>Trial leadership</strong><span>Senior Trial Lead</span></div>
-              <div class="included-row"><strong>Startup</strong><span>Site, IRB, vendor setup</span></div>
-              <div class="included-row"><strong>Operations</strong><span>Monitoring, safety, PM</span></div>
-              <div class="included-row"><strong>Systems</strong><span>Validated, right-sized</span></div>
+              <div class="included-row"><strong>Trial leadership</strong><span>Senior Trial Lead included</span></div>
+              <div class="included-row"><strong>Startup</strong><span>Site, IRB, vendor setup included</span></div>
+              <div class="included-row"><strong>Site costs</strong><span>Clinical site + up to 2 MRIs included</span></div>
+              <div class="included-row"><strong>Operations</strong><span>Monitoring, safety, PM included</span></div>
+              <div class="included-row"><strong>Systems</strong><span>Study software included</span></div>
             </div>
-            <div class="price-bottom">Typical fit: a single-site early-phase study, ~20 participants, simple dose schedule, routine safety monitoring. If your protocol requires more, we say so in the Study-Fit Brief — before the SOW is signed.</div>
+            <div class="price-bottom">Typical fit: a single-site early-phase study, ~20 participants, simple dose schedule, routine safety monitoring, and up to two MRIs. The price is turnkey under that written scope. If the scope changes, we agree it first. If our internal costs exceed budget without a scope change, the overage is ours.</div>
           </aside>
         </div>
       </div>
@@ -395,8 +375,8 @@
             <p class="section-copy">We focus the operating model around what makes an early-phase trial work: scope discipline, credible senior ownership, clean vendor orchestration, and fast sponsor decisions.</p>
           </div>
           <div class="deliver-grid">
-            <div class="deliver-card" data-reveal><div class="num">1</div><h3>Study-Fit Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the fixed-scope path is realistic.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">2</div><h3>Lean SOW</h3><p>Written inclusions, exclusions, pass-through categories, timeline assumptions, and decision points before signature.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">1</div><h3>Study-Fit Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the turnkey fixed-scope path is realistic.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">2</div><h3>Lean SOW</h3><p>Written inclusions, exclusions, included-cost assumptions, timeline assumptions, and change-order triggers before signature.</p></div>
             <div class="deliver-card" data-reveal><div class="num">3</div><h3>Senior execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
             <div class="deliver-card" data-reveal><div class="num">4</div><h3>Visible progress</h3><p>A live workspace shows milestones, blockers, owners, open decisions, and operational status without meeting theater.</p></div>
           </div>
@@ -418,7 +398,7 @@
             <div class="screen-top"><span></span><span></span><span></span></div>
             <div class="screen-inner">
               <div class="status">
-                <div class="status-head"><strong>Protocol K-101 startup snapshot</strong><span>68% on track</span></div>
+                <div class="status-head"><strong>TAURUS-like startup snapshot</strong><span>68% on track</span></div>
                 <div class="bar"><span></span></div>
               </div>
               <div class="funnel">
@@ -505,7 +485,7 @@
           <div class="compare-grid" data-reveal>
             <div class="compare-head">Decision point</div><div class="compare-head">Typical large-CRO model</div><div class="compare-head kindrial">Kindrial</div>
             <div class="compare-cell label">Senior lead</div><div class="compare-cell">Lead carries a portfolio of trials. Reassignment is common and rarely contractual.</div><div class="compare-cell kindrial">One lead, one trial, dedicated by contract. Breach triggers a 15% credit and termination right.</div>
-            <div class="compare-cell label">Budget</div><div class="compare-cell">Assumptions buried in proposals. Change orders surface mid-study.</div><div class="compare-cell kindrial">Fixed scope under written assumptions. Exclusions stated before signature.</div>
+            <div class="compare-cell label">Budget</div><div class="compare-cell">Assumptions buried in proposals. Change orders surface mid-study.</div><div class="compare-cell kindrial">Turnkey scope under written assumptions. No added cost unless the Sponsor approves a scope change.</div>
             <div class="compare-cell label">Team</div><div class="compare-cell">Large account team with variable senior attention.</div><div class="compare-cell kindrial">Small senior operating team assembled for the specific protocol.</div>
             <div class="compare-cell label">Systems</div><div class="compare-cell">Enterprise platforms applied uniformly regardless of study size.</div><div class="compare-cell kindrial">Right-sized validated systems matched to protocol complexity.</div>
             <div class="compare-cell label">Visibility</div><div class="compare-cell">Status learned via meetings, decks, and email chasing.</div><div class="compare-cell kindrial">Live workspace shows milestones, blockers, owners, and decision status.</div>
@@ -556,11 +536,11 @@
           <div class="faq" data-reveal>
             <div class="faq-item open">
               <button class="faq-q" type="button"><span>Is the $1.95M price universal?</span><span>+</span></button>
-              <div class="faq-a"><p>No. It is a price anchor for a clean, single-site early-phase study under written assumptions. If your study is more complex, the Study-Fit Brief identifies what changes the scope.</p></div>
+              <div class="faq-a"><p>No. It is a turnkey price anchor for a clean, single-site early-phase study under written assumptions. If your study is more complex, the Study-Fit Brief identifies what changes the scope before the SOW is signed.</p></div>
             </div>
             <div class="faq-item">
               <button class="faq-q" type="button"><span>What is included in the fixed scope?</span><span>+</span></button>
-              <div class="faq-a"><p>CRO services and core systems are included under standard assumptions. Pass-through categories are itemized before signature so the sponsor can see the real budget picture.</p></div>
+              <div class="faq-a"><p>For the standard package, CRO services, clinical site costs, required study software, routine safety monitoring, and up to two MRIs are included under the written assumptions. If Kindrial exceeds its internal budget without a Sponsor-approved scope change, Kindrial absorbs the overage.</p></div>
             </div>
             <div class="faq-item">
               <button class="faq-q" type="button"><span>Do you replace the sponsor?</span><span>+</span></button>
@@ -572,7 +552,7 @@
             </div>
             <div class="faq-item">
               <button class="faq-q" type="button"><span>Can you support patient studies?</span><span>+</span></button>
-              <div class="faq-a"><p>Yes, if the protocol is focused and the operational burden is realistic. Patient recruitment, imaging, specialty labs, and site count may require separate scoping.</p></div>
+              <div class="faq-a"><p>Yes, if the protocol is focused and the operational burden is realistic. Patient recruitment, specialty labs, additional imaging, and multi-site complexity may require separate scoping.</p></div>
             </div>
             <div class="faq-item">
               <button class="faq-q" type="button"><span>Why not use a traditional large CRO?</span><span>+</span></button>
