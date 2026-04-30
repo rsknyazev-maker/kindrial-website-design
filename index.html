@@ -26,6 +26,18 @@
     "description": "Kindrial is a Phase 1 and early Phase 2a CRO for emerging biotech sponsors.",
     "address": {"@type":"PostalAddress","streetAddress":"5270 California Ave.","addressLocality":"Irvine","addressRegion":"CA","postalCode":"92617","addressCountry":"US"}
   }
+
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieDismiss = document.getElementById('cookieDismiss');
+    if (cookieBanner && localStorage.getItem('kindrialCookieNoticeDismissed') === 'true') {
+      cookieBanner.classList.add('is-hidden');
+    }
+    if (cookieDismiss && cookieBanner) {
+      cookieDismiss.addEventListener('click', () => {
+        localStorage.setItem('kindrialCookieNoticeDismissed', 'true');
+        cookieBanner.classList.add('is-hidden');
+      });
+    }
   </script>
   <style>
     :root {
@@ -261,6 +273,62 @@
     .modal-actions .btn { min-height: 48px; padding: 0 18px; border-radius: 16px; box-shadow: 0 10px 22px rgba(15,15,15,.08); }
     .modal-note { margin-top: 10px; color: rgba(15,15,15,.55); font-size: 12.5px; line-height: 1.45; }
 
+
+    .legal-strip {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .legal-note {
+      color: rgba(15,15,15,.62);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .legal-note h3 {
+      margin: 0 0 8px;
+      color: rgba(15,15,15,.74);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .legal-note p { margin: 0; }
+
+    .cookie-banner {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 120;
+      width: min(520px, calc(100% - 36px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 14px 14px 16px;
+      border: 1px solid rgba(15,15,15,.12);
+      border-radius: 22px;
+      background: rgba(247,246,241,.94);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 50px rgba(15,15,15,.16);
+    }
+    .cookie-banner.is-hidden { display: none; }
+    .cookie-banner strong { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing:.08em; text-transform: uppercase; }
+    .cookie-banner p { margin: 0; color: rgba(15,15,15,.66); font-size: 12.5px; line-height: 1.45; }
+    .cookie-banner button {
+      flex: 0 0 auto;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--paper);
+      min-height: 38px;
+      padding: 0 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
     @media (max-width: 980px) {
       .nav-links { display: none; }
       .hero { padding-top: 118px; }
@@ -302,6 +370,19 @@
       .cta-panel { padding: 34px 24px; border-radius: 30px; }
       .footer-grid { display: block; }
       .footer-links { margin-top: 26px; }
+
+      .legal-strip { grid-template-columns: 1fr; gap: 16px; }
+      .cookie-banner {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        display: block;
+        padding: 14px;
+      }
+      .cookie-banner button { margin-top: 12px; width: 100%; }
+      .cookie-banner.is-hidden { display: none; }
+
 
       .modal { align-items: stretch; justify-content: stretch; padding: 0; background: var(--paper); backdrop-filter: none; }
       .modal-card { width: 100%; height: 100svh; max-height: 100svh; padding: 22px 18px 18px; border-radius: 0; box-shadow: none; overflow-y: auto; }
@@ -607,7 +688,19 @@
             <a href="#team">Team</a>
             <a href="#model">Model</a>
             <a href="#faq">FAQ</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#cookies">Cookie Notice</a>
             <a href="mailto:hello@kindrial.com">Email</a>
+          </div>
+        </div>
+        <div class="legal-strip" aria-label="Privacy and cookie information">
+          <div class="legal-note" id="privacy">
+            <h3>Privacy Policy</h3>
+            <p>Kindrial collects information you submit through this website, including name, email, study stage, and high-level study information. We use it to respond to inquiries, evaluate study fit, prepare Study-Fit Briefs, manage CDA requests, and communicate about possible engagements. Do not submit confidential, patient-identifiable, or proprietary study documents through the form before a CDA and an agreed secure process. Kindrial does not sell personal information.</p>
+          </div>
+          <div class="legal-note" id="cookies">
+            <h3>Cookie Notice</h3>
+            <p>This website uses essential cookies or local storage for basic site functions, including remembering that this notice was dismissed. If limited analytics are enabled, they are used only to understand aggregate site performance. Kindrial does not sell personal information or use this site to run behavioral advertising.</p>
           </div>
         </div>
         <div class="footer-bottom">
@@ -635,6 +728,14 @@
         <div class="modal-note">Do not submit confidential documents through this form before a CDA and secure transfer process are agreed.</div>
       </form>
     </div>
+  </div>
+
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div>
+      <strong>Cookie notice</strong>
+      <p>Kindrial uses essential site storage for basic functions. If limited analytics are enabled, they are used only to understand aggregate site performance. We do not sell personal information.</p>
+    </div>
+    <button type="button" id="cookieDismiss">Got it</button>
   </div>
 
   <script>
@@ -667,6 +768,18 @@
         if (!isOpen) item.classList.add('open');
       });
     });
+
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieDismiss = document.getElementById('cookieDismiss');
+    if (cookieBanner && localStorage.getItem('kindrialCookieNoticeDismissed') === 'true') {
+      cookieBanner.classList.add('is-hidden');
+    }
+    if (cookieDismiss && cookieBanner) {
+      cookieDismiss.addEventListener('click', () => {
+        localStorage.setItem('kindrialCookieNoticeDismissed', 'true');
+        cookieBanner.classList.add('is-hidden');
+      });
+    }
   </script>
 </body>
 </html>
