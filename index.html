@@ -402,6 +402,33 @@
     .diagram-label { font-size: 11px; font-weight: 860; letter-spacing: .1em; text-transform: uppercase; color: rgba(247,246,241,.42); margin: 0 0 24px; }
     .diagram-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .diagram-scroll svg { display: block; width: 100%; min-width: 480px; height: auto; }
+    /* Mobile vertical version */
+    .diagram-mobile { display: none; flex-direction: column; gap: 12px; }
+    .dm-card { border-radius: 20px; padding: 22px; }
+    .dm-card.kindrial { background: rgba(198,242,74,.08); border: 1px solid rgba(198,242,74,.28); }
+    .dm-card.cro { background: rgba(247,246,241,.04); border: 1px solid rgba(247,246,241,.12); }
+    .dm-tag { font-size: 11px; font-weight: 860; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 16px; }
+    .dm-card.kindrial .dm-tag { color: rgba(198,242,74,.8); }
+    .dm-card.cro .dm-tag { color: rgba(247,246,241,.3); }
+    .dm-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .dm-node { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 860; letter-spacing: .05em; flex-shrink: 0; }
+    .dm-card.kindrial .dm-node { background: #173b1c; border: 2px solid #c6f24a; color: #c6f24a; }
+    .dm-card.cro .dm-node { background: rgba(247,246,241,.05); border: 1.5px solid rgba(247,246,241,.2); color: rgba(247,246,241,.35); }
+    .dm-arrow { font-size: 18px; flex-shrink: 0; }
+    .dm-card.kindrial .dm-arrow { color: #c6f24a; }
+    .dm-card.cro .dm-arrow { color: rgba(247,246,241,.18); }
+    .dm-trial-box { border-radius: 12px; padding: 12px 16px; border: 1.5px solid #c6f24a; background: rgba(198,242,74,.1); }
+    .dm-trial-box strong { display: block; font-size: 14px; color: #c6f24a; margin-bottom: 2px; }
+    .dm-trial-box span { font-size: 26px; font-family: var(--serif); color: #c6f24a; letter-spacing: -.04em; line-height: 1; }
+    .dm-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+    .dm-chip { border-radius: 6px; padding: 5px 9px; border: 1px solid rgba(247,246,241,.14); background: rgba(247,246,241,.04); color: rgba(247,246,241,.28); font-size: 11px; font-weight: 700; }
+    .dm-note { font-size: 13px; margin: 0; }
+    .dm-card.kindrial .dm-note { color: rgba(198,242,74,.6); }
+    .dm-card.cro .dm-note { color: rgba(247,246,241,.24); }
+    @media (max-width: 640px) {
+      .diagram-scroll { display: none; }
+      .diagram-mobile { display: flex; }
+    }
 
     /* COMPARISON */
     .compare-grid { display: grid; grid-template-columns: .7fr 1.05fr 1.05fr; border: 1px solid var(--line); border-radius: 30px; overflow: hidden; background: rgba(255,255,255,.24); }
@@ -933,6 +960,39 @@
                 </svg>
               </div>
             </div>
+
+            <!-- Mobile vertical version -->
+            <div class="diagram-mobile">
+              <div class="dm-card kindrial">
+                <div class="dm-tag">Kindrial</div>
+                <div class="dm-row">
+                  <div class="dm-node">LEAD</div>
+                  <div class="dm-arrow">→</div>
+                  <div class="dm-trial-box">
+                    <strong>Your trial</strong>
+                    <span>100%</span>
+                  </div>
+                </div>
+                <p class="dm-note">One lead. One trial. Contractual.</p>
+              </div>
+              <div class="dm-card cro">
+                <div class="dm-tag">Typical large CRO</div>
+                <div class="dm-row">
+                  <div class="dm-node">LEAD</div>
+                  <div class="dm-arrow">→</div>
+                  <div class="dm-chips">
+                    <div class="dm-chip">Trial</div><div class="dm-chip">Trial</div>
+                    <div class="dm-chip">Trial</div><div class="dm-chip">Trial</div>
+                    <div class="dm-chip">Trial</div><div class="dm-chip">Trial</div>
+                    <div class="dm-chip">Trial</div><div class="dm-chip">Trial</div>
+                    <div class="dm-chip">Trial</div><div class="dm-chip">Trial</div>
+                    <div class="dm-chip">Trial</div><div class="dm-chip">Trial</div>
+                  </div>
+                </div>
+                <p class="dm-note">~8% attention per trial</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
