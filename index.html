@@ -147,8 +147,8 @@
     .price-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(198,242,74,.26), transparent 46%); pointer-events: none; }
     .price-top { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid rgba(247,246,241,.14); }
     .price-label { color: rgba(247,246,241,.68); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; }
-    .price { position: relative; margin: 12px 0 4px; font-family: var(--serif); font-size: 74px; line-height: .9; letter-spacing: -.05em; }
-    .price span { font-size: 28px; color: rgba(247,246,241,.64); }
+    .price { position: relative; margin: 8px 0 4px; font-family: var(--serif); font-size: 74px; line-height: .9; letter-spacing: -.05em; }
+    .price-from { display: block; font-size: 11px; font-weight: 860; letter-spacing: .1em; text-transform: uppercase; color: rgba(247,246,241,.5); margin-bottom: 4px; font-family: var(--sans); }
     .price-note { position: relative; color: rgba(247,246,241,.78); font-size: 14px; line-height: 1.5; max-width: 410px; }
     .tag { position: relative; display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 12px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 850; white-space: nowrap; }
     .included { position: relative; display: grid; gap: 10px; margin: 22px 0; }
@@ -531,6 +531,7 @@
       .nav-cta { min-height: 40px; padding: 0 14px; font-size: 12px; white-space: nowrap; }
       .hero { min-height: auto; padding: 108px 0 54px; }
       .hero h1 { font-size: clamp(32px, 9vw, 36px); line-height: .95; letter-spacing: -.04em; }
+      .hero h1 em { color: var(--forest) !important; -webkit-text-fill-color: var(--forest); }
       .hero-copy { font-size: 17px; }
       .hero-actions { align-items: stretch; }
       .btn { width: 100%; }
@@ -595,17 +596,12 @@
     <header class="hero" id="top">
       <div class="wrap hero-grid">
         <div class="hero-content" data-reveal>
-          <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Senior-led · Fixed scope</div>
+          <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Experienced-led · Fixed scope</div>
           <h1>Early-phase trials without budget <em>surprises.</em></h1>
-          <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with senior clinical operators, right-sized systems, and disciplined scope control.</p>
+          <p class="hero-copy">FDA-compliant Phase 1 and early Phase 2a execution — fixed scope, right-sized systems, one dedicated lead per trial.</p>
           <div class="hero-actions">
             <button class="btn primary" data-open-modal>Request a Study-Fit Brief</button>
-            <a class="btn secondary" href="#offer">See the launch package</a>
-          </div>
-          <div class="hero-pills" aria-label="Key claims">
-            <span class="pill">One senior Trial Lead named in the SOW</span>
-            <span class="pill">Fixed scope under written assumptions</span>
-            <span class="pill">Right-sized vendors and systems</span>
+            <a class="btn secondary" href="#offer">See the package</a>
           </div>
         </div>
 
@@ -623,18 +619,19 @@
             <div class="price-top">
               <div>
                 <div class="price-label">Early-phase launch package</div>
-                <div class="price"><span>from</span> $1.95M</div>
-                <div class="price-note">Fixed price for CRO services and core systems under standard assumptions. Site fees, central lab, imaging, investigational product logistics, and software licenses are passed through at cost — itemized in the proposal before signature.</div>
+                <div class="price-from">from</div>
+                <div class="price">$1.95M</div>
+                <div class="price-note">Fixed-scope CRO services and core systems. Pass-throughs itemized before signature.</div>
               </div>
               <div class="tag">No unapproved costs</div>
             </div>
             <div class="included">
-              <div class="included-row"><strong>Trial leadership</strong><span>Senior Trial Lead</span></div>
+              <div class="included-row"><strong>Trial leadership</strong><span>Dedicated Trial Lead</span></div>
               <div class="included-row"><strong>Startup</strong><span>Site, IRB, vendor setup</span></div>
               <div class="included-row"><strong>Operations</strong><span>Monitoring, safety, PM</span></div>
               <div class="included-row"><strong>Systems</strong><span>Validated, right-sized</span></div>
             </div>
-            <div class="price-bottom">Typical fit: a single-site early-phase study, ~20 participants, simple dose schedule, routine safety monitoring. If your protocol requires more, we say so in the Study-Fit Brief — before the SOW is signed.</div>
+            <div class="price-bottom">Typical fit: single-site, ~20 participants, standard safety monitoring. If your protocol needs more, we say so before the SOW is signed.</div>
           </aside>
         </div>
       </div>
@@ -673,7 +670,7 @@
               <div class="eyebrow"><span class="dot"></span> What Kindrial delivers</div>
               <h2 class="title">Clinical execution without unnecessary CRO overhead.</h2>
             </div>
-            <p class="section-copy">We focus the operating model around what makes an early-phase trial work: scope discipline, credible senior ownership, clean vendor orchestration, and fast sponsor decisions.</p>
+            <p class="section-copy">We focus the operating model around what makes an early-phase trial work: scope discipline, credible ownership, clean vendor orchestration, and fast sponsor decisions.</p>
           </div>
           <div class="deliver-grid">
             <div class="deliver-card" data-reveal><div class="num">1</div><h3>Study-Fit Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the fixed-scope path is realistic.</p></div>
@@ -773,7 +770,7 @@
               <div class="eyebrow"><span class="dot"></span> Solutions</div>
               <h2 class="title">Where the fixed-scope<br>model <em>works.</em></h2>
             </div>
-            <p class="section-copy">Kindrial focuses on four early-phase study types where the operating model, the team, and the fixed-scope structure are well matched.</p>
+            <p class="section-copy">Kindrial is built for early-phase studies where scope discipline and dedicated operating attention matter more than infrastructure scale.</p>
           </div>
           <div class="solutions-grid" data-reveal>
             <div class="solution-card">
@@ -781,28 +778,28 @@
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
               </div>
               <h3>Single-site healthy-volunteer Phase 1</h3>
-              <p>Clean dose-escalation studies under fixed scope. First-in-human, MAD/SAD designs, standard safety monitoring and data flow.</p>
+              <p>FIH, SAD/MAD, and dose-escalation studies under fixed scope. Standard safety monitoring, clean data flow, tight timeline control.</p>
             </div>
             <div class="solution-card">
               <div class="sol-icon">
                 <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
               <h3>Focused Phase 1b / early Phase 2a patient studies</h3>
-              <p>Small patient cohorts where senior operating discipline matters more than scale. Oncology, rare disease, and neurology-adjacent indications.</p>
+              <p>Small cohorts across oncology, rare disease, metabolic, and neurology-adjacent indications. Operating discipline over organizational scale.</p>
             </div>
             <div class="solution-card">
               <div class="sol-icon">
-                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
               </div>
-              <h3>CNS / neurodegenerative early trials</h3>
-              <p>Protocol-aware execution for cognitive endpoints, biomarker timing, and imaging coordination. Operators who know the rhythm of CNS development.</p>
+              <h3>Biomarker and imaging-driven protocols</h3>
+              <p>Studies with PK/PD endpoints, central imaging reads, or biomarker sampling cadences that require coordinated vendor management and timing precision.</p>
             </div>
             <div class="solution-card">
               <div class="sol-icon">
                 <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <h3>Vaccine early-phase execution</h3>
-              <p>Immunogenicity sampling cadence, cold-chain logistics, and safety monitoring designed around the realities of early vaccine development.</p>
+              <h3>Sponsors without large internal ops teams</h3>
+              <p>Emerging biotech running a first or second trial who need a dedicated operating partner — not a vendor that treats them as a small account.</p>
             </div>
           </div>
 
@@ -814,12 +811,11 @@
         <div class="wrap workspace-wrap">
           <div class="workspace-list" data-reveal>
             <div class="eyebrow"><span class="dot"></span> Sponsor Workspace</div>
-            <h2 class="title">Your trial status should not live in <em>email chains.</em></h2>
-            <p>The workspace is not sold as a gimmick. It is an operating layer for small sponsors who need visibility without building a large internal clinical operations team.</p>
-            <div class="check">Milestones, blockers, owners, and due dates are visible in one place.</div>
-            <div class="check">Open sponsor decisions are separated from CRO and vendor tasks.</div>
-            <div class="check">Budget and change-control assumptions tracked in real time.</div>
-            <div class="check">Weekly calls become decision meetings, not status archaeology.</div>
+            <h2 class="title">Trial status should not live in <em>email chains.</em></h2>
+            <p>A live operating layer — not a gimmick. Sponsors see exactly what is moving, blocked, and waiting for them.</p>
+            <div class="check">Milestones, blockers, owners, and due dates in one place.</div>
+            <div class="check">Sponsor decisions separated from CRO and vendor tasks.</div>
+            <div class="check">Weekly calls become decisions, not status archaeology.</div>
           </div>
 
           <div style="display: grid; gap: 14px;">
@@ -953,9 +949,9 @@
           </div>
           <div class="compare-grid" data-reveal>
             <div class="compare-head">Decision point</div><div class="compare-head">Typical large-CRO model</div><div class="compare-head kindrial">Kindrial</div>
-            <div class="compare-cell label">Senior lead</div><div class="compare-cell">Lead carries a portfolio of trials. Reassignment is common and rarely contractual.</div><div class="compare-cell kindrial">One lead, one trial, dedicated by contract. Breach triggers a 15% credit and termination right.</div>
+            <div class="compare-cell label">Lead</div><div class="compare-cell">Lead carries a portfolio of trials. Reassignment is common and rarely contractual.</div><div class="compare-cell kindrial">One lead, one trial, dedicated by contract. Breach triggers a 15% credit and termination right.</div>
             <div class="compare-cell label">Budget</div><div class="compare-cell">Assumptions buried in proposals. Change orders surface mid-study.</div><div class="compare-cell kindrial">Fixed scope under written assumptions. Exclusions stated before signature.</div>
-            <div class="compare-cell label">Team</div><div class="compare-cell">Large account team with variable senior attention.</div><div class="compare-cell kindrial">Small senior operating team assembled for the specific protocol.</div>
+            <div class="compare-cell label">Team</div><div class="compare-cell">Large account team with variable attention.</div><div class="compare-cell kindrial">Small experienced operating team assembled for the specific protocol.</div>
             <div class="compare-cell label">Systems</div><div class="compare-cell">Enterprise platforms applied uniformly regardless of study size.</div><div class="compare-cell kindrial">Right-sized validated systems matched to protocol complexity.</div>
             <div class="compare-cell label">Visibility</div><div class="compare-cell">Status learned via meetings, decks, and email chasing.</div><div class="compare-cell kindrial">Live workspace shows milestones, blockers, owners, and decision status.</div>
           </div>
@@ -1058,7 +1054,7 @@
             </div>
             <div class="faq-item">
               <button class="faq-q" type="button"><span>Why not use a traditional large CRO?</span><span>+</span></button>
-              <div class="faq-a"><p>Sometimes you should. Large infrastructure can be appropriate for large or global trials. Kindrial is built for sponsors who need senior-led early-phase execution without paying for unnecessary structure.</p></div>
+              <div class="faq-a"><p>Sometimes you should. Large infrastructure can be appropriate for large or global trials. Kindrial is built for sponsors who need experienced, dedicated early-phase execution without paying for unnecessary structure.</p></div>
             </div>
           </div>
         </div>
@@ -1082,7 +1078,7 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="#top" class="brand"><span class="mark"></span><span>Kindrial</span></a>
-            <p>Senior-led Phase 1 and early Phase 2a CRO services for emerging biotech sponsors that need credible execution, cost discipline, and clear operating visibility.</p>
+            <p>Phase 1 and early Phase 2a CRO services for emerging biotech sponsors that need credible execution, cost discipline, and clear operating visibility.</p>
           </div>
           <div class="footer-links">
             <a href="#offer">Offer</a>
