@@ -40,6 +40,7 @@
       --paper: #f7f6f1;
       --lime: #c6f24a;
       --forest: #173b1c;
+      --accent: #2d6b35;
       --muted: rgba(15,15,15,.66);
       --line: rgba(15,15,15,.13);
       --soft: rgba(15,15,15,.045);
@@ -128,8 +129,9 @@
     .hero-kicker, .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: rgba(15,15,15,.7); font-size: 13px; font-weight: 760; letter-spacing: .08em; text-transform: uppercase; }
     .dot { width: 9px; height: 9px; border-radius: 999px; background: var(--forest); box-shadow: 0 0 0 5px rgba(23,59,28,.11); }
     h1, h2, h3, p { margin-top: 0; }
-    .hero h1 { margin: 22px 0 22px; font-family: var(--serif); font-size: clamp(58px, 7.3vw, 106px); line-height: .88; letter-spacing: -.055em; font-weight: 400; max-width: 800px; }
-    .hero h1 em, .title em { font-style: italic; color: var(--forest); }
+    .hero h1 { margin: 22px 0 22px; font-family: var(--serif); font-size: clamp(66px, 8.2vw, 116px); line-height: .88; letter-spacing: -.055em; font-weight: 400; max-width: 800px; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .title em { font-style: italic; color: var(--accent); }
     .hero-copy { max-width: 680px; color: rgba(15,15,15,.72); font-size: 20px; line-height: 1.55; letter-spacing: -.015em; }
     .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 34px 0 26px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 23px; border-radius: 999px; border: 1px solid rgba(15,15,15,.14); font-weight: 780; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
@@ -530,8 +532,8 @@
       .mark { width: 30px; height: 30px; }
       .nav-cta { min-height: 40px; padding: 0 14px; font-size: 12px; white-space: nowrap; }
       .hero { min-height: auto; padding: 108px 0 54px; }
-      .hero h1 { font-size: clamp(32px, 9vw, 36px); line-height: .95; letter-spacing: -.04em; }
-      .hero h1 em { color: var(--forest) !important; -webkit-text-fill-color: var(--forest); }
+      .hero h1 { font-size: clamp(36px, 10vw, 42px); line-height: .95; letter-spacing: -.04em; }
+      .hero h1 em { color: var(--accent) !important; -webkit-text-fill-color: var(--accent); }
       .hero-copy { font-size: 17px; }
       .hero-actions { align-items: stretch; }
       .btn { width: 100%; }
@@ -689,17 +691,17 @@
               <div class="eyebrow"><span class="dot"></span> The operators behind your trial</div>
               <h2 class="title">Experienced people, assembled <em>per protocol.</em></h2>
             </div>
-            <p class="section-copy">No bloated permanent roster. Kindrial selects the right operators for your study after scope is defined — based on indication, complexity, and timeline.</p>
+            <p class="section-copy">Selected after scope is defined. No permanent bloat. The right operators for your indication, assembled for your study.</p>
           </div>
 
           <div class="team-intro" data-reveal>
             <div>
-              <h3>How we staff your trial</h3>
-              <p>Kindrial maintains a vetted bench of clinical operators — medical monitors, trial leads, CRAs, biostatisticians, regulatory consultants, and QA specialists — each with 15+ years in early-phase development. The team for your study is selected after scope is defined, based on indication, protocol complexity, geography, and timeline.</p>
+              <h3>How staffing works</h3>
+              <p>Kindrial maintains a vetted bench of clinical operators — each with 15+ years in early-phase development. Selection is based on indication, protocol complexity, geography, and timeline — after scope is defined.</p>
             </div>
             <div>
-              <h3>Named in the SOW, not on a slide</h3>
-              <p>Your Trial Lead is named in the SOW before signature. You review the CV and approve the assignment as part of contract execution. The right specialists for your protocol — not whoever happens to be on the bench at a large CRO when your trial enters the queue.</p>
+              <h3>Named in the SOW</h3>
+              <p>The Trial Lead is named before signature. You review the CV and approve the assignment. The right fit for your protocol — not whoever is available at a large CRO when your trial enters the queue.</p>
             </div>
           </div>
 
@@ -757,7 +759,7 @@
           </div>
 
           <div class="bench-note">
-            Consultants are engaged per protocol after scope is defined. Selection is based on indication fit, geography, and timeline — not bench availability. The Trial Lead CV is provided and sponsor-approved before SOW signature.
+            Operators engaged per protocol, selected for indication fit. Trial Lead CV provided and sponsor-approved before SOW signature.
           </div>
         </div>
       </section>
@@ -863,18 +865,18 @@
               <div class="eyebrow"><span class="dot"></span> Locked Lead model</div>
               <h2 class="title">Most CROs share your lead<br>across <em>twelve trials.</em></h2>
             </div>
-            <p class="section-copy">Kindrial's commercial model is built around senior attention as the core deliverable, not a decorative layer added during sales.</p>
+            <p class="section-copy">Dedicated attention is the core deliverable — built into the contract, not a sales promise.</p>
           </div>
 
           <div class="model-grid">
             <div class="breach-box">
               <strong>Why the model holds</strong>
-              <p>Large CROs price senior time as a shared resource — utilization across many accounts is how the margin works. A dedicated senior lead per trial is structurally incompatible with that model. Kindrial is built around it from the start.</p>
+              <p>Large CROs share senior time across many accounts — that is how their margin works. A dedicated lead per trial is structurally incompatible with that model. Kindrial is built around it from the start.</p>
             </div>
             <div class="attent-problem">
-              <p class="big">The common failure is not capability. It is attention.</p>
-              <p>It is rarely fraud. It is attention. Senior people rotate. Junior people fill the gaps. You were sold an "A team" at bid; you have a "C team" by Month 4. This is a known and well-documented pattern in early-phase outsourcing.</p>
-              <p>Kindrial makes the senior Trial Lead a contractual operating assumption: named before signature, visible to the sponsor, and accountable for escalation.</p>
+              <p class="big">The failure is not capability. It is attention.</p>
+              <p>Senior people rotate. Junior people fill the gaps. You were sold an A team at bid; you have a C team by Month 4. This is a well-documented pattern in early-phase outsourcing.</p>
+              <p>Kindrial makes the Trial Lead a contractual assumption: named before signature, visible to the sponsor, accountable for escalation.</p>
             </div>
           </div>
 
@@ -943,9 +945,8 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Operating comparison</div>
-              <h2 class="title">Built for the sponsor who cannot afford drift.</h2>
+              <h2 class="title">Built for the sponsor who cannot afford <em>drift.</em></h2>
             </div>
-            <p class="section-copy">Small biotech sponsors do not need more theater. They need a clear operating model, scope discipline, and direct visibility into what is blocking the trial.</p>
           </div>
           <div class="compare-grid" data-reveal>
             <div class="compare-head">Decision point</div><div class="compare-head">Typical large-CRO model</div><div class="compare-head kindrial">Kindrial</div>
@@ -964,9 +965,9 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Study fit</div>
-              <h2 class="title">Not every protocol should be forced into a package.</h2>
+              <h2 class="title">Not every protocol fits <em>a package.</em></h2>
             </div>
-            <p class="section-copy">The first commercial obligation is honesty. If your study needs a larger structure, more sites, specialized vendors, or deeper data infrastructure, we tell you before the SOW.</p>
+            <p class="section-copy">If your study needs more — more sites, specialized vendors, global infrastructure — we say so before the SOW.</p>
           </div>
           <div class="fit-grid">
             <div class="fit-card" data-reveal>
@@ -997,9 +998,9 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Practical Briefs</div>
-              <h2 class="title">Useful references for sponsors planning early-phase trials.</h2>
+              <h2 class="title">Useful before you are ready to <em>engage.</em></h2>
             </div>
-            <p class="section-copy">Three short working documents. Useful before you are ready for a Study-Fit Brief. Download with your email — no sales call required.</p>
+            <p class="section-copy">Three short working references. Download with your email — no sales call required.</p>
           </div>
           <div class="briefs-grid">
             <div class="brief-card" data-reveal>
@@ -1065,7 +1066,7 @@
           <div class="cta-panel" data-reveal>
             <div>
               <h2>Find out if your study fits.</h2>
-              <p>Send a short synopsis. Kindrial will identify the likely operating path, budget assumptions, major exclusions, and the first decisions needed to move toward an FDA-compliant trial.</p>
+              <p>Send a short synopsis. Kindrial identifies the likely operating path, budget assumptions, and first decisions needed to move forward.</p>
             </div>
             <button class="btn" data-open-modal>Get Study-Fit Brief</button>
           </div>
