@@ -399,7 +399,9 @@
     /* LEAD MODEL DIAGRAM */
     .lead-diagram { margin-top: 42px; }
     .lead-diagram-inner { border: 1px solid rgba(247,246,241,.14); border-radius: 30px; padding: 32px; background: rgba(247,246,241,.04); }
-    .lead-diagram-inner h3 { font-size: 16px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 24px; color: rgba(247,246,241,.72); }
+    .diagram-label { font-size: 11px; font-weight: 860; letter-spacing: .1em; text-transform: uppercase; color: rgba(247,246,241,.42); margin: 0 0 24px; }
+    .diagram-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .diagram-scroll svg { display: block; width: 100%; min-width: 480px; height: auto; }
 
     /* COMPARISON */
     .compare-grid { display: grid; grid-template-columns: .7fr 1.05fr 1.05fr; border: 1px solid var(--line); border-radius: 30px; overflow: hidden; background: rgba(255,255,255,.24); }
@@ -883,57 +885,53 @@
           <!-- 1:1 vs 1:12 diagram -->
           <div class="lead-diagram" data-reveal>
             <div class="lead-diagram-inner">
-              <h3>How attention is allocated — Kindrial vs. the standard model</h3>
-              <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing one senior lead dedicated to one trial at Kindrial versus one senior lead spread across twelve trials at a typical large CRO">
-                <title>1 Lead : 1 Trial vs 1 Lead : 12 Trials</title>
-                <!-- KINDRIAL SIDE -->
-                <text x="10" y="22" font-size="11" fill="rgba(247,246,241,0.5)" font-family="system-ui" letter-spacing="0.07em" text-transform="uppercase">KINDRIAL</text>
-                <!-- Lead node -->
-                <circle cx="60" cy="110" r="28" fill="#173b1c" stroke="#c6f24a" stroke-width="2"/>
-                <text x="60" y="115" text-anchor="middle" font-size="11" fill="#c6f24a" font-weight="700" font-family="system-ui">LEAD</text>
-                <!-- Single trial node -->
-                <rect x="130" y="88" width="88" height="44" rx="10" fill="rgba(198,242,74,0.12)" stroke="#c6f24a" stroke-width="1.5"/>
-                <text x="174" y="110" text-anchor="middle" font-size="12" fill="#c6f24a" font-weight="700" font-family="system-ui">Your trial</text>
-                <text x="174" y="124" text-anchor="middle" font-size="10" fill="rgba(198,242,74,0.7)" font-family="system-ui">100% attention</text>
-                <!-- Line -->
-                <line x1="90" y1="110" x2="128" y2="110" stroke="#c6f24a" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Divider -->
-                <line x1="340" y1="20" x2="340" y2="200" stroke="rgba(247,246,241,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-                <!-- TYPICAL CRO SIDE -->
-                <text x="360" y="22" font-size="11" fill="rgba(247,246,241,0.5)" font-family="system-ui" letter-spacing="0.07em">TYPICAL LARGE CRO</text>
-                <!-- Lead node -->
-                <circle cx="420" cy="110" r="28" fill="rgba(247,246,241,0.06)" stroke="rgba(247,246,241,0.3)" stroke-width="1.5"/>
-                <text x="420" y="115" text-anchor="middle" font-size="11" fill="rgba(247,246,241,0.6)" font-weight="700" font-family="system-ui">LEAD</text>
-                <!-- 12 thin trial lines and nodes -->
-                <g opacity="0.55">
-                  <line x1="450" y1="110" x2="490" y2="36" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="498" cy="32" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="498" y2="55" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="506" cy="52" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="504" y2="76" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="512" cy="74" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="505" y2="98" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="514" cy="97" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="504" y2="122" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="513" cy="122" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="499" y2="145" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="507" cy="147" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="490" y2="166" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="497" cy="170" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="530" y2="45" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="537" cy="41" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="538" y2="75" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="546" cy="73" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="540" y2="110" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="548" cy="110" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="538" y2="143" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="546" cy="147" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                  <line x1="450" y1="110" x2="530" y2="175" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="537" cy="179" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
-                </g>
-                <!-- Label -->
-                <text x="580" y="110" text-anchor="middle" font-size="10" fill="rgba(247,246,241,0.4)" font-family="system-ui">~8% per trial</text>
-              </svg>
+              <p class="diagram-label">How attention is allocated — Kindrial vs. the standard model</p>
+              <div class="diagram-scroll">
+                <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing one lead dedicated to one trial at Kindrial versus one lead spread across twelve trials at a typical large CRO">
+                  <title>1 Lead : 1 Trial vs 1 Lead : 12 Trials</title>
+                  <!-- KINDRIAL SIDE -->
+                  <text x="10" y="22" font-size="11" fill="rgba(247,246,241,0.5)" font-family="system-ui" letter-spacing="0.07em">KINDRIAL</text>
+                  <circle cx="60" cy="110" r="28" fill="#173b1c" stroke="#c6f24a" stroke-width="2"/>
+                  <text x="60" y="115" text-anchor="middle" font-size="11" fill="#c6f24a" font-weight="700" font-family="system-ui">LEAD</text>
+                  <rect x="130" y="88" width="88" height="44" rx="10" fill="rgba(198,242,74,0.12)" stroke="#c6f24a" stroke-width="1.5"/>
+                  <text x="174" y="110" text-anchor="middle" font-size="12" fill="#c6f24a" font-weight="700" font-family="system-ui">Your trial</text>
+                  <text x="174" y="124" text-anchor="middle" font-size="10" fill="rgba(198,242,74,0.7)" font-family="system-ui">100% attention</text>
+                  <line x1="90" y1="110" x2="128" y2="110" stroke="#c6f24a" stroke-width="2.5" stroke-linecap="round"/>
+                  <!-- Divider -->
+                  <line x1="340" y1="20" x2="340" y2="200" stroke="rgba(247,246,241,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+                  <!-- TYPICAL CRO SIDE -->
+                  <text x="360" y="22" font-size="11" fill="rgba(247,246,241,0.5)" font-family="system-ui" letter-spacing="0.07em">TYPICAL LARGE CRO</text>
+                  <circle cx="420" cy="110" r="28" fill="rgba(247,246,241,0.06)" stroke="rgba(247,246,241,0.3)" stroke-width="1.5"/>
+                  <text x="420" y="115" text-anchor="middle" font-size="11" fill="rgba(247,246,241,0.6)" font-weight="700" font-family="system-ui">LEAD</text>
+                  <g opacity="0.55">
+                    <line x1="450" y1="110" x2="490" y2="36" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="498" cy="32" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="498" y2="55" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="506" cy="52" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="504" y2="76" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="512" cy="74" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="505" y2="98" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="514" cy="97" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="504" y2="122" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="513" cy="122" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="499" y2="145" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="507" cy="147" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="490" y2="166" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="497" cy="170" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="530" y2="45" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="537" cy="41" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="538" y2="75" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="546" cy="73" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="540" y2="110" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="548" cy="110" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="538" y2="143" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="546" cy="147" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                    <line x1="450" y1="110" x2="530" y2="175" stroke="rgba(247,246,241,0.4)" stroke-width="1" stroke-linecap="round"/>
+                    <circle cx="537" cy="179" r="7" fill="rgba(247,246,241,0.08)" stroke="rgba(247,246,241,0.3)" stroke-width="1"/>
+                  </g>
+                  <text x="580" y="110" text-anchor="middle" font-size="10" fill="rgba(247,246,241,0.4)" font-family="system-ui">~8% per trial</text>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
