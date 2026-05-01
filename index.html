@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -375,7 +376,7 @@
       <div class="wrap hero-grid">
         <div>
           <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Senior-led · Fixed scope</div>
-          <h1>Launch early-phase trials without CRO budget <em>surprises.</em></h1>
+          <h1>Early-phase trials without CRO budget <em>surprises.</em></h1>
           <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with senior clinical operators, right-sized systems, and disciplined scope control.</p>
           <div class="hero-actions">
             <button class="btn primary" type="button" data-open-modal>Get Study-Fit Brief</button>
@@ -614,8 +615,10 @@
       <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
       <h2 id="modalTitle">Request a Study-Fit Brief</h2>
       <p>Share high-level study details. For confidential materials, request a CDA first and do not upload or submit proprietary documents here.</p>
-      <form class="form-grid" id="studyFitForm" action="/api/study-fit" method="POST">
+      <form class="form-grid" id="studyFitForm" action="https://formsubmit.co/ajax/hello@kindrial.com" method="POST">
         <input class="is-hidden-field" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <div class="form-two">
           <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
@@ -711,13 +714,12 @@
         submitStudyFit.textContent = 'Sending...';
 
         const formData = new FormData(studyFitForm);
-        const payload = Object.fromEntries(formData.entries());
+        const body = new URLSearchParams(formData);
 
         try {
           const response = await fetch(studyFitForm.action, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body
           });
 
           if (!response.ok) throw new Error('Form submission failed');
