@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -858,7 +859,11 @@
       <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
       <h2 id="modalTitle">Request a Study-Fit Brief</h2>
       <p>Share high-level study details. For confidential materials, request a CDA first.</p>
-      <form class="form-grid" action="mailto:hello@kindrial.com" method="post" enctype="text/plain">
+      <form class="form-grid" action="https://formsubmit.co/hello@kindrial.com" method="POST">
+        <input type="hidden" name="_subject" value="New Kindrial Study-Fit Brief request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" autocomplete="off" tabindex="-1" style="display:none">
         <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
         <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="stage">Study stage</label><select id="stage" name="stage"><option>Phase 1</option><option>Early Phase 2a</option><option>Not sure</option></select></div>
