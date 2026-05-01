@@ -225,18 +225,49 @@
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .bench-card:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(15,15,15,.08); }
-    .bench-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
+    .alumni-bar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.28);
+      margin-bottom: 18px;
+    }
+    .alumni-label {
+      font-size: 11px;
+      font-weight: 860;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: rgba(15,15,15,.45);
+      white-space: nowrap;
+    }
+    .alumni-firms {
+      display: flex;
+      align-items: center;
+      gap: 10px 18px;
+      flex-wrap: wrap;
+    }
+    .alumni-firms span {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(15,15,15,.52);
+      letter-spacing: -.01em;
+    }
+    .bench-role-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--forest);
       color: var(--lime);
       display: grid;
       place-items: center;
-      font-weight: 850;
-      font-size: 18px;
-      letter-spacing: -.02em;
-      margin-bottom: 18px;
+      font-weight: 860;
+      font-size: 12px;
+      letter-spacing: .06em;
+      margin-bottom: 16px;
     }
     .bench-role {
       display: inline-flex;
@@ -318,7 +349,7 @@
     .strength-card p { color: rgba(247,246,241,.55); font-size: 13px; margin: 0; line-height: 1.45; }
 
     /* WORKSPACE */
-    .workspace-wrap { display: grid; grid-template-columns: .84fr 1.16fr; gap: 42px; align-items: center; }
+    .workspace-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: stretch; }
     .screen { border-radius: 34px; padding: 12px; background: rgba(247,246,241,.08); border: 1px solid rgba(247,246,241,.13); box-shadow: 0 28px 90px rgba(0,0,0,.28); }
     .screen-top { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border-bottom: 1px solid rgba(247,246,241,.1); }
     .screen-top span { width: 10px; height: 10px; border-radius: 50%; background: rgba(247,246,241,.3); }
@@ -337,7 +368,7 @@
     .decision-card { border-radius: 20px; padding: 16px; background: rgba(198,242,74,.09); border: 1px solid rgba(198,242,74,.22); }
     .decision-card strong { display: block; margin-bottom: 7px; font-size: 13px; color: var(--lime); text-transform: uppercase; letter-spacing: .07em; }
     .decision-card p { color: rgba(247,246,241,.72); font-size: 13px; margin: 0; }
-    .workspace-list { display: grid; gap: 14px; }
+    .workspace-list { display: flex; flex-direction: column; gap: 14px; justify-content: center; }
     .workspace-list p { color: var(--dark-muted); max-width: 510px; font-size: 18px; }
     .check { display: flex; gap: 12px; align-items: flex-start; color: rgba(247,246,241,.82); }
     .check::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); margin-top: 8px; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(198,242,74,.14); }
@@ -565,7 +596,7 @@
       <div class="wrap hero-grid">
         <div class="hero-content" data-reveal>
           <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Senior-led · Fixed scope</div>
-          <h1>Launch early-phase trials without budget <em>surprises.</em></h1>
+          <h1>Early-phase trials without budget <em>surprises.</em></h1>
           <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with senior clinical operators, right-sized systems, and disciplined scope control.</p>
           <div class="hero-actions">
             <button class="btn primary" data-open-modal>Request a Study-Fit Brief</button>
@@ -615,7 +646,7 @@
         <div class="proof-inner">
           <div class="proof-metric">
             <strong>200+</strong>
-            <span>Early-phase trials executed by the senior bench</span>
+            <span>Early-phase trials executed by the operating bench</span>
           </div>
           <div class="proof-metric">
             <strong>30+</strong>
@@ -623,7 +654,7 @@
           </div>
           <div class="proof-metric">
             <strong>18 yrs</strong>
-            <span>Average senior operator experience</span>
+            <span>Average operator experience</span>
           </div>
           <div class="proof-metric">
             <strong>1:1</strong>
@@ -647,62 +678,89 @@
           <div class="deliver-grid">
             <div class="deliver-card" data-reveal><div class="num">1</div><h3>Study-Fit Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the fixed-scope path is realistic.</p></div>
             <div class="deliver-card" data-reveal><div class="num">2</div><h3>Lean SOW</h3><p>Written inclusions, exclusions, pass-through categories, timeline assumptions, and decision points before signature.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">3</div><h3>Senior execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">3</div><h3>Dedicated execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
             <div class="deliver-card" data-reveal><div class="num">4</div><h3>Visible progress</h3><p>A live workspace shows milestones, blockers, owners, open decisions, and operational status without meeting theater.</p></div>
           </div>
         </div>
       </section>
 
-      <!-- NAMED TEAM -->
-      <section id="senior-team" style="padding-top: 0;">
+      <!-- TEAM & BENCH -->
+      <section id="team" style="padding-top: 0;">
         <div class="wrap">
           <div class="section-head" data-reveal>
             <div>
-              <div class="eyebrow"><span class="dot"></span> The senior operators behind your trial</div>
-              <h2 class="title">Named in the SOW, not <em>on a slide.</em></h2>
+              <div class="eyebrow"><span class="dot"></span> The operators behind your trial</div>
+              <h2 class="title">Experienced people, assembled <em>per protocol.</em></h2>
             </div>
-            <p class="section-copy">The "named in the SOW" promise is only verifiable when you can see who those people are. Below is the senior bench Kindrial draws from.</p>
+            <p class="section-copy">No bloated permanent roster. Kindrial selects the right operators for your study after scope is defined — based on indication, complexity, and timeline.</p>
           </div>
+
+          <div class="team-intro" data-reveal>
+            <div>
+              <h3>How we staff your trial</h3>
+              <p>Kindrial maintains a vetted bench of clinical operators — medical monitors, trial leads, CRAs, biostatisticians, regulatory consultants, and QA specialists — each with 15+ years in early-phase development. The team for your study is selected after scope is defined, based on indication, protocol complexity, geography, and timeline.</p>
+            </div>
+            <div>
+              <h3>Named in the SOW, not on a slide</h3>
+              <p>Your Trial Lead is named in the SOW before signature. You review the CV and approve the assignment as part of contract execution. The right specialists for your protocol — not whoever happens to be on the bench at a large CRO when your trial enters the queue.</p>
+            </div>
+          </div>
+
+          <!-- Alumni bar -->
+          <div class="alumni-bar" data-reveal>
+            <div class="alumni-label">Bench alumni of</div>
+            <div class="alumni-firms">
+              <span>Covance</span>
+              <span>Parexel</span>
+              <span>PRA Health Sciences</span>
+              <span>Icon</span>
+              <span>PPD</span>
+              <span>Medpace</span>
+              <span>Syneos Health</span>
+            </div>
+          </div>
+
           <div class="team-bench">
             <div class="bench-card" data-reveal>
-              <div class="bench-avatar">MR</div>
+              <div class="bench-role-icon">TL</div>
               <div class="bench-role">Trial Lead</div>
-              <h3>M. Reeves</h3>
-              <p>22 years in early-phase execution. Former senior director of clinical operations at Covance and PRA Health Sciences. Deep experience in FIH dose-escalation and CNS development programs.</p>
+              <h3>Senior Director, Clinical Operations</h3>
+              <p>15–25 yrs in early-phase execution. FIH dose-escalation, vendor orchestration, startup, and sponsor escalation across multiple indications. Named in SOW, CV provided before signature.</p>
             </div>
             <div class="bench-card" data-reveal>
-              <div class="bench-avatar">SK</div>
+              <div class="bench-role-icon">MM</div>
               <div class="bench-role">Medical Monitor</div>
-              <h3>S. Kato, MD</h3>
-              <p>Board-certified internist, 18 years in early-phase safety oversight. Previously at Parexel and a mid-size CNS-focused biotech. Experienced with FDA safety reporting and DSMB interface.</p>
+              <h3>Board-Certified Physician, Safety Oversight</h3>
+              <p>Protocol-specific safety review, DSMB interface, adverse event escalation pathways. Background in Phase 1 inpatient and outpatient safety monitoring for healthy-volunteer and patient studies.</p>
             </div>
             <div class="bench-card" data-reveal>
-              <div class="bench-avatar">DF</div>
-              <div class="bench-role">Biostatistics</div>
-              <h3>D. Forde, PhD</h3>
-              <p>15 years in early-phase statistical design, safety summaries, and descriptive outputs. Extensive experience supporting Phase 1 SAPs, interim analyses, and DSMB presentations for emerging biotech.</p>
-            </div>
-            <div class="bench-card" data-reveal>
-              <div class="bench-avatar">AL</div>
-              <div class="bench-role">Regulatory & QA</div>
-              <h3>A. Landau</h3>
-              <p>IND strategy, FDA correspondence, and TMF readiness. Former regulatory lead at a Phase 1 specialist CRO. 20 years focused on pre-Phase 2 regulatory submissions and SOP alignment.</p>
-            </div>
-            <div class="bench-card" data-reveal>
-              <div class="bench-avatar">CW</div>
+              <div class="bench-role-icon">CRA</div>
               <div class="bench-role">Clinical Monitoring</div>
-              <h3>C. Walsh</h3>
-              <p>17 years as a CRA and monitoring lead for Phase 1 healthy-volunteer and early patient studies. Risk-based monitoring design, site activation, and SDV workflows.</p>
+              <h3>Senior CRA / Monitoring Lead</h3>
+              <p>Risk-based monitoring strategy matched to site count, protocol complexity, and data flow. Site activation, SDV, and regulatory inspection readiness.</p>
             </div>
             <div class="bench-card" data-reveal>
-              <div class="bench-avatar">PE</div>
+              <div class="bench-role-icon">BIO</div>
+              <div class="bench-role">Biostatistics</div>
+              <h3>PhD Biostatistician, Early-Phase Focus</h3>
+              <p>SAP development, safety summaries, descriptive outputs, and DSMB support for Phase 1 and early Phase 2a. Right-sized to the study — not a late-phase enterprise team.</p>
+            </div>
+            <div class="bench-card" data-reveal>
+              <div class="bench-role-icon">REG</div>
+              <div class="bench-role">Regulatory & QA</div>
+              <h3>Regulatory Affairs Consultant</h3>
+              <p>IND strategy, FDA correspondence, TMF readiness, and SOP alignment. Engaged for FDA-facing deliverables — not as permanent overhead.</p>
+            </div>
+            <div class="bench-card" data-reveal>
+              <div class="bench-role-icon">EDC</div>
               <div class="bench-role">Data & Systems</div>
-              <h3>P. Eaton</h3>
-              <p>EDC architecture, 21 CFR Part 11 validation, and data flow design for early-phase studies. Experienced with Medidata Rave, Veeva Vault, and right-sized eTMF selection for small biotech.</p>
+              <h3>Clinical Data Manager / Systems Lead</h3>
+              <p>EDC configuration, eTMF, IRT, and safety reporting on 21 CFR Part 11-compliant platforms. Systems selected per protocol complexity — not pre-bundled enterprise licenses.</p>
             </div>
           </div>
+
           <div class="bench-note">
-            Senior consultants are engaged per protocol — selected for indication fit after scope is defined. Named personnel, CVs, and communication cadence are confirmed at proposal finalization. Names above reflect the senior bench; your specific trial assignment is confirmed in the SOW.
+            Consultants are engaged per protocol after scope is defined. Selection is based on indication fit, geography, and timeline — not bench availability. The Trial Lead CV is provided and sponsor-approved before SOW signature.
           </div>
         </div>
       </section>
@@ -713,9 +771,9 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Solutions</div>
-              <h2 class="title">Four practical<br>study types. <em>No more.</em></h2>
+              <h2 class="title">Where the fixed-scope<br>model <em>works.</em></h2>
             </div>
-            <p class="section-copy">Kindrial does not offer a broad service menu. These are the four early-phase study types where the fixed-scope model works and the senior operators are matched.</p>
+            <p class="section-copy">Kindrial focuses on four early-phase study types where the operating model, the team, and the fixed-scope structure are well matched.</p>
           </div>
           <div class="solutions-grid" data-reveal>
             <div class="solution-card">
@@ -748,40 +806,6 @@
             </div>
           </div>
 
-          <!-- WHERE WE ARE STRONGEST -->
-          <div style="margin-top: 56px;" data-reveal>
-            <div class="eyebrow" style="margin-bottom: 20px;"><span class="dot"></span> Where we are strongest</div>
-            <div class="strength-grid">
-              <div class="strength-card">
-                <div class="strength-icon">
-                  <svg viewBox="0 0 24 24"><path d="M9.5 2A6.5 6.5 0 0 1 16 8.5c0 1.8-.73 3.42-1.91 4.59L20 19l-2 2-5.91-5.91A6.5 6.5 0 1 1 9.5 2z"/></svg>
-                </div>
-                <h4>CNS / Neurodegenerative</h4>
-                <p>Cognitive endpoints, biomarker cadence, imaging vendor coordination</p>
-              </div>
-              <div class="strength-card">
-                <div class="strength-icon">
-                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <h4>Vaccines & Immunology</h4>
-                <p>Immunogenicity sampling, cold-chain logistics, safety monitoring</p>
-              </div>
-              <div class="strength-card">
-                <div class="strength-icon">
-                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-                </div>
-                <h4>Healthy-Volunteer Phase 1</h4>
-                <p>FIH, SAD/MAD, standard dose-escalation under clean protocols</p>
-              </div>
-              <div class="strength-card">
-                <div class="strength-icon">
-                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                </div>
-                <h4>Biomarker / Imaging Coordination</h4>
-                <p>Vendor selection, transfer logistics, and data integration for imaging-heavy protocols</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -834,40 +858,6 @@
         </div>
       </section>
 
-      <!-- TEAM MODEL -->
-      <section id="team">
-        <div class="wrap">
-          <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> Team model</div>
-              <h2 class="title">Senior people where they matter. No fake roster.</h2>
-            </div>
-            <p class="section-copy">The model is intentionally flexible. You do not pay for a bloated permanent team. You pay for the right senior operators assigned to your actual protocol.</p>
-          </div>
-
-          <div class="team-intro" data-reveal>
-            <div>
-              <h3>How we staff your trial</h3>
-              <p>Kindrial maintains a vetted bench of senior clinical operators — medical monitors, trial leads, CRAs, biostatisticians, regulatory consultants, and QA specialists — each with 15+ years in early-phase development. The team for your study is selected after scope is defined, based on indication, protocol complexity, geography, and timeline.</p>
-            </div>
-            <div>
-              <h3>Named in the SOW, not on a slide</h3>
-              <p>Your senior Trial Lead is named in the SOW before signature. You review the CV and approve the assignment as part of contract execution. The right specialists for your protocol — not whoever happens to be on the bench at a large CRO when your trial enters the queue.</p>
-            </div>
-          </div>
-
-          <div class="role-grid">
-            <div class="role-card" data-reveal><div class="role-icon">TL</div><h3>Trial Lead</h3><p>Owns day-to-day execution, timeline control, vendor escalation, sponsor decisions, and issue resolution.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">MM</div><h3>Medical Monitor</h3><p>Supports protocol-specific safety oversight, escalation pathways, and medical review expectations.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">CRA</div><h3>Clinical Monitoring</h3><p>Monitoring strategy is matched to site count, risk profile, data flow, and protocol complexity.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">BIO</div><h3>Biostatistics</h3><p>Statistical input is scoped around early-phase needs: safety, descriptive outputs, DSMB support, and clean data review.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">REG</div><h3>Regulatory & QA</h3><p>Regulatory and quality consultants are engaged for FDA-facing documents, vendor qualification, TMF readiness, and SOP alignment.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">EDC</div><h3>Data and Systems</h3><p>EDC, eTMF, IRT, and safety reporting systems are selected per study using validated, 21 CFR Part 11-compliant platforms — sized to the protocol, not pre-bundled.</p></div>
-          </div>
-
-          <div class="notice" data-reveal>Named personnel, CVs, vendor assignments, and communication cadence are confirmed at proposal finalization. Senior consultants are engaged per protocol — selected for indication fit, not pre-packaged as overhead.</div>
-        </div>
-      </section>
 
       <!-- LOCKED LEAD MODEL -->
       <section class="dark" id="model">
@@ -1041,11 +1031,9 @@
       <!-- FAQ -->
       <section id="faq" style="padding-top: 0;">
         <div class="wrap">
-          <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> FAQ</div>
-              <h2 class="title">Questions sponsors usually ask first.</h2>
-            </div>
+          <div style="max-width: 900px; margin: 0 auto 44px;" data-reveal>
+            <div class="eyebrow"><span class="dot"></span> FAQ</div>
+            <h2 class="title">Questions sponsors usually ask first.</h2>
           </div>
           <div class="faq" data-reveal>
             <div class="faq-item open">
