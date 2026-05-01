@@ -714,20 +714,32 @@
         submitStudyFit.textContent = 'Sending...';
 
         const formData = new FormData(studyFitForm);
-        const body = new URLSearchParams(formData);
+        const payload = Object.fromEntries(formData.entries());
+
+        if (window.location.protocol === 'file:') {
+          showFormStatus('This form must be opened from a web server, not as a local file. Please host the page over HTTP/S and try again.', 'error');
+          submitStudyFit.disabled = false;
+          submitStudyFit.textContent = 'Send request';
+          return;
+        }
 
         try {
           const response = await fetch(studyFitForm.action, {
             method: 'POST',
-            body
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
           });
 
-          if (!response.ok) throw new Error('Form submission failed');
+          const data = await response.json();
+          if (!response.ok || !data.success) throw new Error(data.message || 'Form submission failed');
 
           showFormStatus('Thank you. Your Study-Fit request was sent. Kindrial will review the information and follow up.', 'success');
           studyFitForm.reset();
         } catch (error) {
-          showFormStatus('Submission failed. Please email hello@kindrial.com directly.', 'error');
+          showFormStatus(error.message || 'Submission failed. Please email hello@kindrial.com directly.', 'error');
         } finally {
           submitStudyFit.disabled = false;
           submitStudyFit.textContent = 'Send request';
