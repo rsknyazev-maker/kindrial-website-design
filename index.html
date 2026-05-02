@@ -7,17 +7,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kindrial is a senior-led Phase 1 and early Phase 2a CRO for emerging biotech sponsors. Fixed scope, right-sized systems, and practical FDA trial execution." />
+  <meta name="description" content="Kindrial is a dedicated Phase 1 and early Phase 2a CRO for emerging biotech sponsors. Fixed scope, right-sized systems, and practical FDA trial execution." />
   <meta name="keywords" content="Kindrial, CRO, Phase 1 CRO, early Phase 2a, clinical trial execution, biotech CRO, FDA trial" />
   <meta name="author" content="Kindrial, Inc." />
-  <meta property="og:title" content="Kindrial — Senior-led Phase 1 and early Phase 2a CRO" />
-  <meta property="og:description" content="FDA-compliant early-phase trial execution for emerging biotech: senior-led, fixed scope, right-sized systems, and disciplined cost control." />
+  <meta property="og:title" content="Kindrial — Phase 1 and early Phase 2a CRO" />
+  <meta property="og:description" content="FDA-compliant early-phase trial execution for emerging biotech: dedicated oversight, fixed scope, right-sized systems, and disciplined cost control." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.kindrial.com/" />
   <meta property="og:site_name" content="Kindrial" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kindrial — Phase 1 & early Phase 2a CRO" />
-  <meta name="twitter:description" content="Senior-led, fixed-scope early-phase trial execution for emerging biotech companies." />
+  <meta name="twitter:description" content="Dedicated, fixed-scope early-phase trial execution for emerging biotech companies." />
   <title>Kindrial — Phase 1 & early Phase 2a CRO</title>
   <script type="application/ld+json">
   {
@@ -139,12 +139,12 @@
     @keyframes slowSpin { to { transform: rotate(360deg); } }
     .price-card { position: relative; z-index: 2; width: min(500px, 100%); margin-left: auto; padding: 24px; border-radius: 36px; background: var(--ink); color: var(--paper); box-shadow: var(--shadow); overflow: hidden; }
     .price-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(198,242,74,.26), transparent 46%); pointer-events: none; }
-    .price-top { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid rgba(247,246,241,.14); }
+    .price-top { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 12px 20px; align-items: start; padding-bottom: 22px; border-bottom: 1px solid rgba(247,246,241,.14); }
     .price-label { color: rgba(247,246,241,.68); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; }
     .price { position: relative; margin: 12px 0 4px; font-family: var(--serif); font-size: 74px; line-height: .9; letter-spacing: -.05em; }
     .price span { font-size: 28px; color: rgba(247,246,241,.64); }
-    .price-note { position: relative; color: rgba(247,246,241,.78); font-size: 14px; line-height: 1.5; max-width: 410px; }
-    .tag { position: relative; display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 12px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 850; white-space: nowrap; }
+    .price-note { position: relative; grid-column: 1 / -1; color: rgba(247,246,241,.78); font-size: 14px; line-height: 1.5; max-width: none; }
+    .tag { position: relative; display: inline-flex; align-items: center; justify-self: end; border-radius: 999px; padding: 9px 12px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 850; white-space: nowrap; }
     .included { position: relative; display: grid; gap: 10px; margin: 22px 0; }
     .included-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(247,246,241,.1); color: rgba(247,246,241,.85); }
     .included-row strong { color: var(--paper); font-size: 15px; }
@@ -251,19 +251,21 @@
 
     .modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(15,15,15,.62); backdrop-filter: blur(8px); }
     .modal.open { display: flex; }
-    .modal-card { width: min(560px, 100%); max-height: calc(100svh - 40px); overflow-y: auto; background: var(--paper); border-radius: 28px; padding: 24px; box-shadow: var(--shadow); position: relative; }
+    .modal-card { width: min(620px, 100%); max-height: calc(100svh - 40px); overflow-y: auto; background: var(--paper); border-radius: 28px; padding: 30px; box-shadow: var(--shadow); position: relative; }
     .modal-close { position: absolute; right: 16px; top: 16px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,.55); cursor: pointer; }
     .modal-card h2 { font-family: var(--serif); font-size: 42px; line-height: .96; letter-spacing: -.05em; font-weight: 400; margin: 0 42px 10px 0; }
     .modal-card p { color: var(--muted); margin-bottom: 18px; }
-    .form-grid { display: grid; gap: 11px; }
-    .field { display: grid; gap: 6px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+    .field { display: grid; grid-column: 1 / -1; gap: 6px; }
+    .field.compact { grid-column: span 1; }
     .field label { font-size: 11px; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; color: rgba(15,15,15,.58); }
     .field input, .field textarea, .field select { width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 10px 13px; min-height: 46px; background: rgba(255,255,255,.66); color: var(--ink); outline: none; }
     .field textarea { min-height: 92px; resize: vertical; line-height: 1.42; }
-    .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-    .modal-actions .btn { min-height: 48px; padding: 0 18px; border-radius: 16px; box-shadow: 0 10px 22px rgba(15,15,15,.08); }
-    .modal-note { margin-top: 10px; color: rgba(15,15,15,.55); font-size: 12.5px; line-height: 1.45; }
-    .form-status { min-height: 20px; color: var(--forest); font-size: 13px; font-weight: 750; }
+    .modal-actions { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 4px; }
+    .modal-actions .btn { width: 100%; min-height: 48px; padding: 0 18px; border-radius: 16px; box-shadow: 0 10px 22px rgba(15,15,15,.08); text-align: center; }
+    .modal-actions .btn:disabled { cursor: wait; opacity: .64; transform: none; }
+    .modal-note { grid-column: 1 / -1; margin-top: 0; color: rgba(15,15,15,.55); font-size: 12.5px; line-height: 1.45; }
+    .form-status { grid-column: 1 / -1; min-height: 20px; color: var(--forest); font-size: 13px; font-weight: 750; }
     .form-status.error { color: #8f2f1d; }
 
 
@@ -330,20 +332,17 @@
     .proof-item:last-child { border-right: 0; }
     .proof-item strong { display: block; font-size: 21px; line-height: 1.08; letter-spacing: -.035em; margin-bottom: 8px; }
     .proof-item span { display: block; max-width: 220px; color: var(--muted); font-size: 13px; line-height: 1.45; }
-    .solutions-grid, .strength-grid, .brief-grid { display: grid; gap: 14px; }
-    .solutions-grid { grid-template-columns: repeat(4, 1fr); }
-    .strength-grid { grid-template-columns: repeat(4, 1fr); margin-top: 18px; }
+    .solutions-grid, .brief-grid { display: grid; gap: 14px; }
+    .solutions-grid { grid-template-columns: repeat(5, 1fr); }
     .brief-grid { grid-template-columns: repeat(3, 1fr); }
-    .solution-card, .strength-card, .brief-card, .bench-card { border: 1px solid var(--line); border-radius: 28px; padding: 24px; background: rgba(255,255,255,.28); min-height: 210px; }
+    .solution-card, .brief-card, .bench-card { border: 1px solid var(--line); border-radius: 28px; padding: 24px; background: rgba(255,255,255,.28); min-height: 210px; }
     .solution-icon, .bench-avatar { width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; background: var(--forest); color: var(--paper); font-weight: 850; font-size: 12px; letter-spacing: .08em; margin-bottom: 26px; }
-    .solution-card h3, .strength-card h3, .brief-card h3, .bench-card h3 { font-size: 20px; line-height: 1.12; letter-spacing: -.03em; margin-bottom: 10px; }
-    .solution-card p, .strength-card p, .brief-card p, .bench-card p { color: var(--muted); font-size: 14px; margin: 0; }
-    .strength-card { min-height: 150px; background: rgba(23,59,28,.06); }
+    .solution-card h3, .brief-card h3, .bench-card h3 { font-size: 20px; line-height: 1.12; letter-spacing: -.03em; margin-bottom: 10px; }
+    .solution-card p, .brief-card p, .bench-card p { color: var(--muted); font-size: 14px; margin: 0; }
     .brief-card { min-height: 240px; display: flex; flex-direction: column; align-items: flex-start; }
     .brief-card .btn { margin-top: auto; min-height: 44px; padding: 0 16px; font-size: 13px; }
     .bench-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .bench-card { min-height: 190px; }
-    .bench-note { margin-top: 18px; border-radius: 26px; border: 1px solid rgba(23,59,28,.2); padding: 20px 22px; background: rgba(23,59,28,.06); color: rgba(15,15,15,.72); }
     .workspace-tracks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
     .track-pill { border: 1px solid rgba(247,246,241,.13); color: rgba(247,246,241,.78); border-radius: 999px; padding: 9px 12px; font-size: 12px; }
     .timeline-card { border: 1px solid rgba(247,246,241,.12); border-radius: 24px; padding: 18px; background: rgba(247,246,241,.06); }
@@ -365,7 +364,7 @@
       .hero-visual { min-height: auto; }
       .price-card { margin: 20px 0 0; }
       .orbit { width: 430px; height: 430px; right: -120px; top: -40px; opacity: .45; }
-      .deliver-grid, .role-grid, .solutions-grid, .strength-grid, .brief-grid, .bench-grid, .proof-grid { grid-template-columns: 1fr 1fr; }
+      .deliver-grid, .role-grid, .solutions-grid, .brief-grid, .bench-grid, .proof-grid { grid-template-columns: 1fr 1fr; }
       .section-head { display: block; }
       .section-copy { margin-top: 18px; }
     }
@@ -382,14 +381,14 @@
       .hero-actions { align-items: stretch; }
       .btn { width: 100%; }
       .price { font-size: 58px; }
-      .price-top { display: block; }
-      .tag { margin-top: 16px; }
+      .price-top { grid-template-columns: 1fr; }
+      .tag { justify-self: start; margin-top: 8px; }
       .orbit { display: none; }
       .hero-pills { gap: 10px; }
       .pill { width: 100%; justify-content: flex-start; font-size: 12.5px; line-height: 1.35; }
       section { padding: 74px 0; }
       .title { font-size: 44px; }
-      .deliver-grid, .role-grid, .funnel, .solutions-grid, .strength-grid, .brief-grid, .bench-grid, .proof-grid { grid-template-columns: 1fr; }
+      .deliver-grid, .role-grid, .funnel, .solutions-grid, .brief-grid, .bench-grid, .proof-grid { grid-template-columns: 1fr; }
       .proof-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .hero h1 { font-size: 35px; line-height: 1.02; letter-spacing: -.035em; }
       .compare-grid { grid-template-columns: 1fr; }
@@ -420,12 +419,13 @@
       .modal-close { right: 16px; top: 16px; width: 34px; height: 34px; background: rgba(255,255,255,.7); }
       .modal-card h2 { font-size: 32px; line-height: .96; margin: 0 44px 8px 0; }
       .modal-card p { font-size: 13px; line-height: 1.4; margin-bottom: 14px; max-width: 92%; }
-      .form-grid { gap: 10px; }
+      .form-grid { grid-template-columns: 1fr; gap: 10px; }
+      .field.compact { grid-column: 1 / -1; }
       .field { gap: 5px; }
       .field label { font-size: 10.5px; letter-spacing: .08em; }
       .field input, .field textarea, .field select { min-height: 42px; border-radius: 12px; padding: 9px 12px; font-size: 14px; background: rgba(255,255,255,.76); }
       .field textarea { min-height: 78px; }
-      .modal-actions { gap: 9px; margin-top: 10px; }
+      .modal-actions { grid-template-columns: 1fr; gap: 9px; margin-top: 4px; }
       .modal-actions .btn { min-height: 46px; border-radius: 14px; font-size: 14px; box-shadow: none; }
       .modal-note { font-size: 11.5px; line-height: 1.4; margin-top: 8px; }
     }
@@ -440,7 +440,7 @@
           <a href="#offer">Offer</a>
           <a href="#solutions">Solutions</a>
           <a href="#workspace">Workspace</a>
-          <a href="#team">Team</a>
+          <a href="#team-model">Team</a>
           <a href="#briefs">Briefs</a>
           <a href="#faq">FAQ</a>
         </div>
@@ -451,21 +451,21 @@
     <header class="hero" id="top">
       <div class="wrap hero-grid">
         <div class="hero-content" data-reveal>
-          <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Senior-led · Fixed scope</div>
-          <h1>Launch early-phase trials without budget <em>surprises.</em></h1>
-          <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with senior clinical operators, right-sized systems, and disciplined scope control.</p>
+          <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Dedicated lead · Fixed scope</div>
+          <h1>Run early-phase trials without budget <em>surprises.</em></h1>
+          <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with experienced clinical operators, right-sized systems, and disciplined scope control.</p>
           <div class="hero-actions">
             <button class="btn primary" data-open-modal>Request a Study-Fit Brief</button>
-            <a class="btn secondary" href="#offer">See the launch package</a>
+            <a class="btn secondary" href="#offer">See the package</a>
           </div>
           <div class="hero-pills" aria-label="Key claims">
-            <span class="pill">One senior Trial Lead named in the SOW</span>
+            <span class="pill">One dedicated Trial Lead named in the SOW</span>
             <span class="pill">Fixed scope under written assumptions</span>
             <span class="pill">Right-sized vendors and systems</span>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Phase I launch package card">
+        <div class="hero-visual" aria-label="Phase I operating package card">
           <svg class="orbit" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="300" cy="300" r="245" stroke="#173b1c" stroke-opacity=".18" stroke-width="1"/>
             <circle cx="300" cy="300" r="172" stroke="#173b1c" stroke-opacity=".12" stroke-width="1"/>
@@ -478,14 +478,14 @@
           <aside class="price-card" id="offer" data-reveal>
             <div class="price-top">
               <div>
-                <div class="price-label">Early-phase launch package</div>
+                <div class="price-label">Early-phase operating package</div>
                 <div class="price"><span>from</span> $1.95M</div>
-                <div class="price-note">Fixed price for CRO services and core systems under standard assumptions. Site fees, central lab, imaging, investigational product logistics, and software licenses are passed through at cost — itemized in the proposal before signature.</div>
               </div>
               <div class="tag">No unapproved costs</div>
+              <div class="price-note">Fixed price for CRO services and core systems under standard assumptions. Site fees, central lab, imaging, investigational product logistics, and software licenses are passed through at cost — itemized in the proposal before signature.</div>
             </div>
             <div class="included">
-              <div class="included-row"><strong>Trial leadership</strong><span>Senior Trial Lead</span></div>
+              <div class="included-row"><strong>Trial leadership</strong><span>Dedicated Trial Lead</span></div>
               <div class="included-row"><strong>Startup</strong><span>Site, IRB, vendor setup</span></div>
               <div class="included-row"><strong>Operations</strong><span>Monitoring, safety, PM</span></div>
               <div class="included-row"><strong>Systems</strong><span>Validated, right-sized</span></div>
@@ -496,11 +496,11 @@
       </div>
     </header>
 
-    <section class="proof-strip" aria-label="Senior bench proof points">
+    <section class="proof-strip" aria-label="Operating model proof points">
       <div class="wrap proof-grid">
-        <div class="proof-item"><strong>Senior bench track record</strong><span>Metrics to be verified before public launch.</span></div>
-        <div class="proof-item"><strong>IND and early-phase execution</strong><span>Public number to be confirmed from CVs and sponsor records.</span></div>
-        <div class="proof-item"><strong>15+ years</strong><span>Senior operator profiles to be confirmed per CV.</span></div>
+        <div class="proof-item"><strong>Dedicated execution</strong><span>Experienced clinical operators stay close to the study, not just the sales process.</span></div>
+        <div class="proof-item"><strong>IND and early-phase focus</strong><span>Operating support for studies where startup quality, safety flow, and clean data matter early.</span></div>
+        <div class="proof-item"><strong>Right-sized teams</strong><span>Specialists are assigned around protocol needs instead of bundled as unnecessary overhead.</span></div>
         <div class="proof-item"><strong>One Trial Lead</strong><span>Single Trial Lead per study — contractual.</span></div>
       </div>
     </section>
@@ -513,12 +513,12 @@
               <div class="eyebrow"><span class="dot"></span> What Kindrial delivers</div>
               <h2 class="title">Clinical execution without unnecessary CRO overhead.</h2>
             </div>
-            <p class="section-copy">We focus the operating model around what makes an early-phase trial work: scope discipline, credible senior ownership, clean vendor orchestration, and fast sponsor decisions.</p>
+            <p class="section-copy">We focus the operating model around what makes an early-phase trial work: scope discipline, credible lead ownership, clean vendor orchestration, and fast sponsor decisions.</p>
           </div>
           <div class="deliver-grid">
             <div class="deliver-card" data-reveal><div class="num">1</div><h3>Study-Fit Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the fixed-scope path is realistic.</p></div>
             <div class="deliver-card" data-reveal><div class="num">2</div><h3>Lean SOW</h3><p>Written inclusions, exclusions, pass-through categories, timeline assumptions, and decision points before signature.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">3</div><h3>Senior execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">3</div><h3>Dedicated execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
             <div class="deliver-card" data-reveal><div class="num">4</div><h3>Visible progress</h3><p>A live workspace shows milestones, blockers, owners, open decisions, and operational status without meeting theater.</p></div>
           </div>
         </div>
@@ -529,44 +529,18 @@
         <div class="wrap">
           <div class="section-head" data-reveal>
             <div>
-              <div class="eyebrow"><span class="dot"></span> Focused solutions</div>
-              <h2 class="title">Built for early trials that need discipline, not bureaucracy.</h2>
+              <div class="eyebrow"><span class="dot"></span> Where Kindrial fits best</div>
+              <h2 class="title">Broad early-phase support, with deeper strength where trials get <em>complex.</em></h2>
             </div>
-            <p class="section-copy">Kindrial is not a broad global CRO. The offer is intentionally narrow: early-phase studies where senior execution and clean assumptions matter.</p>
+            <p class="section-copy">Kindrial supports a broad range of early-phase biotech programs, with particular strength in CNS, vaccines/immunology, and biomarker-rich studies.</p>
           </div>
           <div class="solutions-grid">
-            <div class="solution-card" data-reveal><div class="solution-icon">HV</div><h3>Single-site healthy-volunteer Phase 1</h3><p>Clean dose-escalation studies under fixed scope.</p></div>
-            <div class="solution-card" data-reveal><div class="solution-icon">1B</div><h3>Focused Phase 1b / early Phase 2a patient studies</h3><p>Small patient cohorts where senior operating discipline matters more than scale.</p></div>
-            <div class="solution-card" data-reveal><div class="solution-icon">CNS</div><h3>CNS / neurodegenerative early trials</h3><p>Protocol-aware execution for cognitive endpoints, biomarker timing, and imaging coordination.</p></div>
-            <div class="solution-card" data-reveal><div class="solution-icon">VX</div><h3>Vaccine early-phase execution</h3><p>Immunogenicity sampling cadence, cold-chain logistics, and safety monitoring done right.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">HV</div><h3>Healthy-volunteer Phase 1</h3><p>Clean early safety, dose-escalation, SAD/MAD, food-effect, PK/PD, and tolerability studies under clear assumptions.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">1B</div><h3>Focused Phase 1b / early Phase 2a patient studies</h3><p>Small patient cohorts where trial leadership, site discipline, and vendor coordination matter more than CRO scale.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">CNS</div><h3>CNS and neurodegenerative programs</h3><p>Alzheimer's, Parkinson's, cognitive, and biomarker-driven studies where protocol timing, imaging, and endpoint discipline are critical.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">IMM</div><h3>Vaccines, immunology, and active immunotherapy</h3><p>Programs requiring immunogenicity sampling, safety follow-up, adjuvant handling, cold-chain logistics, and clean lab coordination.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">IMG</div><h3>Biomarker- and imaging-enabled trials</h3><p>Studies with central labs, PET/MRI, specialty vendors, sample timing, data-transfer dependencies, and sponsor decision points.</p></div>
           </div>
-          <div class="strength-grid" aria-label="Where Kindrial is strongest">
-            <div class="strength-card" data-reveal><h3>CNS / neurodegenerative</h3><p>Early clinical operations for programs with cognitive, biomarker, or imaging complexity.</p></div>
-            <div class="strength-card" data-reveal><h3>Vaccines and immunology</h3><p>Sampling cadence, immune readouts, safety flow, and cold-chain dependencies.</p></div>
-            <div class="strength-card" data-reveal><h3>Single-site HV Phase 1</h3><p>The cleanest fit for the fixed-scope launch package.</p></div>
-            <div class="strength-card" data-reveal><h3>Biomarker / imaging coordination</h3><p>Vendor handoffs, transfer timing, and decision visibility built into the operating rhythm.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="team">
-        <div class="wrap">
-          <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> Senior bench</div>
-              <h2 class="title">The senior operators behind your trial.</h2>
-            </div>
-            <p class="section-copy">No fake roster. Named personnel, CVs, and role assignments are confirmed at proposal finalization and listed in the SOW.</p>
-          </div>
-          <div class="bench-grid">
-            <div class="bench-card" data-reveal><div class="bench-avatar">TL</div><h3>Senior Trial Lead</h3><p>Owns execution rhythm, vendor escalation, sponsor decisions, and issue closure.</p></div>
-            <div class="bench-card" data-reveal><div class="bench-avatar">MM</div><h3>Medical Monitor</h3><p>Supports protocol-specific safety oversight and medical review expectations.</p></div>
-            <div class="bench-card" data-reveal><div class="bench-avatar">BIO</div><h3>Biostatistics</h3><p>Scopes descriptive outputs, DSMB support, and early-phase safety data review.</p></div>
-            <div class="bench-card" data-reveal><div class="bench-avatar">QA</div><h3>Regulatory & QA</h3><p>Supports FDA-facing documents, TMF readiness, vendor qualification, and SOP alignment.</p></div>
-            <div class="bench-card" data-reveal><div class="bench-avatar">CRA</div><h3>Clinical Monitoring</h3><p>Monitoring strategy matched to site count, risk profile, and protocol complexity.</p></div>
-            <div class="bench-card" data-reveal><div class="bench-avatar">EDC</div><h3>Data and Systems</h3><p>Validated systems sized to the protocol, not bundled as unnecessary overhead.</p></div>
-          </div>
-          <div class="bench-note" data-reveal>Real names, headshots, and prior employer credentials should be added only after written permission and CV verification. Until then, role cards are more credible than fake people or stock photos.</div>
         </div>
       </section>
 
@@ -621,19 +595,19 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Team model</div>
-              <h2 class="title">Senior people where they matter. No fake roster.</h2>
+              <h2 class="title">Experienced people where the protocol needs them most.</h2>
             </div>
-            <p class="section-copy">The model is intentionally flexible. You do not pay for a bloated permanent team. You pay for the right senior operators assigned to your actual protocol.</p>
+            <p class="section-copy">The model is intentionally flexible: a focused study team is matched to the indication, operating complexity, vendor dependencies, and timeline.</p>
           </div>
 
           <div class="team-intro" data-reveal>
             <div>
               <h3>How we staff your trial</h3>
-              <p>Kindrial maintains a vetted bench of senior clinical operators — medical monitors, trial leads, CRAs, biostatisticians, regulatory consultants, and QA specialists — each with 15+ years in early-phase development. The team for your study is selected after scope is defined, based on indication, protocol complexity, geography, and timeline.</p>
+              <p>Kindrial maintains a vetted bench of experienced clinical operators — medical monitors, trial leads, CRAs, biostatisticians, regulatory consultants, and QA specialists — each with deep early-phase development experience. The team for your study is selected after scope is defined, based on indication, protocol complexity, geography, and timeline.</p>
             </div>
             <div>
               <h3>Named in the SOW, not on a slide</h3>
-              <p>Your senior Trial Lead is named in the SOW before signature. You review the CV and approve the assignment as part of contract execution. The right specialists for your protocol — not whoever happens to be on the bench at a large CRO when your trial enters the queue.</p>
+              <p>Your Trial Lead is named in the SOW before signature. You review the CV and approve the assignment as part of contract execution, with specialists selected for protocol fit rather than availability alone.</p>
             </div>
           </div>
 
@@ -646,7 +620,7 @@
             <div class="role-card" data-reveal><div class="role-icon">EDC</div><h3>Data and Systems</h3><p>EDC, eTMF, IRT, and safety reporting systems are selected per study using validated, 21 CFR Part 11-compliant platforms — sized to the protocol, not pre-bundled.</p></div>
           </div>
 
-          <div class="notice" data-reveal>Named personnel, CVs, vendor assignments, and communication cadence are confirmed at proposal finalization. Senior consultants are engaged per protocol — selected for indication fit, not pre-packaged as overhead.</div>
+          <div class="notice" data-reveal>Named personnel, CVs, vendor assignments, and communication cadence are confirmed at proposal finalization. Consultants are engaged per protocol — selected for indication fit, not pre-packaged as overhead.</div>
         </div>
       </section>
 
@@ -657,17 +631,17 @@
               <div class="eyebrow"><span class="dot"></span> Locked Lead model</div>
               <h2 class="title">Most CROs share your lead<br>across <em>twelve trials.</em></h2>
             </div>
-            <p class="section-copy">Kindrial’s commercial model is built around senior attention as the core deliverable, not a decorative layer added during sales.</p>
+            <p class="section-copy">Kindrial’s commercial model is built around direct attention as the core deliverable, not a decorative layer added during sales.</p>
           </div>
 
           <div class="model-grid">
             <div class="breach-box">
               <strong>Why the model holds</strong>
-              <p>Large CROs price senior time as a shared resource — utilization across many accounts is how the margin works. A dedicated senior lead per trial is structurally incompatible with that model. Kindrial is built around it from the start.</p>
-              <div class="lead-diagram" aria-label="One senior lead model comparison">
+              <p>Large CROs price lead time as a shared resource — utilization across many accounts is how the margin works. A dedicated lead per trial is structurally incompatible with that model. Kindrial is built around it from the start.</p>
+              <div class="lead-diagram" aria-label="One lead model comparison">
                 <svg viewBox="0 0 680 280" role="img" aria-labelledby="leadTitle leadDesc" xmlns="http://www.w3.org/2000/svg">
                   <title id="leadTitle">Kindrial one-lead-one-trial model compared with shared portfolio model</title>
-                  <desc id="leadDesc">Left side shows one senior lead connected to one trial. Right side shows one senior lead split across many trials.</desc>
+                  <desc id="leadDesc">Left side shows one lead connected to one trial. Right side shows one lead split across many trials.</desc>
                   <rect x="20" y="22" width="290" height="236" rx="26" fill="rgba(247,246,241,.06)" stroke="rgba(247,246,241,.18)"/>
                   <rect x="370" y="22" width="290" height="236" rx="26" fill="rgba(247,246,241,.04)" stroke="rgba(247,246,241,.14)"/>
                   <text x="46" y="62" fill="#f7f6f1" font-size="18" font-weight="700">Kindrial</text>
@@ -677,7 +651,7 @@
                   <circle cx="235" cy="142" r="34" fill="rgba(247,246,241,.88)"/>
                   <text x="235" y="148" text-anchor="middle" fill="#0f0f0f" font-size="14" font-weight="800">Trial</text>
                   <path d="M132 142 C158 142 174 142 201 142" stroke="#c6f24a" stroke-width="6" stroke-linecap="round"/>
-                  <text x="48" y="218" fill="rgba(247,246,241,.72)" font-size="13">One senior lead accountable to one study.</text>
+                  <text x="48" y="218" fill="rgba(247,246,241,.72)" font-size="13">One dedicated lead accountable to one study.</text>
                   <circle cx="444" cy="142" r="30" fill="rgba(247,246,241,.72)"/>
                   <text x="444" y="147" text-anchor="middle" fill="#0f0f0f" font-size="13" font-weight="800">Lead</text>
                   <g stroke="#F0997B" stroke-width="2" stroke-linecap="round" opacity=".85">
@@ -686,14 +660,14 @@
                   <g fill="rgba(247,246,241,.68)">
                     <circle cx="560" cy="76" r="13"/><circle cx="588" cy="102" r="13"/><circle cx="600" cy="134" r="13"/><circle cx="594" cy="170" r="13"/><circle cx="568" cy="206" r="13"/>
                   </g>
-                  <text x="396" y="218" fill="rgba(247,246,241,.72)" font-size="13">Senior attention diluted across many studies.</text>
+                  <text x="396" y="218" fill="rgba(247,246,241,.72)" font-size="13">Direct attention diluted across many studies.</text>
                 </svg>
               </div>
             </div>
             <div class="attent-problem">
               <p class="big">The common failure is not capability. It is attention.</p>
-              <p>It is rarely fraud. It is attention. Senior people rotate. Junior people fill the gaps. You were sold an "A team" at bid; you have a "C team" by Month 4. This is a known and well-documented pattern in early-phase outsourcing.</p>
-              <p>Kindrial makes the senior Trial Lead a contractual operating assumption: named before signature, visible to the sponsor, and accountable for escalation.</p>
+              <p>It is rarely fraud. It is attention. Lead operators rotate. Junior people fill the gaps. You were sold an "A team" at bid; you have a "C team" by Month 4. This is a known and well-documented pattern in early-phase outsourcing.</p>
+              <p>Kindrial makes the Trial Lead a contractual operating assumption: named before signature, visible to the sponsor, and accountable for escalation.</p>
             </div>
           </div>
         </div>
@@ -710,9 +684,9 @@
           </div>
           <div class="compare-grid" data-reveal>
             <div class="compare-head">Decision point</div><div class="compare-head">Typical large-CRO model</div><div class="compare-head kindrial">Kindrial</div>
-            <div class="compare-cell label">Senior lead</div><div class="compare-cell">Lead carries a portfolio of trials. Reassignment is common and rarely contractual.</div><div class="compare-cell kindrial">One lead, one trial, dedicated by contract. Breach triggers a 15% credit and termination right.</div>
+            <div class="compare-cell label">Trial lead</div><div class="compare-cell">Lead carries a portfolio of trials. Reassignment is common and rarely contractual.</div><div class="compare-cell kindrial">One lead, one trial, dedicated by contract. Breach triggers a 15% credit and termination right.</div>
             <div class="compare-cell label">Budget</div><div class="compare-cell">Assumptions buried in proposals. Change orders surface mid-study.</div><div class="compare-cell kindrial">Fixed scope under written assumptions. Exclusions stated before signature.</div>
-            <div class="compare-cell label">Team</div><div class="compare-cell">Large account team with variable senior attention.</div><div class="compare-cell kindrial">Small senior operating team assembled for the specific protocol.</div>
+            <div class="compare-cell label">Team</div><div class="compare-cell">Large account team with variable lead attention.</div><div class="compare-cell kindrial">Small experienced operating team assembled for the specific protocol.</div>
             <div class="compare-cell label">Systems</div><div class="compare-cell">Enterprise platforms applied uniformly regardless of study size.</div><div class="compare-cell kindrial">Right-sized validated systems matched to protocol complexity.</div>
             <div class="compare-cell label">Visibility</div><div class="compare-cell">Status learned via meetings, decks, and email chasing.</div><div class="compare-cell kindrial">Live workspace shows milestones, blockers, owners, and decision status.</div>
           </div>
@@ -782,7 +756,7 @@
             </div>
             <div class="faq-item">
               <button class="faq-q" type="button"><span>Why not use a traditional large CRO?</span><span>+</span></button>
-              <div class="faq-a"><p>Sometimes you should. Large infrastructure can be appropriate for large or global trials. Kindrial is built for sponsors who need senior-led early-phase execution without paying for unnecessary structure.</p></div>
+              <div class="faq-a"><p>Sometimes you should. Large infrastructure can be appropriate for broad, high-complexity trials. Kindrial is built for sponsors who need dedicated early-phase execution without paying for unnecessary structure.</p></div>
             </div>
           </div>
         </div>
@@ -824,13 +798,13 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="#top" class="brand"><span class="mark"></span><span>Kindrial</span></a>
-            <p>Senior-led Phase 1 and early Phase 2a CRO services for emerging biotech sponsors that need credible execution, cost discipline, and clear operating visibility.</p>
+            <p>Phase 1 and early Phase 2a CRO services for emerging biotech sponsors that need credible execution, cost discipline, and clear operating visibility.</p>
           </div>
           <div class="footer-links">
             <a href="#offer">Offer</a>
             <a href="#solutions">Solutions</a>
             <a href="#workspace">Workspace</a>
-            <a href="#team">Team</a>
+            <a href="#team-model">Team</a>
             <a href="#briefs">Briefs</a>
             <a href="#faq">FAQ</a>
             <a href="#privacy">Privacy Policy</a>
@@ -867,8 +841,8 @@
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://www.kindrial.com/">
         <input type="text" name="_honey" autocomplete="off" tabindex="-1" style="display:none">
-        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field compact"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field compact"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="stage">Study stage</label><select id="stage" name="stage"><option>Phase 1</option><option>Early Phase 2a</option><option>Not sure</option></select></div>
         <div class="field"><label for="summary">Short synopsis</label><textarea id="summary" name="summary" placeholder="Indication, participant type, approximate N, site count, dose schedule, key procedures."></textarea></div>
         <div class="modal-actions">
