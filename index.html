@@ -123,7 +123,7 @@
     .dot { width: 9px; height: 9px; border-radius: 999px; background: var(--forest); box-shadow: 0 0 0 5px rgba(23,59,28,.11); }
     h1, h2, h3, p { margin-top: 0; }
     .hero h1 { margin: 22px 0 22px; font-family: var(--serif); font-size: clamp(58px, 7.3vw, 106px); line-height: .88; letter-spacing: -.055em; font-weight: 400; max-width: 800px; }
-    .hero h1 em, .title em { font-style: italic; color: var(--forest); }
+    h1 em, h2 em, h3 em { font-style: italic; color: var(--forest); }
     .hero-copy { max-width: 680px; color: rgba(15,15,15,.72); font-size: 20px; line-height: 1.55; letter-spacing: -.015em; }
     .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 34px 0 26px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 23px; border-radius: 999px; border: 1px solid rgba(15,15,15,.14); font-weight: 780; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
@@ -159,7 +159,7 @@
     .dark { background: var(--ink); color: var(--paper); }
     .dark .section-copy, .dark .eyebrow { color: var(--dark-muted); }
     .dark .dot { background: var(--lime); box-shadow: 0 0 0 5px rgba(198,242,74,.15); }
-    .dark .title em { color: var(--lime); }
+    .dark h1 em, .dark h2 em, .dark h3 em { color: var(--lime); }
 
     .deliver-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .deliver-card { border: 1px solid var(--line); border-radius: 28px; padding: 24px; background: rgba(255,255,255,.28); min-height: 230px; transition: transform .2s ease, box-shadow .2s ease; }
@@ -511,15 +511,15 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> What Kindrial delivers</div>
-              <h2 class="title">Clinical execution without unnecessary CRO overhead.</h2>
+              <h2 class="title">Clinical <em>execution</em> without unnecessary CRO overhead.</h2>
             </div>
             <p class="section-copy">We focus the operating model around what makes an early-phase trial work: scope discipline, credible lead ownership, clean vendor orchestration, and fast sponsor decisions.</p>
           </div>
           <div class="deliver-grid">
-            <div class="deliver-card" data-reveal><div class="num">1</div><h3>Study-Fit Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the fixed-scope path is realistic.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">2</div><h3>Lean SOW</h3><p>Written inclusions, exclusions, pass-through categories, timeline assumptions, and decision points before signature.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">3</div><h3>Dedicated execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">4</div><h3>Visible progress</h3><p>A live workspace shows milestones, blockers, owners, open decisions, and operational status without meeting theater.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">1</div><h3><em>Study-Fit</em> Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the fixed-scope path is realistic.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">2</div><h3><em>Lean</em> SOW</h3><p>Written inclusions, exclusions, pass-through categories, timeline assumptions, and decision points before signature.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">3</div><h3><em>Dedicated</em> execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
+            <div class="deliver-card" data-reveal><div class="num">4</div><h3>Visible <em>progress</em></h3><p>A live workspace shows milestones, blockers, owners, open decisions, and operational status without meeting theater.</p></div>
           </div>
         </div>
       </section>
@@ -535,11 +535,11 @@
             <p class="section-copy">Kindrial supports a broad range of early-phase biotech programs, with particular strength in CNS, vaccines/immunology, and biomarker-rich studies.</p>
           </div>
           <div class="solutions-grid">
-            <div class="solution-card" data-reveal><div class="solution-icon">HV</div><h3>Healthy-volunteer Phase 1</h3><p>Clean early safety, dose-escalation, SAD/MAD, food-effect, PK/PD, and tolerability studies under clear assumptions.</p></div>
-            <div class="solution-card" data-reveal><div class="solution-icon">1B</div><h3>Focused Phase 1b / early Phase 2a patient studies</h3><p>Small patient cohorts where trial leadership, site discipline, and vendor coordination matter more than CRO scale.</p></div>
-            <div class="solution-card" data-reveal><div class="solution-icon">CNS</div><h3>CNS and neurodegenerative programs</h3><p>Alzheimer's, Parkinson's, cognitive, and biomarker-driven studies where protocol timing, imaging, and endpoint discipline are critical.</p></div>
-            <div class="solution-card" data-reveal><div class="solution-icon">IMM</div><h3>Vaccines, immunology, and active immunotherapy</h3><p>Programs requiring immunogenicity sampling, safety follow-up, adjuvant handling, cold-chain logistics, and clean lab coordination.</p></div>
-            <div class="solution-card" data-reveal><div class="solution-icon">IMG</div><h3>Biomarker- and imaging-enabled trials</h3><p>Studies with central labs, PET/MRI, specialty vendors, sample timing, data-transfer dependencies, and sponsor decision points.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">HV</div><h3><em>Healthy-volunteer</em> Phase 1</h3><p>Clean early safety, dose-escalation, SAD/MAD, food-effect, PK/PD, and tolerability studies under clear assumptions.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">1B</div><h3><em>Focused</em> Phase 1b / early Phase 2a patient studies</h3><p>Small patient cohorts where trial leadership, site discipline, and vendor coordination matter more than CRO scale.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">CNS</div><h3><em>CNS</em> and neurodegenerative programs</h3><p>Alzheimer's, Parkinson's, cognitive, and biomarker-driven studies where protocol timing, imaging, and endpoint discipline are critical.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">IMM</div><h3><em>Vaccines</em>, immunology, and active immunotherapy</h3><p>Programs requiring immunogenicity sampling, safety follow-up, adjuvant handling, cold-chain logistics, and clean lab coordination.</p></div>
+            <div class="solution-card" data-reveal><div class="solution-icon">IMG</div><h3><em>Biomarker-</em> and imaging-enabled trials</h3><p>Studies with central labs, PET/MRI, specialty vendors, sample timing, data-transfer dependencies, and sponsor decision points.</p></div>
           </div>
         </div>
       </section>
@@ -548,7 +548,7 @@
         <div class="wrap workspace-wrap">
           <div class="workspace-list" data-reveal>
             <div class="eyebrow"><span class="dot"></span> Sponsor Workspace</div>
-            <h2 class="title">Your trial status should not live in email chains.</h2>
+            <h2 class="title">Your trial <em>status</em> should not live in email chains.</h2>
             <p>The workspace is not sold as a gimmick. It is an operating layer for small sponsors who need visibility without building a large internal clinical operations team.</p>
             <div class="check">Milestones, blockers, owners, and due dates are visible in one place.</div>
             <div class="check">Open sponsor decisions are separated from CRO and vendor tasks.</div>
@@ -595,29 +595,29 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Team model</div>
-              <h2 class="title">Experienced people where the protocol needs them most.</h2>
+              <h2 class="title"><em>Experienced</em> people where the protocol needs them most.</h2>
             </div>
             <p class="section-copy">The model is intentionally flexible: a focused study team is matched to the indication, operating complexity, vendor dependencies, and timeline.</p>
           </div>
 
           <div class="team-intro" data-reveal>
             <div>
-              <h3>How we staff your trial</h3>
+              <h3>How we <em>staff</em> your trial</h3>
               <p>Kindrial maintains a vetted bench of experienced clinical operators — medical monitors, trial leads, CRAs, biostatisticians, regulatory consultants, and QA specialists — each with deep early-phase development experience. The team for your study is selected after scope is defined, based on indication, protocol complexity, geography, and timeline.</p>
             </div>
             <div>
-              <h3>Named in the SOW, not on a slide</h3>
+              <h3>Named in the <em>SOW</em>, not on a slide</h3>
               <p>Your Trial Lead is named in the SOW before signature. You review the CV and approve the assignment as part of contract execution, with specialists selected for protocol fit rather than availability alone.</p>
             </div>
           </div>
 
           <div class="role-grid">
-            <div class="role-card" data-reveal><div class="role-icon">TL</div><h3>Trial Lead</h3><p>Owns day-to-day execution, timeline control, vendor escalation, sponsor decisions, and issue resolution.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">MM</div><h3>Medical Monitor</h3><p>Supports protocol-specific safety oversight, escalation pathways, and medical review expectations.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">CRA</div><h3>Clinical Monitoring</h3><p>Monitoring strategy is matched to site count, risk profile, data flow, and protocol complexity.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">BIO</div><h3>Biostatistics</h3><p>Statistical input is scoped around early-phase needs: safety, descriptive outputs, DSMB support, and clean data review.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">REG</div><h3>Regulatory & QA</h3><p>Regulatory and quality consultants are engaged for FDA-facing documents, vendor qualification, TMF readiness, and SOP alignment.</p></div>
-            <div class="role-card" data-reveal><div class="role-icon">EDC</div><h3>Data and Systems</h3><p>EDC, eTMF, IRT, and safety reporting systems are selected per study using validated, 21 CFR Part 11-compliant platforms — sized to the protocol, not pre-bundled.</p></div>
+            <div class="role-card" data-reveal><div class="role-icon">TL</div><h3>Trial <em>Lead</em></h3><p>Owns day-to-day execution, timeline control, vendor escalation, sponsor decisions, and issue resolution.</p></div>
+            <div class="role-card" data-reveal><div class="role-icon">MM</div><h3><em>Medical</em> Monitor</h3><p>Supports protocol-specific safety oversight, escalation pathways, and medical review expectations.</p></div>
+            <div class="role-card" data-reveal><div class="role-icon">CRA</div><h3><em>Clinical</em> Monitoring</h3><p>Monitoring strategy is matched to site count, risk profile, data flow, and protocol complexity.</p></div>
+            <div class="role-card" data-reveal><div class="role-icon">BIO</div><h3><em>Biostatistics</em></h3><p>Statistical input is scoped around early-phase needs: safety, descriptive outputs, DSMB support, and clean data review.</p></div>
+            <div class="role-card" data-reveal><div class="role-icon">REG</div><h3><em>Regulatory</em> & QA</h3><p>Regulatory and quality consultants are engaged for FDA-facing documents, vendor qualification, TMF readiness, and SOP alignment.</p></div>
+            <div class="role-card" data-reveal><div class="role-icon">EDC</div><h3><em>Data</em> and Systems</h3><p>EDC, eTMF, IRT, and safety reporting systems are selected per study using validated, 21 CFR Part 11-compliant platforms — sized to the protocol, not pre-bundled.</p></div>
           </div>
 
           <div class="notice" data-reveal>Named personnel, CVs, vendor assignments, and communication cadence are confirmed at proposal finalization. Consultants are engaged per protocol — selected for indication fit, not pre-packaged as overhead.</div>
@@ -678,7 +678,7 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Operating comparison</div>
-              <h2 class="title">Built for the sponsor who cannot afford drift.</h2>
+              <h2 class="title">Built for the <em>sponsor</em> who cannot afford drift.</h2>
             </div>
             <p class="section-copy">Small biotech sponsors do not need more theater. They need a clear operating model, scope discipline, and direct visibility into what is blocking the trial.</p>
           </div>
@@ -698,13 +698,13 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Study fit</div>
-              <h2 class="title">Not every protocol should be forced into a package.</h2>
+              <h2 class="title">Not every <em>protocol</em> should be forced into a package.</h2>
             </div>
             <p class="section-copy">The first commercial obligation is honesty. If your study needs a larger structure, more sites, specialized vendors, or deeper data infrastructure, we tell you before the SOW.</p>
           </div>
           <div class="fit-grid">
             <div class="fit-card" data-reveal>
-              <h3>Good fit</h3>
+              <h3><em>Good</em> fit</h3>
               <div class="fit-list">
                 <div class="fit-row">Single-site or focused early-phase studies.</div>
                 <div class="fit-row">Approximately 20 participants under a clean protocol.</div>
@@ -713,7 +713,7 @@
               </div>
             </div>
             <div class="fit-card no" data-reveal>
-              <h3>Needs separate scoping</h3>
+              <h3><em>Needs</em> separate scoping</h3>
               <div class="fit-list">
                 <div class="fit-row">Complex multi-site patient trials with heavy recruitment burden.</div>
                 <div class="fit-row">Multiple advanced imaging timepoints or specialized central reads.</div>
@@ -730,7 +730,7 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> FAQ</div>
-              <h2 class="title">Questions sponsors usually ask first.</h2>
+              <h2 class="title"><em>Questions</em> sponsors usually ask first.</h2>
             </div>
           </div>
           <div class="faq" data-reveal>
@@ -768,14 +768,14 @@
           <div class="section-head" data-reveal>
             <div>
               <div class="eyebrow"><span class="dot"></span> Practical briefs</div>
-              <h2 class="title">Practical briefs for early-phase sponsors.</h2>
+              <h2 class="title">Practical <em>briefs</em> for early-phase sponsors.</h2>
             </div>
             <p class="section-copy">Short operating guides for sponsors who are not ready for a full Study-Fit Brief yet.</p>
           </div>
           <div class="brief-grid">
-            <div class="brief-card" data-reveal><h3>Phase 1 Budget Assumptions Checklist</h3><p>Key assumptions that decide whether a fixed-scope Phase 1 package is realistic.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
-            <div class="brief-card" data-reveal><h3>What a Fixed-Scope Phase 1 Package Can and Cannot Include</h3><p>A plain-English boundary between CRO services, core systems, and pass-through costs.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
-            <div class="brief-card" data-reveal><h3>Early CNS / Vaccine Trial Startup Checklist</h3><p>Startup dependencies for biomarkers, imaging, immunogenicity sampling, and safety flow.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
+            <div class="brief-card" data-reveal><h3>Phase 1 <em>Budget Assumptions</em> Checklist</h3><p>Key assumptions that decide whether a fixed-scope Phase 1 package is realistic.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
+            <div class="brief-card" data-reveal><h3>What a <em>Fixed-Scope</em> Phase 1 Package Can and Cannot Include</h3><p>A plain-English boundary between CRO services, core systems, and pass-through costs.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
+            <div class="brief-card" data-reveal><h3>Early <em>CNS / Vaccine</em> Trial Startup Checklist</h3><p>Startup dependencies for biomarkers, imaging, immunogenicity sampling, and safety flow.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
           </div>
         </div>
       </section>
@@ -784,7 +784,7 @@
         <div class="wrap">
           <div class="cta-panel" data-reveal>
             <div>
-              <h2>Find out if your study fits.</h2>
+              <h2>Find out if your <em>study</em> fits.</h2>
               <p>Send a short synopsis. Kindrial will identify the likely operating path, budget assumptions, major exclusions, and the first decisions needed to move toward an FDA-compliant trial.</p>
             </div>
             <button class="btn" data-open-modal>Get Study-Fit Brief</button>
@@ -814,11 +814,11 @@
         </div>
         <div class="legal-strip" aria-label="Privacy and cookie information">
           <div class="legal-note" id="privacy">
-            <h3>Privacy Policy</h3>
+            <h3><em>Privacy</em> Policy</h3>
             <p>Kindrial collects information you submit through this website, including name, email, study stage, and high-level study information. We use it to respond to inquiries, evaluate study fit, prepare Study-Fit Briefs, manage CDA requests, and communicate about possible engagements. Do not submit confidential, patient-identifiable, or proprietary study documents through the form before a CDA and an agreed secure process. Kindrial does not sell personal information.</p>
           </div>
           <div class="legal-note" id="cookies">
-            <h3>Cookie Notice</h3>
+            <h3><em>Cookie</em> Notice</h3>
             <p>This website uses essential cookies or local storage for basic site functions, including remembering that this notice was dismissed. If limited analytics are enabled, they are used only to understand aggregate site performance. Kindrial does not sell personal information or use this site to run behavioral advertising.</p>
           </div>
         </div>
@@ -833,7 +833,7 @@
   <div class="modal" id="studyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-card">
       <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
-      <h2 id="modalTitle">Request a Study-Fit Brief</h2>
+      <h2 id="modalTitle">Request a <em>Study-Fit</em> Brief</h2>
       <p>Share high-level study details. For confidential materials, request a CDA first.</p>
       <form class="form-grid" id="studyForm" action="https://formsubmit.co/hello@kindrial.com" method="POST">
         <input type="hidden" name="_subject" value="New Kindrial Study-Fit Brief request">
