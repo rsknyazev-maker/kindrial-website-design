@@ -434,6 +434,47 @@
     .lead-diagram { margin-top: 24px; border: 1px solid rgba(247,246,241,.16); border-radius: var(--radius); padding: 18px; background: rgba(247,246,241,.05); }
     .lead-diagram svg { width: 100%; height: auto; display: block; }
 
+    /* Study-type capability chips */
+    .study-types { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
+    .study-types-lead { font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: rgba(15,15,15,.6); margin: 0 0 14px; }
+    .chip-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip-row li { border: 1px solid var(--line); border-radius: 999px; padding: 9px 15px; font-size: 13px; color: var(--muted); background: rgba(255,255,255,.4); transition: border-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out); }
+    @media (hover: hover) and (pointer: fine) {
+      .chip-row li:hover { border-color: var(--emph); color: var(--ink); transform: translateY(-1px); }
+    }
+
+    /* Failure-scenario carousel ("turning pages") */
+    .carousel { position: relative; border: 1px solid var(--dark-line); border-radius: var(--radius-lg); background: rgba(247,246,241,.04); overflow: hidden; }
+    .carousel:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ink), 0 0 0 4px var(--lime); }
+    .carousel-viewport { overflow: hidden; }
+    .carousel-track { display: block; }
+    .js .carousel-track { display: flex; will-change: transform; transition: transform 600ms var(--ease-spring); }
+    .slide { flex: 0 0 100%; min-width: 100%; padding: 48px; display: grid; grid-template-columns: 1.08fr .92fr; gap: 40px; align-items: center; }
+    .js .carousel-track > .slide + .slide { border-top: 0; }
+    .carousel-track > .slide + .slide { border-top: 1px solid var(--dark-line); }
+    .slide-index { font-family: var(--serif); font-size: 20px; letter-spacing: .12em; color: rgba(247,246,241,.46); margin-bottom: 18px; }
+    .slide-fear { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3vw, 44px); line-height: 1.04; letter-spacing: -.02em; color: var(--paper); margin: 0; max-width: 18ch; }
+    .answer-tag { display: inline-flex; align-items: center; border-radius: 999px; padding: 7px 14px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 800; letter-spacing: .03em; margin-bottom: 16px; }
+    .slide-answer p { color: var(--dark-muted); font-size: 17px; line-height: 1.55; margin: 0; max-width: 48ch; }
+    .carousel-foot { display: none; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 48px 22px; border-top: 1px solid var(--dark-line); }
+    .js .carousel-foot { display: flex; }
+    .carousel-tabs { display: flex; gap: 8px; }
+    .c-tab { min-width: 44px; height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--dark-line); background: transparent; color: rgba(247,246,241,.6); font-weight: 800; font-size: 12px; cursor: pointer; font-variant-numeric: tabular-nums; transition: color 180ms var(--ease-out), background 180ms var(--ease-out), border-color 180ms var(--ease-out); }
+    @media (hover: hover) and (pointer: fine) {
+      .c-tab:hover { color: var(--paper); border-color: rgba(247,246,241,.42); }
+    }
+    .c-tab.is-active { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+    .c-tab:focus-visible, .c-prev:focus-visible, .c-next:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+    .carousel-arrows { display: flex; gap: 8px; }
+    .c-prev, .c-next { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--dark-line); background: transparent; color: var(--paper); cursor: pointer; font-size: 17px; line-height: 1; transition: background 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 160ms var(--ease-out); }
+    @media (hover: hover) and (pointer: fine) {
+      .c-prev:hover, .c-next:hover { background: rgba(247,246,241,.08); border-color: rgba(247,246,241,.42); }
+    }
+    .c-prev:active, .c-next:active { transform: scale(0.92); }
+    .carousel-progress { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: rgba(247,246,241,.1); display: none; }
+    .js .carousel-progress { display: block; }
+    .carousel-progress span { display: block; height: 100%; width: 0; background: var(--lime); }
+
     /* ---- Scroll progress ---- */
     .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; transform: scaleX(0); transform-origin: 0 50%; background: var(--lime); z-index: var(--z-modal); will-change: transform; }
 
@@ -493,6 +534,8 @@
       .nav-links { display: none; }
       .hero { padding-top: 124px; }
       .hero-grid, .workspace-wrap, .model-grid, .team-intro, .cta-panel { grid-template-columns: 1fr; }
+      .slide { grid-template-columns: 1fr; gap: 22px; padding: 38px 36px; }
+      .slide-fear { max-width: none; }
       .hero-visual { min-height: auto; }
       .price-card { margin: 20px 0 0; }
       .orbit { width: 430px; height: 430px; right: -120px; top: -40px; opacity: .45; }
@@ -525,6 +568,9 @@
       .deliver-grid, .role-grid, .funnel, .solutions-grid, .brief-grid, .bench-grid, .proof-grid { grid-template-columns: 1fr; }
       .proof-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .cta-panel { padding: 36px 26px; }
+      .slide { padding: 30px 22px; }
+      .carousel-foot { padding: 16px 22px 20px; flex-wrap: wrap; }
+      .c-tab { min-width: 40px; height: 36px; }
       .footer-grid { display: block; }
       .footer-links { margin-top: 26px; }
       .legal-strip { grid-template-columns: 1fr; gap: 16px; }
@@ -643,6 +689,76 @@
     </section>
 
     <main>
+      <section class="dark" id="scenarios">
+        <div class="wrap">
+          <div class="section-head" data-reveal>
+            <h2 class="title">Where early-phase execution <em>breaks.</em></h2>
+            <p class="section-copy">Four failure modes sponsors know too well — and the structural reason each one doesn't happen here.</p>
+          </div>
+
+          <div class="carousel" data-reveal aria-roledescription="carousel" aria-label="Common failure modes and Kindrial's structural answer" tabindex="0">
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <article class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                  <div class="slide-left">
+                    <div class="slide-index">01</div>
+                    <p class="slide-fear">“The A-team we were sold is gone by Month&nbsp;4.”</p>
+                  </div>
+                  <div class="slide-answer">
+                    <span class="answer-tag">Locked Lead</span>
+                    <p>Your Trial Lead is named in the SOW before signature and visible to you throughout — backed by a fee credit and a termination right if they're pulled. Swapping the lead isn't a quiet option; it's a contractual breach.</p>
+                  </div>
+                </article>
+                <article class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true">
+                  <div class="slide-left">
+                    <div class="slide-index">02</div>
+                    <p class="slide-fear">“The budget kept creeping after we signed.”</p>
+                  </div>
+                  <div class="slide-answer">
+                    <span class="answer-tag">Fixed scope</span>
+                    <p>Fixed price for CRO services and core systems under written assumptions. Pass-through categories are itemized before signature, so you see the real budget — not a string of change orders later.</p>
+                  </div>
+                </article>
+                <article class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true">
+                  <div class="slide-left">
+                    <div class="slide-index">03</div>
+                    <p class="slide-fear">“Our trial status lived in email chains.”</p>
+                  </div>
+                  <div class="slide-answer">
+                    <span class="answer-tag">Sponsor Workspace</span>
+                    <p>Milestones, blockers, owners, and open decisions sit in one live view. Weekly calls become decision meetings instead of status archaeology — no internal clinical-ops team required.</p>
+                  </div>
+                </article>
+                <article class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true">
+                  <div class="slide-left">
+                    <div class="slide-index">04</div>
+                    <p class="slide-fear">“We paid for overhead the protocol never needed.”</p>
+                  </div>
+                  <div class="slide-answer">
+                    <span class="answer-tag">Right-sized</span>
+                    <p>Vendors and specialists are qualified and matched to the protocol, then orchestrated by one accountable lead — not pre-bundled as standing overhead you carry whether the study uses it or not.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="carousel-foot">
+              <div class="carousel-tabs" role="tablist" aria-label="Choose a failure mode">
+                <button class="c-tab is-active" type="button" role="tab" aria-selected="true" data-i="0">01</button>
+                <button class="c-tab" type="button" role="tab" aria-selected="false" data-i="1">02</button>
+                <button class="c-tab" type="button" role="tab" aria-selected="false" data-i="2">03</button>
+                <button class="c-tab" type="button" role="tab" aria-selected="false" data-i="3">04</button>
+              </div>
+              <div class="carousel-arrows">
+                <button class="c-prev" type="button" aria-label="Previous">&#8592;</button>
+                <button class="c-next" type="button" aria-label="Next">&#8594;</button>
+              </div>
+            </div>
+            <div class="carousel-progress" aria-hidden="true"><span></span></div>
+          </div>
+        </div>
+      </section>
+
       <section id="deliver">
         <div class="wrap">
           <div class="section-head" data-reveal>
@@ -670,6 +786,19 @@
             <div class="solution-card" data-reveal><div class="solution-icon">CNS</div><h3><em>CNS</em> and neurodegenerative programs</h3><p>Alzheimer's, Parkinson's, cognitive, and biomarker-driven studies where protocol timing, imaging, and endpoint discipline are critical.</p></div>
             <div class="solution-card" data-reveal><div class="solution-icon">IMM</div><h3><em>Vaccines</em>, immunology, and active immunotherapy</h3><p>Programs requiring immunogenicity sampling, safety follow-up, adjuvant handling, cold-chain logistics, and clean lab coordination.</p></div>
             <div class="solution-card" data-reveal><div class="solution-icon">IMG</div><h3><em>Biomarker-</em> and imaging-enabled trials</h3><p>Studies with central labs, PET/MRI, specialty vendors, sample timing, data-transfer dependencies, and sponsor decision points.</p></div>
+          </div>
+          <div class="study-types" data-reveal>
+            <p class="study-types-lead">Study types we run within early phase</p>
+            <ul class="chip-row">
+              <li>SAD / MAD dose-escalation</li>
+              <li>Food-effect</li>
+              <li>Drug–drug interaction</li>
+              <li>QT / cardiac safety</li>
+              <li>Bioavailability / bioequivalence</li>
+              <li>Special-population PK (renal / hepatic)</li>
+              <li>Immunogenicity sampling</li>
+              <li>Biomarker &amp; PK/PD</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -1184,6 +1313,60 @@
         cookieBanner.classList.add('is-hidden');
       });
     }
+
+    /* Failure-scenario carousel */
+    (function () {
+      const root = document.querySelector('.carousel');
+      if (!root) return;
+      const track = root.querySelector('.carousel-track');
+      const slides = Array.from(root.querySelectorAll('.slide'));
+      const tabs = Array.from(root.querySelectorAll('.c-tab'));
+      const prog = root.querySelector('.carousel-progress span');
+      const dwell = 6500;
+      let i = 0, paused = false, t0 = performance.now(), pausedElapsed = 0;
+
+      const render = () => {
+        track.style.transform = 'translateX(' + (-i * 100) + '%)';
+        tabs.forEach((t, k) => { t.classList.toggle('is-active', k === i); t.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+        slides.forEach((s, k) => s.setAttribute('aria-hidden', k === i ? 'false' : 'true'));
+      };
+      const go = (n) => { i = (n + slides.length) % slides.length; if (prog) prog.style.width = '0%'; t0 = performance.now(); render(); };
+
+      if (!prefersReduced) {
+        const tick = (now) => {
+          if (!paused) {
+            const p = Math.min((now - t0) / dwell, 1);
+            if (prog) prog.style.width = (p * 100) + '%';
+            if (p >= 1) go(i + 1);
+          }
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        const pause = () => { if (!paused) { pausedElapsed = performance.now() - t0; paused = true; } };
+        const resume = () => { if (paused) { t0 = performance.now() - pausedElapsed; paused = false; } };
+        root.addEventListener('mouseenter', pause);
+        root.addEventListener('mouseleave', resume);
+        root.addEventListener('focusin', pause);
+        root.addEventListener('focusout', resume);
+      }
+
+      tabs.forEach((t, k) => t.addEventListener('click', () => go(k)));
+      root.querySelector('.c-next').addEventListener('click', () => go(i + 1));
+      root.querySelector('.c-prev').addEventListener('click', () => go(i - 1));
+      root.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1); }
+      });
+      let x0 = null;
+      root.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+      root.addEventListener('touchend', (e) => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 44) go(i + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+      render();
+    })();
   </script>
 </body>
 </html>
