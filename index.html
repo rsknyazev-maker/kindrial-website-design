@@ -167,7 +167,14 @@
     .hero-visual { position: relative; min-height: 620px; display: grid; align-items: center; }
     .orbit { position: absolute; inset: -24px -28px auto auto; width: 560px; height: 560px; opacity: .86; animation: slowSpin 40s linear infinite; }
     @keyframes slowSpin { to { transform: rotate(360deg); } }
-    .price-card { position: relative; z-index: 2; width: min(500px, 100%); margin-left: auto; padding: 26px; border-radius: var(--radius-lg); background: var(--ink); color: var(--paper); box-shadow: var(--shadow); overflow: hidden; }
+    .price-card { position: relative; z-index: 2; width: min(500px, 100%); margin-left: auto; padding: 26px; border-radius: var(--radius-lg); background: var(--ink); color: var(--paper); box-shadow: var(--shadow); overflow: hidden; scroll-margin-top: 110px; transition: box-shadow 320ms var(--ease-out), transform 320ms var(--ease-spring); }
+    .price-card.flash { animation: offerPulse 1200ms var(--ease-out); }
+    @keyframes offerPulse {
+      0%   { box-shadow: var(--shadow); transform: translateY(0) scale(1); }
+      15%  { box-shadow: var(--shadow), 0 0 0 6px rgba(198,242,74,1), 0 22px 60px 8px rgba(198,242,74,.55); transform: translateY(-10px) scale(1.035); }
+      45%  { box-shadow: var(--shadow), 0 0 0 4px rgba(198,242,74,.85), 0 22px 60px 8px rgba(198,242,74,.35); transform: translateY(-6px) scale(1.022); }
+      100% { box-shadow: var(--shadow), 0 0 0 0 rgba(198,242,74,0); transform: translateY(0) scale(1); }
+    }
     .price-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(198,242,74,.26), transparent 46%); pointer-events: none; }
     .price-top { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 12px 20px; align-items: start; padding-bottom: 22px; border-bottom: 1px solid rgba(247,246,241,.14); }
     .price-label { color: rgba(247,246,241,.74); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
@@ -307,6 +314,31 @@
     .modal-note { grid-column: 1 / -1; margin-top: 0; color: rgba(15,15,15,.6); font-size: 12.5px; line-height: 1.45; }
     .form-status { grid-column: 1 / -1; min-height: 20px; color: var(--forest); font-size: 13px; font-weight: 700; }
     .form-status.error { color: #8f2f1d; }
+
+    /* Package modal */
+    .pkg-card { width: min(680px, 100%); }
+    .pkg-eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: rgba(15,15,15,.56); margin-bottom: 10px; }
+    .pkg-card h2 { font-family: var(--serif); font-size: 42px; line-height: .98; letter-spacing: -.02em; font-weight: 400; margin: 0 42px 10px 0; }
+    .pkg-card > p { color: var(--muted); margin: 0 0 20px; max-width: 60ch; }
+    .pkg-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 14px; padding: 16px 0 22px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+    .pkg-price-pre { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: rgba(15,15,15,.5); }
+    .pkg-price-num { font-family: var(--serif); font-size: 44px; line-height: .9; letter-spacing: -.03em; }
+    .pkg-price-tag { align-self: center; border-radius: 999px; padding: 6px 12px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 800; }
+    .pkg-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; }
+    .pkg-group h3 { font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: rgba(15,15,15,.62); margin: 0 0 12px; }
+    .pkg-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+    .pkg-list li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .pkg-list li strong { color: var(--ink); font-weight: 700; }
+    .pkg-list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--emph); margin-top: 7px; flex: 0 0 auto; }
+    .pkg-list.exclude li::before { background: none; width: 9px; height: 9px; margin-top: 5px; border-radius: 0; background-image: linear-gradient(45deg, transparent 44%, #b3543f 44%, #b3543f 56%, transparent 56%), linear-gradient(-45deg, transparent 44%, #b3543f 44%, #b3543f 56%, transparent 56%); }
+    .pkg-cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .pkg-cta .btn { min-height: 48px; padding: 0 20px; border-radius: 14px; }
+    @media (max-width: 640px) {
+      .pkg-card h2 { font-size: 30px; margin-right: 44px; }
+      .pkg-price-num { font-size: 38px; }
+      .pkg-groups { grid-template-columns: 1fr; gap: 22px; }
+      .pkg-cta .btn { width: 100%; }
+    }
 
     .legal-strip {
       margin-top: 28px;
@@ -561,7 +593,7 @@
           <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with experienced clinical operators, right-sized systems, and disciplined scope control.</p>
           <div class="hero-actions">
             <button class="btn primary" data-open-modal>Request a Study-Fit Brief</button>
-            <a class="btn secondary" href="#offer">See the package</a>
+            <button class="btn secondary" type="button" data-open-modal="packageModal">See the package</button>
           </div>
           <div class="hero-pills" aria-label="Key claims">
             <span class="pill" data-reveal data-stagger="1">One dedicated Trial Lead named in the SOW</span>
@@ -890,6 +922,61 @@
     </div>
   </div>
 
+  <div class="modal" id="packageModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="pkgTitle">
+    <div class="modal-card pkg-card">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>
+      <div class="pkg-eyebrow">Early-phase operating package</div>
+      <h2 id="pkgTitle">What's in the <em>package.</em></h2>
+      <p>A fixed price for CRO services and core systems on a clean, single-site early-phase study. Everything study-specific is itemized at cost before you sign — no change-order surprises.</p>
+
+      <div class="pkg-price"><span class="pkg-price-pre">From</span><span class="pkg-price-num">$1.95M</span><span class="pkg-price-tag">No unapproved costs</span></div>
+
+      <div class="pkg-groups">
+        <div class="pkg-group">
+          <h3>Fixed price covers</h3>
+          <ul class="pkg-list">
+            <li><strong>Trial leadership.</strong> One dedicated Trial Lead, named in the SOW before signature.</li>
+            <li><strong>Startup.</strong> Site selection and activation, IRB submission, vendor setup and qualification.</li>
+            <li><strong>Operations.</strong> Monitoring, safety workflows, medical monitoring, and project management.</li>
+            <li><strong>Data &amp; systems.</strong> EDC, eTMF, IRT, and safety reporting — validated, 21 CFR Part 11-compliant, sized to the protocol.</li>
+          </ul>
+        </div>
+        <div class="pkg-group">
+          <h3>Passed through at cost — itemized before signature</h3>
+          <ul class="pkg-list">
+            <li>Site fees and investigator grants</li>
+            <li>Central lab and specialty assays</li>
+            <li>Imaging (PET / MRI) and reading</li>
+            <li>Investigational product logistics and cold chain</li>
+            <li>Third-party software licenses</li>
+          </ul>
+        </div>
+        <div class="pkg-group">
+          <h3>Typical fit</h3>
+          <ul class="pkg-list">
+            <li>Single-site early-phase study, ~20 participants, simple dose schedule, routine safety monitoring.</li>
+            <li>More sites, patient cohorts, heavy imaging, or larger N change the scope — and we say so in the Study-Fit Brief, before the SOW.</li>
+          </ul>
+        </div>
+        <div class="pkg-group">
+          <h3>Out of scope</h3>
+          <ul class="pkg-list exclude">
+            <li>Global Phase 3</li>
+            <li>Complex oncology dose-escalation</li>
+            <li>Cell &amp; gene therapy</li>
+            <li>Pharma FSP outsourcing</li>
+            <li>Large-scale decentralized trials</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pkg-cta">
+        <button class="btn primary" type="button" data-open-modal="studyModal">Request a Study-Fit Brief</button>
+        <button class="btn secondary" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie notice">
     <div>
       <strong>Cookie notice</strong>
@@ -973,29 +1060,45 @@
       document.querySelectorAll('.count, .price-num[data-count]').forEach(animateCount);
     }
 
-    const modal = document.getElementById('studyModal');
-    const openButtons = document.querySelectorAll('[data-open-modal]');
-    const closeButtons = document.querySelectorAll('[data-close-modal]');
+    const modals = document.querySelectorAll('.modal');
+    let activeModal = null;
     let lastFocused = null;
-    const openModal = (event) => {
-      if (event) event.preventDefault();
-      lastFocused = document.activeElement;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
+    const openModal = (modalEl) => {
+      if (!modalEl) return;
+      if (activeModal && activeModal !== modalEl) {
+        activeModal.classList.remove('open');
+        activeModal.setAttribute('aria-hidden', 'true');
+      } else {
+        lastFocused = document.activeElement;
+      }
+      activeModal = modalEl;
+      modalEl.classList.add('open');
+      modalEl.setAttribute('aria-hidden', 'false');
       requestAnimationFrame(() => {
-        const firstField = modal.querySelector('input, textarea, select');
-        if (firstField) firstField.focus({ preventScroll: true });
+        const focusable = modalEl.querySelector('input, textarea, select, button.btn');
+        if (focusable) focusable.focus({ preventScroll: true });
       });
     };
     const closeModal = () => {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
+      if (!activeModal) return;
+      activeModal.classList.remove('open');
+      activeModal.setAttribute('aria-hidden', 'true');
+      activeModal = null;
       if (lastFocused) lastFocused.focus({ preventScroll: true });
     };
-    openButtons.forEach(btn => btn.addEventListener('click', openModal));
-    closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+    document.querySelectorAll('[data-open-modal]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = btn.getAttribute('data-open-modal');
+        const target = (id && document.getElementById(id)) || document.getElementById('studyModal');
+        openModal(target);
+      });
+    });
+    modals.forEach(m => {
+      m.querySelectorAll('[data-close-modal]').forEach(b => b.addEventListener('click', closeModal));
+      m.addEventListener('click', e => { if (e.target === m) closeModal(); });
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && activeModal) closeModal(); });
 
     const studyForm = document.getElementById('studyForm');
     const formStatus = document.getElementById('formStatus');
@@ -1039,6 +1142,33 @@
         if (!isOpen) {
           item.classList.add('open');
           button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* In-page anchor links: smooth scroll + flash the offer card so the action is always visible */
+    const offerCard = document.getElementById('offer');
+    document.querySelectorAll('a[href^="#"]:not([data-open-modal])').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href').slice(1);
+        if (!id) return;
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+        if (history.replaceState) history.replaceState(null, '', '#' + id);
+        if (target === offerCard) {
+          if (prefersReduced) {
+            offerCard.style.boxShadow = 'var(--shadow), 0 0 0 4px rgba(198,242,74,.95)';
+            clearTimeout(offerCard._flashT);
+            offerCard._flashT = setTimeout(() => { offerCard.style.boxShadow = ''; }, 800);
+          } else {
+            offerCard.classList.remove('flash');
+            void offerCard.offsetWidth;
+            offerCard.classList.add('flash');
+            clearTimeout(offerCard._flashT);
+            offerCard._flashT = setTimeout(() => offerCard.classList.remove("flash"), 1250);
+          }
         }
       });
     });
