@@ -1,8 +1,4 @@
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +16,10 @@
   <meta name="twitter:title" content="Kindrial — Phase 1 & early Phase 2a CRO" />
   <meta name="twitter:description" content="Dedicated, fixed-scope early-phase trial execution for emerging biotech companies." />
   <title>Kindrial — Phase 1 & early Phase 2a CRO</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,24 +37,32 @@
       --paper: #f7f6f1;
       --lime: #c6f24a;
       --forest: #173b1c;
-      --muted: rgba(15,15,15,.66);
+      --emph: #2e8b3d;
+      --muted: rgba(15,15,15,.72);
       --line: rgba(15,15,15,.13);
       --soft: rgba(15,15,15,.045);
       --dark-line: rgba(247,246,241,.17);
-      --dark-muted: rgba(247,246,241,.68);
-      --radius: 28px;
-      --shadow: 0 26px 80px rgba(15,15,15,.16);
+      --dark-muted: rgba(247,246,241,.72);
+      --radius: 18px;
+      --radius-lg: 24px;
+      --radius-sm: 14px;
+      --shadow: 0 20px 52px rgba(15,15,15,.13);
+      --shadow-card: 0 14px 30px rgba(15,15,15,.09);
       --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --sans: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       /* Custom easings — built-in CSS curves are too weak */
-      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
       --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
       --focus-ring: 0 0 0 2px var(--paper), 0 0 0 4px var(--forest);
+      /* Semantic z-index scale */
+      --z-sticky: 50;
+      --z-cookie: 60;
+      --z-modal: 100;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
     body {
       margin: 0;
       color: var(--ink);
@@ -63,9 +71,14 @@
       font-size: 16px;
       line-height: 1.5;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
     a { color: inherit; text-decoration: none; }
     button, input, textarea, select { font: inherit; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
     .page { width: 100%; overflow: hidden; }
     .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
@@ -74,7 +87,7 @@
       top: 18px;
       left: 0;
       right: 0;
-      z-index: 50;
+      z-index: var(--z-sticky);
       pointer-events: none;
     }
     .nav {
@@ -87,31 +100,31 @@
       justify-content: space-between;
       gap: 18px;
       padding: 10px 10px 10px 18px;
-      border: 1px solid rgba(15,15,15,.12);
+      border: 1px solid rgba(15,15,15,.1);
       border-radius: 999px;
       background: rgba(247,246,241,.78);
       backdrop-filter: blur(22px);
-      box-shadow: 0 16px 50px rgba(15,15,15,.08);
+      box-shadow: 0 10px 34px rgba(15,15,15,.07);
     }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 760; letter-spacing: -.03em; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.02em; font-size: 17px; }
     .mark { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); display: grid; place-items: center; position: relative; overflow: hidden; }
     .mark::before { content: ""; width: 15px; height: 15px; border-radius: 50%; background: var(--lime); box-shadow: 12px 8px 0 var(--forest); }
-    .nav-links { display: flex; align-items: center; gap: 4px; font-size: 13px; color: rgba(15,15,15,.68); }
+    .nav-links { display: flex; align-items: center; gap: 4px; font-size: 13px; color: rgba(15,15,15,.72); }
     .nav-links a { padding: 10px 12px; border-radius: 999px; transition: background 160ms var(--ease-out), color 160ms var(--ease-out); }
     @media (hover: hover) and (pointer: fine) {
       .nav-links a:hover { background: rgba(15,15,15,.06); color: var(--ink); }
     }
     .nav-links a:focus-visible { outline: none; background: rgba(15,15,15,.06); box-shadow: 0 0 0 2px var(--forest); }
-    .nav-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 750; font-size: 13px; border: 0; cursor: pointer; transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out); }
+    .nav-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 700; font-size: 13px; border: 0; cursor: pointer; transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out); }
     @media (hover: hover) and (pointer: fine) {
-      .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(15,15,15,.18); }
+      .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(15,15,15,.2); }
     }
     .nav-cta:active { transform: scale(0.97); }
 
     .hero {
       position: relative;
       min-height: 100vh;
-      padding: 132px 0 70px;
+      padding: 138px 0 76px;
       display: flex;
       align-items: center;
       background: radial-gradient(circle at 78% 22%, rgba(198,242,74,.24), transparent 31%), var(--paper);
@@ -130,47 +143,49 @@
     }
     @keyframes floatGlow { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-20px,24px,0) scale(1.06); } }
 
-    .hero-grid { position: relative; display: grid; grid-template-columns: 1.07fr .93fr; gap: 54px; align-items: center; }
-    .hero-kicker, .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: rgba(15,15,15,.7); font-size: 13px; font-weight: 760; letter-spacing: .08em; text-transform: uppercase; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.07fr .93fr; gap: 56px; align-items: center; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 10px; color: rgba(15,15,15,.74); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     .dot { width: 9px; height: 9px; border-radius: 999px; background: var(--forest); box-shadow: 0 0 0 5px rgba(23,59,28,.11); }
     h1, h2, h3, p { margin-top: 0; }
-    .hero h1 { margin: 22px 0 22px; font-family: var(--serif); font-size: clamp(58px, 7.3vw, 106px); line-height: .88; letter-spacing: -.055em; font-weight: 400; max-width: 800px; }
-    h1 em, h2 em, h3 em { font-style: italic; color: var(--forest); }
-    .hero-copy { max-width: 680px; color: rgba(15,15,15,.72); font-size: 20px; line-height: 1.55; letter-spacing: -.015em; }
-    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 34px 0 26px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 23px; border-radius: 999px; border: 1px solid rgba(15,15,15,.14); font-weight: 780; cursor: pointer; transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out); }
+    .hero h1 { margin: 24px 0 24px; font-family: var(--serif); font-size: clamp(52px, 6.6vw, 92px); line-height: .92; letter-spacing: -.02em; font-weight: 400; max-width: 800px; }
+    h1 em, h2 em, h3 em { font-style: italic; color: var(--emph); }
+    .hero-copy { max-width: 62ch; color: rgba(15,15,15,.74); font-size: 20px; line-height: 1.55; letter-spacing: -.01em; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 36px 0 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 24px; border-radius: 999px; border: 1px solid transparent; font-weight: 700; cursor: pointer; transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out); }
     .btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .btn.secondary { background: rgba(255,255,255,.38); color: var(--ink); }
+    .btn.secondary { background: rgba(255,255,255,.5); color: var(--ink); border-color: rgba(15,15,15,.16); }
     @media (hover: hover) and (pointer: fine) {
-      .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 38px rgba(15,15,15,.14); }
+      .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(15,15,15,.22); }
+      .btn.secondary:hover { transform: translateY(-2px); background: rgba(255,255,255,.92); border-color: var(--ink); }
     }
     .btn:active { transform: scale(0.97); transition-duration: 120ms; }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-    .hero-pills { display: flex; align-items: center; gap: 16px 22px; flex-wrap: wrap; max-width: 720px; padding-top: 14px; border-top: 1px solid rgba(15,15,15,.08); }
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; border-radius: 0; background: transparent; color: rgba(15,15,15,.66); font-size: 13px; font-weight: 650; }
+    .hero-pills { display: flex; align-items: center; gap: 16px 22px; flex-wrap: wrap; max-width: 720px; padding-top: 18px; border-top: 1px solid rgba(15,15,15,.1); }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; border-radius: 0; background: transparent; color: rgba(15,15,15,.72); font-size: 13px; font-weight: 600; }
     .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--forest); box-shadow: 0 0 0 3px rgba(23,59,28,.14); }
 
     .hero-visual { position: relative; min-height: 620px; display: grid; align-items: center; }
     .orbit { position: absolute; inset: -24px -28px auto auto; width: 560px; height: 560px; opacity: .86; animation: slowSpin 40s linear infinite; }
     @keyframes slowSpin { to { transform: rotate(360deg); } }
-    .price-card { position: relative; z-index: 2; width: min(500px, 100%); margin-left: auto; padding: 24px; border-radius: 36px; background: var(--ink); color: var(--paper); box-shadow: var(--shadow); overflow: hidden; }
+    .price-card { position: relative; z-index: 2; width: min(500px, 100%); margin-left: auto; padding: 26px; border-radius: var(--radius-lg); background: var(--ink); color: var(--paper); box-shadow: var(--shadow); overflow: hidden; }
     .price-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(198,242,74,.26), transparent 46%); pointer-events: none; }
     .price-top { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 12px 20px; align-items: start; padding-bottom: 22px; border-bottom: 1px solid rgba(247,246,241,.14); }
-    .price-label { color: rgba(247,246,241,.68); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; }
-    .price { position: relative; margin: 12px 0 4px; font-family: var(--serif); font-size: 74px; line-height: .9; letter-spacing: -.05em; }
-    .price span { font-size: 28px; color: rgba(247,246,241,.64); }
-    .price-note { position: relative; grid-column: 1 / -1; color: rgba(247,246,241,.78); font-size: 14px; line-height: 1.5; max-width: none; }
-    .tag { position: relative; display: inline-flex; align-items: center; justify-self: end; border-radius: 999px; padding: 9px 12px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 850; white-space: nowrap; }
+    .price-label { color: rgba(247,246,241,.74); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+    .price { position: relative; margin: 12px 0 4px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .price-pre { font-family: var(--sans); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: rgba(247,246,241,.58); }
+    .price-num { font-family: var(--serif); font-size: 74px; line-height: .9; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+    .price-note { position: relative; grid-column: 1 / -1; color: rgba(247,246,241,.8); font-size: 14px; line-height: 1.5; max-width: none; }
+    .tag { position: relative; display: inline-flex; align-items: center; justify-self: end; border-radius: 999px; padding: 9px 12px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 800; white-space: nowrap; }
     .included { position: relative; display: grid; gap: 10px; margin: 22px 0; }
-    .included-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(247,246,241,.1); color: rgba(247,246,241,.85); }
+    .included-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(247,246,241,.1); color: rgba(247,246,241,.86); }
     .included-row strong { color: var(--paper); font-size: 15px; }
-    .included-row span { text-align: right; color: rgba(247,246,241,.62); font-size: 13px; }
-    .price-bottom { position: relative; margin-top: 18px; border-radius: 22px; padding: 16px; background: rgba(247,246,241,.08); color: rgba(247,246,241,.78); font-size: 14px; line-height: 1.5; }
+    .included-row span { text-align: right; color: rgba(247,246,241,.66); font-size: 13px; }
+    .price-bottom { position: relative; margin-top: 18px; border-radius: var(--radius); padding: 16px; background: rgba(247,246,241,.08); color: rgba(247,246,241,.8); font-size: 14px; line-height: 1.5; }
 
-    section { padding: 108px 0; position: relative; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 44px; }
-    .title { font-family: var(--serif); font-size: clamp(46px, 5vw, 76px); line-height: .95; letter-spacing: -.05em; font-weight: 400; margin: 14px 0 0; max-width: 780px; }
-    .section-copy { max-width: 470px; color: rgba(15,15,15,.66); font-size: 17px; line-height: 1.55; }
+    section { padding: 112px 0; position: relative; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 56px; }
+    .title { font-family: var(--serif); font-size: clamp(44px, 5vw, 72px); line-height: .98; letter-spacing: -.02em; font-weight: 400; margin: 0; max-width: 16ch; }
+    .section-copy { max-width: 44ch; color: rgba(15,15,15,.72); font-size: 17px; line-height: 1.55; }
 
     .dark { background: var(--ink); color: var(--paper); }
     .dark .section-copy, .dark .eyebrow { color: var(--dark-muted); }
@@ -178,117 +193,120 @@
     .dark h1 em, .dark h2 em, .dark h3 em { color: var(--lime); }
 
     .deliver-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .deliver-card { border: 1px solid var(--line); border-radius: 28px; padding: 24px; background: rgba(255,255,255,.28); min-height: 230px; transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out); }
+    .deliver-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: rgba(255,255,255,.4); min-height: 230px; transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), border-color 220ms var(--ease-out); }
     @media (hover: hover) and (pointer: fine) {
-      .deliver-card:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(15,15,15,.08); }
+      .deliver-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); border-color: rgba(15,15,15,.2); }
     }
-    .num { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-weight: 850; margin-bottom: 28px; }
-    .deliver-card h3 { font-size: 21px; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 12px; }
+    .num { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-weight: 800; margin-bottom: 28px; }
+    .deliver-card h3 { font-size: 21px; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 12px; }
     .deliver-card p { color: var(--muted); font-size: 15px; margin: 0; }
 
-    .workspace-wrap { display: grid; grid-template-columns: .84fr 1.16fr; gap: 42px; align-items: center; }
-    .screen { border-radius: 34px; padding: 12px; background: rgba(247,246,241,.08); border: 1px solid rgba(247,246,241,.13); box-shadow: 0 28px 90px rgba(0,0,0,.28); }
+    .workspace-wrap { display: grid; grid-template-columns: .84fr 1.16fr; gap: 48px; align-items: center; }
+    .screen { border-radius: var(--radius-lg); padding: 12px; background: rgba(247,246,241,.08); border: 1px solid rgba(247,246,241,.13); box-shadow: 0 28px 80px rgba(0,0,0,.3); }
     .screen-top { height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border-bottom: 1px solid rgba(247,246,241,.1); }
     .screen-top span { width: 10px; height: 10px; border-radius: 50%; background: rgba(247,246,241,.3); }
     .screen-inner { padding: 18px; display: grid; gap: 16px; }
-    .status { border: 1px solid rgba(247,246,241,.12); border-radius: 24px; padding: 18px; background: rgba(247,246,241,.06); }
+    .status { border: 1px solid rgba(247,246,241,.12); border-radius: var(--radius); padding: 18px; background: rgba(247,246,241,.06); }
     .status-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-    .status-head strong { font-size: 18px; letter-spacing: -.02em; }
+    .status-head strong { font-size: 18px; letter-spacing: -.01em; }
     .status-head span { color: var(--lime); font-size: 13px; font-weight: 800; }
     .bar { height: 10px; border-radius: 999px; overflow: hidden; background: rgba(247,246,241,.1); }
     .bar span { display: block; width: 68%; height: 100%; background: var(--lime); border-radius: inherit; }
     .funnel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .funnel div, .chat { border-radius: 20px; padding: 16px; background: rgba(247,246,241,.06); border: 1px solid rgba(247,246,241,.1); }
-    .funnel strong { display: block; font-size: 25px; letter-spacing: -.04em; }
-    .funnel span, .chat p { color: rgba(247,246,241,.63); font-size: 13px; margin: 0; }
+    .funnel div, .chat { border-radius: var(--radius-sm); padding: 16px; background: rgba(247,246,241,.06); border: 1px solid rgba(247,246,241,.1); }
+    .funnel strong { display: block; font-size: 25px; letter-spacing: -.03em; }
+    .funnel span, .chat p { color: rgba(247,246,241,.66); font-size: 13px; margin: 0; }
     .chat strong { display: block; margin-bottom: 7px; }
-    .workspace-list { display: grid; gap: 14px; }
-    .workspace-list p { color: var(--dark-muted); max-width: 510px; font-size: 18px; }
-    .check { display: flex; gap: 12px; align-items: flex-start; color: rgba(247,246,241,.82); }
+    .workspace-list { display: grid; gap: 16px; }
+    .workspace-list p { color: var(--dark-muted); max-width: 52ch; font-size: 18px; }
+    .check { display: flex; gap: 12px; align-items: flex-start; color: rgba(247,246,241,.84); }
     .check::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); margin-top: 8px; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(198,242,74,.14); }
 
     .team-intro { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 18px; }
-    .team-intro > div { border: 1px solid var(--line); border-radius: 28px; padding: 30px; background: rgba(255,255,255,.34); }
-    .team-intro h3 { font-size: 26px; letter-spacing: -.04em; margin-bottom: 12px; }
+    .team-intro > div { border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; background: rgba(255,255,255,.44); }
+    .team-intro h3 { font-size: 26px; letter-spacing: -.02em; margin-bottom: 12px; }
     .team-intro p { color: var(--muted); margin: 0; }
     .role-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
-    .role-card { border: 1px solid var(--line); border-radius: 26px; padding: 22px; background: rgba(255,255,255,.22); min-height: 180px; }
-    .role-icon { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 34px; padding: 0 12px; border-radius: 999px; background: var(--forest); color: var(--paper); font-size: 12px; font-weight: 860; letter-spacing: .08em; margin-bottom: 26px; }
-    .role-card h3 { font-size: 20px; margin-bottom: 10px; letter-spacing: -.025em; }
+    .role-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: rgba(255,255,255,.32); min-height: 180px; }
+    .role-icon { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 34px; padding: 0 12px; border-radius: 999px; background: var(--forest); color: var(--paper); font-size: 12px; font-weight: 800; letter-spacing: .06em; margin-bottom: 26px; }
+    .role-card h3 { font-size: 20px; margin-bottom: 10px; letter-spacing: -.015em; }
     .role-card p { color: var(--muted); font-size: 14px; margin: 0; }
-    .notice { margin-top: 18px; border-radius: 26px; border: 1px solid rgba(23,59,28,.2); padding: 22px 24px; color: rgba(15,15,15,.74); background: rgba(23,59,28,.06); }
+    .notice { margin-top: 18px; border-radius: var(--radius); border: 1px solid rgba(23,59,28,.2); padding: 22px 24px; color: rgba(15,15,15,.78); background: rgba(23,59,28,.06); }
 
-    .model-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 42px; align-items: start; }
-    .breach-box { border: 1px solid rgba(247,246,241,.16); border-radius: 30px; padding: 28px; background: rgba(247,246,241,.06); }
-    .breach-box strong { display: block; font-size: 24px; letter-spacing: -.04em; margin-bottom: 10px; }
+    .model-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 48px; align-items: start; }
+    .breach-box { border: 1px solid rgba(247,246,241,.16); border-radius: var(--radius); padding: 30px; background: rgba(247,246,241,.06); }
+    .breach-box strong { display: block; font-size: 24px; letter-spacing: -.02em; margin-bottom: 10px; }
     .breach-box p { color: var(--dark-muted); margin: 0; }
-    .attent-problem { display: grid; gap: 16px; }
-    .attent-problem p { color: rgba(247,246,241,.74); font-size: 18px; margin: 0; }
-    .attent-problem .big { font-family: var(--serif); font-size: clamp(38px, 4vw, 66px); line-height: .95; letter-spacing: -.045em; color: var(--paper); }
+    .attent-problem { display: grid; gap: 18px; }
+    .attent-problem p { color: rgba(247,246,241,.78); font-size: 18px; margin: 0; }
+    .attent-problem .big { font-family: var(--serif); font-size: clamp(36px, 4vw, 60px); line-height: 1; letter-spacing: -.02em; color: var(--paper); }
 
     .faq { display: grid; gap: 12px; max-width: 900px; margin: 0 auto; }
-    .faq-item { border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,.28); overflow: hidden; }
-    .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 22px 24px; background: transparent; border: 0; text-align: left; cursor: pointer; color: var(--ink); font-weight: 820; letter-spacing: -.02em; transition: background 160ms var(--ease-out); }
+    .faq-item { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.4); overflow: hidden; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 22px 24px; background: transparent; border: 0; text-align: left; cursor: pointer; color: var(--ink); font-weight: 700; font-size: 16px; letter-spacing: -.01em; transition: background 160ms var(--ease-out); }
     @media (hover: hover) and (pointer: fine) {
-      .faq-q:hover { background: rgba(15,15,15,.025); }
+      .faq-q:hover { background: rgba(15,15,15,.03); }
     }
-    .faq-q:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--forest); border-radius: 24px; }
-    .faq-q span:last-child { font-size: 22px; color: rgba(15,15,15,.45); transition: transform 200ms var(--ease-out); display: inline-block; line-height: 1; }
+    .faq-q:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--forest); border-radius: var(--radius); }
+    .faq-q span:last-child { font-size: 22px; color: rgba(15,15,15,.45); transition: transform 200ms var(--ease-out); display: inline-block; line-height: 1; flex: 0 0 auto; }
     .faq-item.open .faq-q span:last-child { transform: rotate(45deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 280ms var(--ease-in-out); }
-    .faq-a p { margin: 0; padding: 0 24px 24px; color: var(--muted); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 300ms var(--ease-in-out); }
+    .faq-a p { margin: 0; padding: 0 24px 24px; color: var(--muted); max-width: 70ch; }
     .faq-item.open .faq-a { max-height: 260px; }
 
-    .cta-panel { border-radius: 42px; padding: 52px; background: var(--ink); color: var(--paper); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 28px; overflow: hidden; position: relative; }
+    .cta-panel { border-radius: var(--radius-lg); padding: 56px; background: var(--ink); color: var(--paper); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 32px; overflow: hidden; position: relative; }
     .cta-panel::before { content: ""; position: absolute; right: -130px; top: -160px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(198,242,74,.22), transparent 65%); }
-    .cta-panel h2 { position: relative; font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 5vw, 78px); letter-spacing: -.05em; line-height: .94; margin: 0 0 14px; }
-    .cta-panel p { position: relative; margin: 0; max-width: 650px; color: var(--dark-muted); font-size: 18px; }
+    .cta-panel h2 { position: relative; font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 5vw, 72px); letter-spacing: -.02em; line-height: .98; margin: 0 0 16px; }
+    .cta-panel p { position: relative; margin: 0; max-width: 60ch; color: var(--dark-muted); font-size: 18px; }
     .cta-panel .btn { position: relative; background: var(--lime); border-color: var(--lime); color: var(--ink); }
+    @media (hover: hover) and (pointer: fine) {
+      .cta-panel .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(198,242,74,.28); background: var(--lime); }
+    }
 
-    footer { padding: 70px 0 34px; background: var(--paper); }
+    footer { padding: 76px 0 36px; background: var(--paper); }
     .footer-grid { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding-bottom: 38px; border-bottom: 1px solid var(--line); }
-    .footer-brand p { max-width: 420px; color: var(--muted); margin: 14px 0 0; }
-    .footer-links { display: flex; gap: 26px; flex-wrap: wrap; color: rgba(15,15,15,.62); font-size: 14px; }
+    .footer-brand p { max-width: 46ch; color: var(--muted); margin: 14px 0 0; }
+    .footer-links { display: flex; gap: 26px; flex-wrap: wrap; color: rgba(15,15,15,.7); font-size: 14px; }
     .footer-links a { transition: color 160ms var(--ease-out); }
     @media (hover: hover) and (pointer: fine) {
       .footer-links a:hover { color: var(--ink); }
     }
     .footer-links a:focus-visible { outline: none; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-    .footer-bottom { display: flex; flex-direction: column; gap: 6px; padding-top: 22px; color: rgba(15,15,15,.56); font-size: 13px; }
+    .footer-bottom { display: flex; flex-direction: column; gap: 6px; padding-top: 22px; color: rgba(15,15,15,.66); font-size: 13px; }
 
-    [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-out); }
-    [data-reveal].visible { opacity: 1; transform: translateY(0); }
-    [data-reveal][data-stagger="1"] { transition-delay: 60ms; }
-    [data-reveal][data-stagger="2"] { transition-delay: 120ms; }
-    [data-reveal][data-stagger="3"] { transition-delay: 180ms; }
+    .js [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out); }
+    .js [data-reveal].visible { opacity: 1; transform: translateY(0); }
+    .js [data-reveal][data-stagger="1"] { transition-delay: 70ms; }
+    .js [data-reveal][data-stagger="2"] { transition-delay: 140ms; }
+    .js [data-reveal][data-stagger="3"] { transition-delay: 210ms; }
 
-    .modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(15,15,15,.62); backdrop-filter: blur(8px); opacity: 0; visibility: hidden; transition: opacity 220ms var(--ease-out), visibility 0s linear 220ms; }
+    .modal { position: fixed; inset: 0; z-index: var(--z-modal); display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(15,15,15,.62); backdrop-filter: blur(8px); opacity: 0; visibility: hidden; transition: opacity 220ms var(--ease-out), visibility 0s linear 220ms; }
     .modal.open { opacity: 1; visibility: visible; transition: opacity 220ms var(--ease-out), visibility 0s; }
-    .modal-card { width: min(620px, 100%); max-height: calc(100svh - 40px); overflow-y: auto; background: var(--paper); border-radius: 28px; padding: 30px; box-shadow: var(--shadow); position: relative; transform: scale(0.96) translateY(8px); opacity: 0; transition: transform 260ms var(--ease-out), opacity 220ms var(--ease-out); }
+    .modal-card { width: min(620px, 100%); max-height: calc(100svh - 40px); overflow-y: auto; background: var(--paper); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); position: relative; transform: scale(0.96) translateY(8px); opacity: 0; transition: transform 260ms var(--ease-out), opacity 220ms var(--ease-out); }
     .modal.open .modal-card { transform: scale(1) translateY(0); opacity: 1; }
-    .modal-close { position: absolute; right: 16px; top: 16px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,.55); cursor: pointer; transition: background 160ms var(--ease-out), transform 160ms var(--ease-out); }
+    .modal-close { position: absolute; right: 16px; top: 16px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,.6); cursor: pointer; transition: background 160ms var(--ease-out), transform 160ms var(--ease-out); }
     @media (hover: hover) and (pointer: fine) {
-      .modal-close:hover { background: rgba(255,255,255,.85); }
+      .modal-close:hover { background: rgba(255,255,255,.95); }
     }
     .modal-close:active { transform: scale(0.92); }
     .modal-close:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-    .modal-card h2 { font-family: var(--serif); font-size: 42px; line-height: .96; letter-spacing: -.05em; font-weight: 400; margin: 0 42px 10px 0; }
+    .modal-card h2 { font-family: var(--serif); font-size: 42px; line-height: .98; letter-spacing: -.02em; font-weight: 400; margin: 0 42px 10px 0; }
     .modal-card p { color: var(--muted); margin-bottom: 18px; }
     .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
     .field { display: grid; grid-column: 1 / -1; gap: 6px; }
     .field.compact { grid-column: span 1; }
-    .field label { font-size: 11px; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; color: rgba(15,15,15,.58); }
-    .field input, .field textarea, .field select { width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 10px 13px; min-height: 46px; background: rgba(255,255,255,.66); color: var(--ink); outline: none; transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background 160ms var(--ease-out); }
-    .field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(23,59,28,.14); background: rgba(255,255,255,.92); }
-    .field input:hover, .field textarea:hover, .field select:hover { border-color: rgba(15,15,15,.24); }
+    .field label { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: rgba(15,15,15,.64); }
+    .field input, .field textarea, .field select { width: 100%; border: 1px solid var(--line); border-radius: 12px; padding: 10px 13px; min-height: 46px; background: rgba(255,255,255,.7); color: var(--ink); outline: none; transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background 160ms var(--ease-out); }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(15,15,15,.5); }
+    .field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(23,59,28,.14); background: rgba(255,255,255,.95); }
+    .field input:hover, .field textarea:hover, .field select:hover { border-color: rgba(15,15,15,.26); }
     .field textarea { min-height: 92px; resize: vertical; line-height: 1.42; }
     .modal-actions { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 4px; }
-    .modal-actions .btn { width: 100%; min-height: 48px; padding: 0 18px; border-radius: 16px; box-shadow: 0 10px 22px rgba(15,15,15,.08); text-align: center; }
+    .modal-actions .btn { width: 100%; min-height: 48px; padding: 0 18px; border-radius: 14px; text-align: center; }
     .modal-actions .btn:disabled { cursor: wait; opacity: .64; transform: none; }
-    .modal-note { grid-column: 1 / -1; margin-top: 0; color: rgba(15,15,15,.55); font-size: 12.5px; line-height: 1.45; }
-    .form-status { grid-column: 1 / -1; min-height: 20px; color: var(--forest); font-size: 13px; font-weight: 750; }
+    .modal-note { grid-column: 1 / -1; margin-top: 0; color: rgba(15,15,15,.6); font-size: 12.5px; line-height: 1.45; }
+    .form-status { grid-column: 1 / -1; min-height: 20px; color: var(--forest); font-size: 13px; font-weight: 700; }
     .form-status.error { color: #8f2f1d; }
-
 
     .legal-strip {
       margin-top: 28px;
@@ -299,16 +317,17 @@
       gap: 24px;
     }
     .legal-note {
-      color: rgba(15,15,15,.62);
+      color: rgba(15,15,15,.7);
       font-size: 13px;
       line-height: 1.55;
+      max-width: 62ch;
     }
     .legal-note h3 {
       margin: 0 0 8px;
-      color: rgba(15,15,15,.74);
+      color: rgba(15,15,15,.78);
       font-size: 12px;
-      font-weight: 850;
-      letter-spacing: .09em;
+      font-weight: 800;
+      letter-spacing: .07em;
       text-transform: uppercase;
     }
     .legal-note p { margin: 0; }
@@ -317,7 +336,7 @@
       position: fixed;
       left: 18px;
       bottom: 18px;
-      z-index: 120;
+      z-index: var(--z-cookie);
       width: min(520px, calc(100% - 36px));
       display: flex;
       align-items: center;
@@ -325,15 +344,15 @@
       gap: 18px;
       padding: 14px 14px 14px 16px;
       border: 1px solid rgba(15,15,15,.12);
-      border-radius: 22px;
+      border-radius: var(--radius);
       background: rgba(247,246,241,.94);
       backdrop-filter: blur(16px);
-      box-shadow: 0 18px 50px rgba(15,15,15,.16);
+      box-shadow: 0 14px 40px rgba(15,15,15,.16);
+      transition: opacity 220ms var(--ease-out), transform 260ms var(--ease-out);
     }
-    .cookie-banner { transition: opacity 220ms var(--ease-out), transform 260ms var(--ease-out); }
     .cookie-banner.is-hidden { opacity: 0; transform: translateY(8px); pointer-events: none; }
-    .cookie-banner strong { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing:.08em; text-transform: uppercase; }
-    .cookie-banner p { margin: 0; color: rgba(15,15,15,.66); font-size: 12.5px; line-height: 1.45; }
+    .cookie-banner strong { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing:.06em; text-transform: uppercase; }
+    .cookie-banner p { margin: 0; color: rgba(15,15,15,.7); font-size: 12.5px; line-height: 1.45; }
     .cookie-banner button {
       flex: 0 0 auto;
       border: 0;
@@ -341,8 +360,8 @@
       background: var(--ink);
       color: var(--paper);
       min-height: 38px;
-      padding: 0 14px;
-      font-weight: 800;
+      padding: 0 16px;
+      font-weight: 700;
       cursor: pointer;
       transition: transform 160ms var(--ease-out), background 160ms var(--ease-out);
     }
@@ -352,49 +371,103 @@
     .cookie-banner button:active { transform: scale(0.95); }
     .cookie-banner button:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
-
-
-    .proof-strip { padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.22); }
+    .proof-strip { padding: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.3); }
     .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .proof-item { padding: 18px 0; border-right: 1px solid var(--line); }
     .proof-item:last-child { border-right: 0; }
-    .proof-item strong { display: block; font-size: 21px; line-height: 1.08; letter-spacing: -.035em; margin-bottom: 8px; }
-    .proof-item span { display: block; max-width: 220px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .proof-item strong { display: block; font-size: 20px; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 8px; }
+    .proof-item span { display: block; max-width: 30ch; color: var(--muted); font-size: 13px; line-height: 1.45; }
     .solutions-grid, .brief-grid { display: grid; gap: 14px; }
     .solutions-grid { grid-template-columns: repeat(5, 1fr); }
     .brief-grid { grid-template-columns: repeat(3, 1fr); }
-    .solution-card, .brief-card, .bench-card { border: 1px solid var(--line); border-radius: 28px; padding: 24px; background: rgba(255,255,255,.28); min-height: 210px; }
-    .solution-icon, .bench-avatar { width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; background: var(--forest); color: var(--paper); font-weight: 850; font-size: 12px; letter-spacing: .08em; margin-bottom: 26px; }
-    .solution-card h3, .brief-card h3, .bench-card h3 { font-size: 20px; line-height: 1.12; letter-spacing: -.03em; margin-bottom: 10px; }
+    .solution-card, .brief-card, .bench-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: rgba(255,255,255,.4); min-height: 210px; }
+    .solution-icon, .bench-avatar { width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; background: var(--forest); color: var(--paper); font-weight: 800; font-size: 12px; letter-spacing: .06em; margin-bottom: 26px; }
+    .solution-card h3, .brief-card h3, .bench-card h3 { font-size: 20px; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 10px; }
     .solution-card p, .brief-card p, .bench-card p { color: var(--muted); font-size: 14px; margin: 0; }
     .brief-card { min-height: 240px; display: flex; flex-direction: column; align-items: flex-start; }
     .brief-card .btn { margin-top: auto; min-height: 44px; padding: 0 16px; font-size: 13px; }
     .bench-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .bench-card { min-height: 190px; }
-    .workspace-tracks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .track-pill { border: 1px solid rgba(247,246,241,.13); color: rgba(247,246,241,.78); border-radius: 999px; padding: 9px 12px; font-size: 12px; }
-    .timeline-card { border: 1px solid rgba(247,246,241,.12); border-radius: 24px; padding: 18px; background: rgba(247,246,241,.06); }
+    .workspace-tracks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .track-pill { border: 1px solid rgba(247,246,241,.16); color: rgba(247,246,241,.8); border-radius: 999px; padding: 9px 14px; font-size: 12px; }
+    .timeline-card { border: 1px solid rgba(247,246,241,.12); border-radius: var(--radius-sm); padding: 18px; background: rgba(247,246,241,.06); }
     .timeline-card strong { display: block; margin-bottom: 14px; }
-    .timeline-row { display: grid; grid-template-columns: 110px 1fr 70px; gap: 12px; align-items: center; margin: 11px 0; color: rgba(247,246,241,.72); font-size: 12px; }
+    .timeline-row { display: grid; grid-template-columns: 110px 1fr 70px; gap: 12px; align-items: center; margin: 11px 0; color: rgba(247,246,241,.76); font-size: 12px; }
     .timeline-bar { height: 10px; border-radius: 999px; background: rgba(247,246,241,.12); overflow: hidden; }
     .timeline-bar span { display: block; height: 100%; border-radius: inherit; }
     .timeline-bar .complete { width: 82%; background: #5DCAA5; }
     .timeline-bar .decision { width: 52%; background: #BA7517; }
     .timeline-bar .risk { width: 38%; background: #F0997B; }
     .timeline-bar .planned { width: 64%; border: 1px dashed rgba(247,246,241,.45); background: transparent; }
-    .lead-diagram { margin-top: 24px; border: 1px solid rgba(247,246,241,.16); border-radius: 30px; padding: 18px; background: rgba(247,246,241,.05); }
+    .lead-diagram { margin-top: 24px; border: 1px solid rgba(247,246,241,.16); border-radius: var(--radius); padding: 18px; background: rgba(247,246,241,.05); }
     .lead-diagram svg { width: 100%; height: auto; display: block; }
+
+    /* ---- Scroll progress ---- */
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; transform: scaleX(0); transform-origin: 0 50%; background: var(--lime); z-index: var(--z-modal); will-change: transform; }
+
+    /* ---- Nav scroll state ---- */
+    .nav { transition: background 240ms var(--ease-out), box-shadow 240ms var(--ease-out), border-color 240ms var(--ease-out); }
+    .nav.scrolled { background: rgba(247,246,241,.92); box-shadow: 0 6px 22px rgba(15,15,15,.12); border-color: rgba(15,15,15,.14); }
+
+    /* ---- Count-up numbers ---- */
+    .count { font-variant-numeric: tabular-nums; }
+
+    /* ---- Live dashboard fills (reveal-safe: final widths apply without JS) ---- */
+    .bar span, .timeline-bar span { transition: width 1100ms var(--ease-out); }
+    .js .screen:not(.live) .bar span,
+    .js .screen:not(.live) .timeline-bar span { width: 0; }
+
+    /* ---- Lead diagram choreography ---- */
+    .lead-diagram .node { transform-box: fill-box; transform-origin: center; }
+    .js .lead-diagram:not(.live) .node { opacity: 0; transform: scale(.4); }
+    .js .lead-diagram:not(.live) .conn,
+    .js .lead-diagram:not(.live) .rays path { stroke-dashoffset: 140; }
+    .js .lead-diagram:not(.live) .ray-dots circle { opacity: 0; transform: scale(.3); transform-box: fill-box; transform-origin: center; }
+    .js .lead-diagram:not(.live) .conn-pulse { opacity: 0; }
+    .lead-diagram .node { transition: opacity 420ms var(--ease-out), transform 520ms var(--ease-spring); }
+    .lead-diagram .conn, .lead-diagram .rays path { stroke-dasharray: 140; transition: stroke-dashoffset 760ms var(--ease-out); }
+    .lead-diagram .rays path { transition-duration: 620ms; }
+    .lead-diagram .ray-dots circle { transition: opacity 360ms var(--ease-out), transform 460ms var(--ease-spring); transform-box: fill-box; transform-origin: center; }
+    .lead-diagram.live .node-trial { transition-delay: 120ms; }
+    .lead-diagram.live .rays path:nth-child(1) { transition-delay: 200ms; }
+    .lead-diagram.live .rays path:nth-child(2) { transition-delay: 280ms; }
+    .lead-diagram.live .rays path:nth-child(3) { transition-delay: 360ms; }
+    .lead-diagram.live .rays path:nth-child(4) { transition-delay: 440ms; }
+    .lead-diagram.live .rays path:nth-child(5) { transition-delay: 520ms; }
+    .lead-diagram.live .ray-dots circle:nth-child(1) { transition-delay: 420ms; }
+    .lead-diagram.live .ray-dots circle:nth-child(2) { transition-delay: 500ms; }
+    .lead-diagram.live .ray-dots circle:nth-child(3) { transition-delay: 580ms; }
+    .lead-diagram.live .ray-dots circle:nth-child(4) { transition-delay: 660ms; }
+    .lead-diagram.live .ray-dots circle:nth-child(5) { transition-delay: 740ms; }
+    .lead-diagram.live .conn-pulse { animation: connPulse 2.4s var(--ease-in-out) infinite 760ms; }
+    @keyframes connPulse {
+      0% { transform: translateX(0); opacity: 0; }
+      12% { opacity: 1; }
+      88% { opacity: 1; }
+      100% { transform: translateX(88px); opacity: 0; }
+    }
+
+    /* ---- Hero entrance choreography ---- */
+    .js .hero-content { --d: 0ms; }
+    .js .hero-kicker, .js .hero h1, .js .hero-copy, .js .hero-actions { opacity: 0; transform: translateY(18px); animation: heroIn 720ms var(--ease-out) forwards; }
+    .js .hero h1 { animation-delay: 90ms; }
+    .js .hero-copy { animation-delay: 180ms; }
+    .js .hero-actions { animation-delay: 260ms; }
+    .js .price-card { opacity: 0; transform: translateY(24px) scale(.98); animation: cardIn 820ms var(--ease-out) 200ms forwards; }
+    @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+    @keyframes cardIn { to { opacity: 1; transform: translateY(0) scale(1); } }
 
     @media (max-width: 980px) {
       .nav-links { display: none; }
-      .hero { padding-top: 118px; }
+      .hero { padding-top: 124px; }
       .hero-grid, .workspace-wrap, .model-grid, .team-intro, .cta-panel { grid-template-columns: 1fr; }
       .hero-visual { min-height: auto; }
       .price-card { margin: 20px 0 0; }
       .orbit { width: 430px; height: 430px; right: -120px; top: -40px; opacity: .45; }
       .deliver-grid, .role-grid, .solutions-grid, .brief-grid, .bench-grid, .proof-grid { grid-template-columns: 1fr 1fr; }
       .section-head { display: block; }
-      .section-copy { margin-top: 18px; }
+      .section-copy { margin-top: 18px; max-width: 60ch; }
+      .title { max-width: 20ch; }
     }
     @media (max-width: 640px) {
       .wrap { width: min(100% - 26px, 1180px); }
@@ -403,26 +476,25 @@
       .brand span:last-child { display: inline; }
       .mark { width: 30px; height: 30px; }
       .nav-cta { min-height: 40px; padding: 0 14px; font-size: 12px; white-space: nowrap; }
-      .hero { min-height: auto; padding: 108px 0 54px; }
-      .hero h1 { font-size: 48px; line-height: .95; letter-spacing: -.045em; }
+      .hero { min-height: auto; padding: 110px 0 56px; }
+      .hero h1 { font-size: clamp(36px, 11vw, 52px); line-height: .98; letter-spacing: -.015em; }
       .hero-copy { font-size: 17px; }
       .hero-actions { align-items: stretch; }
       .btn { width: 100%; }
-      .price { font-size: 58px; }
+      .price-num { font-size: 58px; }
       .price-top { grid-template-columns: 1fr; }
       .tag { justify-self: start; margin-top: 8px; }
       .orbit { display: none; }
       .hero-pills { gap: 10px; }
       .pill { width: 100%; justify-content: flex-start; font-size: 12.5px; line-height: 1.35; }
-      section { padding: 74px 0; }
-      .title { font-size: 44px; }
+      section { padding: 76px 0; }
+      .section-head { margin-bottom: 36px; }
+      .title { font-size: clamp(34px, 9vw, 44px); }
       .deliver-grid, .role-grid, .funnel, .solutions-grid, .brief-grid, .bench-grid, .proof-grid { grid-template-columns: 1fr; }
       .proof-item { border-right: 0; border-bottom: 1px solid var(--line); }
-      .hero h1 { font-size: 35px; line-height: 1.02; letter-spacing: -.035em; }
-      .cta-panel { padding: 34px 24px; border-radius: 30px; }
+      .cta-panel { padding: 36px 26px; }
       .footer-grid { display: block; }
       .footer-links { margin-top: 26px; }
-
       .legal-strip { grid-template-columns: 1fr; gap: 16px; }
       .cookie-banner {
         left: 12px;
@@ -434,21 +506,19 @@
       }
       .cookie-banner button { margin-top: 12px; width: 100%; }
       .cookie-banner.is-hidden { display: none; }
-
-
       .modal { align-items: stretch; justify-content: stretch; padding: 0; background: var(--paper); backdrop-filter: none; }
       .modal-card { width: 100%; height: 100svh; max-height: 100svh; padding: 22px 18px 18px; border-radius: 0; box-shadow: none; overflow-y: auto; }
-      .modal-close { right: 16px; top: 16px; width: 34px; height: 34px; background: rgba(255,255,255,.7); }
-      .modal-card h2 { font-size: 32px; line-height: .96; margin: 0 44px 8px 0; }
+      .modal-close { right: 16px; top: 16px; width: 34px; height: 34px; background: rgba(255,255,255,.75); }
+      .modal-card h2 { font-size: 32px; line-height: .98; margin: 0 44px 8px 0; }
       .modal-card p { font-size: 13px; line-height: 1.4; margin-bottom: 14px; max-width: 92%; }
       .form-grid { grid-template-columns: 1fr; gap: 10px; }
       .field.compact { grid-column: 1 / -1; }
       .field { gap: 5px; }
-      .field label { font-size: 10.5px; letter-spacing: .08em; }
-      .field input, .field textarea, .field select { min-height: 42px; border-radius: 12px; padding: 9px 12px; font-size: 14px; background: rgba(255,255,255,.76); }
+      .field label { font-size: 10.5px; letter-spacing: .06em; }
+      .field input, .field textarea, .field select { min-height: 42px; border-radius: 12px; padding: 9px 12px; font-size: 14px; background: rgba(255,255,255,.78); }
       .field textarea { min-height: 78px; }
       .modal-actions { grid-template-columns: 1fr; gap: 9px; margin-top: 4px; }
-      .modal-actions .btn { min-height: 46px; border-radius: 14px; font-size: 14px; box-shadow: none; }
+      .modal-actions .btn { min-height: 46px; border-radius: 14px; font-size: 14px; }
       .modal-note { font-size: 11.5px; line-height: 1.4; margin-top: 8px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -460,13 +530,14 @@
       html { scroll-behavior: auto; }
       .orbit { animation: none; }
       .hero::before { animation: none; }
-      [data-reveal] { opacity: 1; transform: none; transition: opacity 200ms ease; }
+      .js [data-reveal] { opacity: 1; transform: none; transition: opacity 200ms ease; }
       .btn:hover, .deliver-card:hover, .nav-cta:hover { transform: none; }
     }
   </style>
 </head>
 <body>
   <div class="page">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <div class="nav-wrap">
       <nav class="nav" aria-label="Primary navigation">
         <a href="#top" class="brand" aria-label="Kindrial home"><span class="mark"></span><span>Kindrial</span></a>
@@ -484,7 +555,7 @@
 
     <header class="hero" id="top">
       <div class="wrap hero-grid">
-        <div class="hero-content" data-reveal>
+        <div class="hero-content">
           <div class="hero-kicker"><span class="dot"></span> Phase 1 &amp; early Phase 2a · Dedicated lead · Fixed scope</div>
           <h1>Run early-phase trials without budget <em>surprises.</em></h1>
           <p class="hero-copy">Kindrial helps emerging biotech sponsors run FDA-compliant Phase 1 and focused early Phase 2a studies with experienced clinical operators, right-sized systems, and disciplined scope control.</p>
@@ -509,11 +580,11 @@
             <circle cx="300" cy="522" r="12" fill="#c6f24a"/>
           </svg>
 
-          <aside class="price-card" id="offer" data-reveal>
+          <aside class="price-card" id="offer">
             <div class="price-top">
               <div>
                 <div class="price-label">Early-phase operating package</div>
-                <div class="price"><span>from</span> $1.95M</div>
+                <div class="price"><span class="price-pre">From</span><span class="price-num" data-count="1.95" data-decimals="2" data-prefix="$" data-suffix="M">$1.95M</span></div>
               </div>
               <div class="tag">No unapproved costs</div>
               <div class="price-note">Fixed price for CRO services and core systems under standard assumptions. Site fees, central lab, imaging, investigational product logistics, and software licenses are passed through at cost — itemized in the proposal before signature.</div>
@@ -543,29 +614,22 @@
       <section id="deliver">
         <div class="wrap">
           <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> What Kindrial delivers</div>
-              <h2 class="title">Clinical <em>execution</em> without unnecessary CRO overhead.</h2>
-            </div>
+            <h2 class="title">Clinical <em>execution</em> without unnecessary CRO overhead.</h2>
             <p class="section-copy">We focus the operating model around what makes an early-phase trial work: scope discipline, credible lead ownership, clean vendor orchestration, and fast sponsor decisions.</p>
           </div>
           <div class="deliver-grid">
             <div class="deliver-card" data-reveal><div class="num">1</div><h3><em>Study-Fit</em> Brief</h3><p>A practical review of your synopsis, assumptions, risks, required vendors, and whether the fixed-scope path is realistic.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">2</div><h3><em>Lean</em> SOW</h3><p>Written inclusions, exclusions, pass-through categories, timeline assumptions, and decision points before signature.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">3</div><h3><em>Dedicated</em> execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
-            <div class="deliver-card" data-reveal><div class="num">4</div><h3>Visible <em>progress</em></h3><p>A live workspace shows milestones, blockers, owners, open decisions, and operational status without meeting theater.</p></div>
+            <div class="deliver-card" data-reveal data-stagger="1"><div class="num">2</div><h3><em>Lean</em> SOW</h3><p>Written inclusions, exclusions, pass-through categories, timeline assumptions, and decision points before signature.</p></div>
+            <div class="deliver-card" data-reveal data-stagger="2"><div class="num">3</div><h3><em>Dedicated</em> execution</h3><p>A named Trial Lead coordinates startup, monitoring, vendor dependencies, safety workflows, and sponsor escalation.</p></div>
+            <div class="deliver-card" data-reveal data-stagger="3"><div class="num">4</div><h3>Visible <em>progress</em></h3><p>A live workspace shows milestones, blockers, owners, open decisions, and operational status without meeting theater.</p></div>
           </div>
         </div>
       </section>
 
-
       <section id="solutions">
         <div class="wrap">
           <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> Where Kindrial fits best</div>
-              <h2 class="title">Broad early-phase support, with deeper strength where trials get <em>complex.</em></h2>
-            </div>
+            <h2 class="title">Broad early-phase support, with deeper strength where trials get <em>complex.</em></h2>
             <p class="section-copy">Kindrial supports a broad range of early-phase biotech programs, with particular strength in CNS, vaccines/immunology, and biomarker-rich studies.</p>
           </div>
           <div class="solutions-grid">
@@ -581,7 +645,6 @@
       <section class="dark" id="workspace">
         <div class="wrap workspace-wrap">
           <div class="workspace-list" data-reveal>
-            <div class="eyebrow"><span class="dot"></span> Sponsor Workspace</div>
             <h2 class="title">Your trial <em>status</em> should not live in email chains.</h2>
             <p>The workspace is not sold as a gimmick. It is an operating layer for small sponsors who need visibility without building a large internal clinical operations team.</p>
             <div class="check">Milestones, blockers, owners, and due dates are visible in one place.</div>
@@ -600,13 +663,13 @@
             <div class="screen-top"><span></span><span></span><span></span></div>
             <div class="screen-inner">
               <div class="status">
-                <div class="status-head"><strong>Protocol K-101 startup snapshot</strong><span>68% on track</span></div>
+                <div class="status-head"><strong>Protocol K-101 startup snapshot</strong><span><span class="count" data-count="68" data-suffix="%">68%</span> on track</span></div>
                 <div class="bar"><span></span></div>
               </div>
               <div class="funnel">
-                <div><strong>11</strong><span>Startup tasks closed</span></div>
-                <div><strong>4</strong><span>Vendor decisions open</span></div>
-                <div><strong>2</strong><span>Sponsor approvals needed</span></div>
+                <div><strong class="count" data-count="11">11</strong><span>Startup tasks closed</span></div>
+                <div><strong class="count" data-count="4">4</strong><span>Vendor decisions open</span></div>
+                <div><strong class="count" data-count="2">2</strong><span>Sponsor approvals needed</span></div>
               </div>
               <div class="chat">
                 <strong>Open sponsor decision</strong>
@@ -627,10 +690,7 @@
       <section id="team-model">
         <div class="wrap">
           <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> Team model</div>
-              <h2 class="title"><em>Experienced</em> people where the protocol needs them most.</h2>
-            </div>
+            <h2 class="title"><em>Experienced</em> people where the protocol needs them most.</h2>
             <p class="section-copy">The model is intentionally flexible: a focused study team is matched to the indication, operating complexity, vendor dependencies, and timeline.</p>
           </div>
 
@@ -661,44 +721,44 @@
       <section class="dark" id="model">
         <div class="wrap">
           <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> Locked Lead model</div>
-              <h2 class="title">Most CROs share your lead<br>across <em>twelve trials.</em></h2>
-            </div>
-            <p class="section-copy">Kindrial’s commercial model is built around direct attention as the core deliverable, not a decorative layer added during sales.</p>
+            <h2 class="title">Most CROs share your lead across <em>twelve trials.</em></h2>
+            <p class="section-copy">Kindrial's commercial model is built around direct attention as the core deliverable, not a decorative layer added during sales.</p>
           </div>
 
           <div class="model-grid">
-            <div class="breach-box">
+            <div class="breach-box" data-reveal>
               <strong>Why the model holds</strong>
               <p>Large CROs price lead time as a shared resource — utilization across many accounts is how the margin works. A dedicated lead per trial is structurally incompatible with that model. Kindrial is built around it from the start.</p>
               <div class="lead-diagram" aria-label="One lead model comparison">
-                <svg viewBox="0 0 680 280" role="img" aria-labelledby="leadTitle leadDesc" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 680 300" role="img" aria-labelledby="leadTitle leadDesc" xmlns="http://www.w3.org/2000/svg">
                   <title id="leadTitle">Kindrial one-lead-one-trial model compared with shared portfolio model</title>
                   <desc id="leadDesc">Left side shows one lead connected to one trial. Right side shows one lead split across many trials.</desc>
-                  <rect x="20" y="22" width="290" height="236" rx="26" fill="rgba(247,246,241,.06)" stroke="rgba(247,246,241,.18)"/>
-                  <rect x="370" y="22" width="290" height="236" rx="26" fill="rgba(247,246,241,.04)" stroke="rgba(247,246,241,.14)"/>
-                  <text x="46" y="62" fill="#f7f6f1" font-size="18" font-weight="700">Kindrial</text>
-                  <text x="396" y="62" fill="rgba(247,246,241,.72)" font-size="18" font-weight="700">Shared portfolio model</text>
-                  <circle cx="98" cy="142" r="34" fill="#c6f24a"/>
-                  <text x="98" y="148" text-anchor="middle" fill="#0f0f0f" font-size="14" font-weight="800">Lead</text>
-                  <circle cx="235" cy="142" r="34" fill="rgba(247,246,241,.88)"/>
-                  <text x="235" y="148" text-anchor="middle" fill="#0f0f0f" font-size="14" font-weight="800">Trial</text>
-                  <path d="M132 142 C158 142 174 142 201 142" stroke="#c6f24a" stroke-width="6" stroke-linecap="round"/>
-                  <text x="48" y="218" fill="rgba(247,246,241,.72)" font-size="13">One dedicated lead accountable to one study.</text>
-                  <circle cx="444" cy="142" r="30" fill="rgba(247,246,241,.72)"/>
-                  <text x="444" y="147" text-anchor="middle" fill="#0f0f0f" font-size="13" font-weight="800">Lead</text>
-                  <g stroke="#F0997B" stroke-width="2" stroke-linecap="round" opacity=".85">
-                    <path d="M474 142 L560 76"/><path d="M474 142 L588 102"/><path d="M474 142 L600 134"/><path d="M474 142 L594 170"/><path d="M474 142 L568 206"/>
+                  <rect x="20" y="20" width="300" height="258" rx="20" fill="rgba(247,246,241,.06)" stroke="rgba(247,246,241,.18)"/>
+                  <rect x="360" y="20" width="300" height="258" rx="20" fill="rgba(247,246,241,.035)" stroke="rgba(247,246,241,.14)"/>
+                  <text x="46" y="58" fill="#f7f6f1" font-size="17" font-weight="700" letter-spacing="-.01em">Kindrial</text>
+                  <text x="386" y="58" fill="rgba(247,246,241,.72)" font-size="17" font-weight="700" letter-spacing="-.01em">Shared portfolio model</text>
+
+                  <path class="conn" d="M126 158 H214" stroke="#c6f24a" stroke-width="6" stroke-linecap="round"/>
+                  <circle class="conn-pulse" cx="126" cy="158" r="5" fill="#f7f6f1"/>
+                  <circle class="node node-lead" cx="92" cy="158" r="34" fill="#c6f24a"/>
+                  <text x="92" y="163" text-anchor="middle" fill="#0f0f0f" font-size="14" font-weight="800">Lead</text>
+                  <circle class="node node-trial" cx="248" cy="158" r="34" fill="rgba(247,246,241,.9)"/>
+                  <text x="248" y="163" text-anchor="middle" fill="#0f0f0f" font-size="14" font-weight="800">Trial</text>
+                  <text x="46" y="252" fill="rgba(247,246,241,.66)" font-size="13">One dedicated lead, one study.</text>
+
+                  <g class="rays" stroke="#F0997B" stroke-width="2.5" stroke-linecap="round" fill="none">
+                    <path d="M445 158 L512 91"/><path d="M445 158 L533 122"/><path d="M445 158 L540 158"/><path d="M445 158 L533 194"/><path d="M445 158 L512 225"/>
                   </g>
-                  <g fill="rgba(247,246,241,.68)">
-                    <circle cx="560" cy="76" r="13"/><circle cx="588" cy="102" r="13"/><circle cx="600" cy="134" r="13"/><circle cx="594" cy="170" r="13"/><circle cx="568" cy="206" r="13"/>
+                  <g class="ray-dots" fill="rgba(247,246,241,.7)">
+                    <circle cx="512" cy="91" r="11"/><circle cx="533" cy="122" r="11"/><circle cx="540" cy="158" r="11"/><circle cx="533" cy="194" r="11"/><circle cx="512" cy="225" r="11"/>
                   </g>
-                  <text x="396" y="218" fill="rgba(247,246,241,.72)" font-size="13">Direct attention diluted across many studies.</text>
+                  <circle class="node node-shared" cx="445" cy="158" r="30" fill="rgba(247,246,241,.74)"/>
+                  <text x="445" y="163" text-anchor="middle" fill="#0f0f0f" font-size="13" font-weight="800">Lead</text>
+                  <text x="386" y="252" fill="rgba(247,246,241,.66)" font-size="13">One lead, attention split many ways.</text>
                 </svg>
               </div>
             </div>
-            <div class="attent-problem">
+            <div class="attent-problem" data-reveal>
               <p class="big">The common failure is not capability. It is attention.</p>
               <p>It is rarely fraud. It is attention. Lead operators rotate. Junior people fill the gaps. You were sold an "A team" at bid; you have a "C team" by Month 4. This is a known and well-documented pattern in early-phase outsourcing.</p>
               <p>Kindrial makes the Trial Lead a contractual operating assumption: named before signature, visible to the sponsor, and accountable for escalation.</p>
@@ -710,54 +770,47 @@
       <section id="faq">
         <div class="wrap">
           <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> FAQ</div>
-              <h2 class="title"><em>Questions</em> sponsors usually ask first.</h2>
-            </div>
+            <h2 class="title"><em>Questions</em> sponsors usually ask first.</h2>
           </div>
           <div class="faq" data-reveal>
             <div class="faq-item open">
-              <button class="faq-q" type="button"><span>Is the $1.95M price universal?</span><span>+</span></button>
+              <button class="faq-q" type="button" aria-expanded="true"><span>Is the $1.95M price universal?</span><span aria-hidden="true">+</span></button>
               <div class="faq-a"><p>No. It is a price anchor for a clean, single-site early-phase study under written assumptions. If your study is more complex, the Study-Fit Brief identifies what changes the scope.</p></div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button"><span>What is included in the fixed scope?</span><span>+</span></button>
+              <button class="faq-q" type="button" aria-expanded="false"><span>What is included in the fixed scope?</span><span aria-hidden="true">+</span></button>
               <div class="faq-a"><p>CRO services and core systems are included under standard assumptions. Pass-through categories are itemized before signature so the sponsor can see the real budget picture.</p></div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button"><span>Do you replace the sponsor?</span><span>+</span></button>
+              <button class="faq-q" type="button" aria-expanded="false"><span>Do you replace the sponsor?</span><span aria-hidden="true">+</span></button>
               <div class="faq-a"><p>No. The sponsor keeps final responsibility and decision authority. Kindrial manages the operating workstream, flags risks, coordinates vendors, and escalates decisions clearly.</p></div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button"><span>How fast can you assess fit?</span><span>+</span></button>
+              <button class="faq-q" type="button" aria-expanded="false"><span>How fast can you assess fit?</span><span aria-hidden="true">+</span></button>
               <div class="faq-a"><p>For a useful synopsis and basic assumptions, Kindrial targets a Study-Fit Brief within one business day after sufficient materials are received.</p></div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button"><span>Can you support patient studies?</span><span>+</span></button>
+              <button class="faq-q" type="button" aria-expanded="false"><span>Can you support patient studies?</span><span aria-hidden="true">+</span></button>
               <div class="faq-a"><p>Yes, if the protocol is focused and the operational burden is realistic. Patient recruitment, imaging, specialty labs, and site count may require separate scoping.</p></div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button"><span>Why not use a traditional large CRO?</span><span>+</span></button>
+              <button class="faq-q" type="button" aria-expanded="false"><span>Why not use a traditional large CRO?</span><span aria-hidden="true">+</span></button>
               <div class="faq-a"><p>Sometimes you should. Large infrastructure can be appropriate for broad, high-complexity trials. Kindrial is built for sponsors who need dedicated early-phase execution without paying for unnecessary structure.</p></div>
             </div>
           </div>
         </div>
       </section>
 
-
       <section id="briefs">
         <div class="wrap">
           <div class="section-head" data-reveal>
-            <div>
-              <div class="eyebrow"><span class="dot"></span> Practical briefs</div>
-              <h2 class="title">Practical <em>briefs</em> for early-phase sponsors.</h2>
-            </div>
+            <h2 class="title">Practical <em>briefs</em> for early-phase sponsors.</h2>
             <p class="section-copy">Short operating guides for sponsors who are not ready for a full Study-Fit Brief yet.</p>
           </div>
           <div class="brief-grid">
             <div class="brief-card" data-reveal><h3>Phase 1 <em>Budget Assumptions</em> Checklist</h3><p>Key assumptions that decide whether a fixed-scope Phase 1 package is realistic.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
-            <div class="brief-card" data-reveal><h3>What a <em>Fixed-Scope</em> Phase 1 Package Can and Cannot Include</h3><p>A plain-English boundary between CRO services, core systems, and pass-through costs.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
-            <div class="brief-card" data-reveal><h3>Early <em>CNS / Vaccine</em> Trial Startup Checklist</h3><p>Startup dependencies for biomarkers, imaging, immunogenicity sampling, and safety flow.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
+            <div class="brief-card" data-reveal data-stagger="1"><h3>What a <em>Fixed-Scope</em> Phase 1 Package Can and Cannot Include</h3><p>A plain-English boundary between CRO services, core systems, and pass-through costs.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
+            <div class="brief-card" data-reveal data-stagger="2"><h3>Early <em>CNS / Vaccine</em> Trial Startup Checklist</h3><p>Startup dependencies for biomarkers, imaging, immunogenicity sampling, and safety flow.</p><button class="btn secondary" data-open-modal>Download PDF</button></div>
           </div>
         </div>
       </section>
@@ -847,59 +900,122 @@
 
   <script>
     const revealEls = document.querySelectorAll('[data-reveal]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Scroll progress + nav state (rAF-throttled, no layout thrash) */
+    const progress = document.getElementById('scrollProgress');
+    const navEl = document.querySelector('.nav');
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const st = window.scrollY || document.documentElement.scrollTop;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        if (progress) progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(st / h, 1) : 0) + ')';
+        if (navEl) navEl.classList.toggle('scrolled', st > 24);
+        ticking = false;
       });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => observer.observe(el));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Count-up animation */
+    const animateCount = (el) => {
+      const target = parseFloat(el.dataset.count);
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      if (prefersReduced) { el.textContent = prefix + target.toFixed(decimals) + suffix; return; }
+      const dur = 1100, start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = prefix + target.toFixed(decimals) + suffix;
+      };
+      requestAnimationFrame(step);
+    };
+
+    /* Live triggers: dashboards, diagram, counters */
+    const liveTargets = [
+      { sel: '.screen', cb: (n) => { n.classList.add('live'); n.querySelectorAll('.count').forEach(animateCount); } },
+      { sel: '.lead-diagram', cb: (n) => n.classList.add('live') },
+      { sel: '.price-num[data-count]', cb: animateCount }
+    ];
+    if ('IntersectionObserver' in window) {
+      const liveObs = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const t = liveTargets.find(t => e.target.matches(t.sel));
+          if (t) t.cb(e.target);
+          obs.unobserve(e.target);
+        });
+      }, { threshold: 0.3 });
+      liveTargets.forEach(t => document.querySelectorAll(t.sel).forEach(n => liveObs.observe(n)));
+    } else {
+      document.querySelectorAll('.screen, .lead-diagram').forEach(n => n.classList.add('live'));
+      document.querySelectorAll('.count, .price-num[data-count]').forEach(animateCount);
+    }
 
     const modal = document.getElementById('studyModal');
     const openButtons = document.querySelectorAll('[data-open-modal]');
     const closeButtons = document.querySelectorAll('[data-close-modal]');
+    let lastFocused = null;
     const openModal = (event) => {
       if (event) event.preventDefault();
+      lastFocused = document.activeElement;
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
-      // Defer focus until transition begins so the animation isn't pre-empted
       requestAnimationFrame(() => {
         const firstField = modal.querySelector('input, textarea, select');
         if (firstField) firstField.focus({ preventScroll: true });
       });
     };
-    const closeModal = () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); };
+    const closeModal = () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      if (lastFocused) lastFocused.focus({ preventScroll: true });
+    };
     openButtons.forEach(btn => btn.addEventListener('click', openModal));
     closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
     modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 
     const studyForm = document.getElementById('studyForm');
     const formStatus = document.getElementById('formStatus');
     if (studyForm && formStatus) {
       studyForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-
         const submitter = event.submitter;
         const submitButtons = studyForm.querySelectorAll('button[type="submit"]');
         const formData = new FormData(studyForm);
         if (submitter && submitter.name) formData.set(submitter.name, submitter.value);
-
         formStatus.classList.remove('error');
         formStatus.textContent = 'Sending...';
         submitButtons.forEach(button => { button.disabled = true; });
-
         try {
           const response = await fetch('https://formsubmit.co/ajax/hello@kindrial.com', {
             method: 'POST',
             body: formData,
             headers: { 'Accept': 'application/json' }
           });
-
           if (!response.ok) throw new Error('Form submission failed');
-
           studyForm.reset();
           formStatus.textContent = 'Sent. Kindrial will receive this request by email.';
         } catch (error) {
@@ -915,8 +1031,15 @@
       button.addEventListener('click', () => {
         const item = button.closest('.faq-item');
         const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          const q = i.querySelector('.faq-q');
+          if (q) q.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          button.setAttribute('aria-expanded', 'true');
+        }
       });
     });
 
